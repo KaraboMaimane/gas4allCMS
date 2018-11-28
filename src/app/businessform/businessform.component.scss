@@ -1,0 +1,106 @@
+.bg{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.74),rgba(100,40,30,0.7)), url('../../assets/jonathan-petersson-217672-unsplash.jpg');
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 110vh;
+}
+
+
+
+
+button{
+    background-color: lightseagreen;
+    padding: 20px;
+    font-size: 1.3em ;
+    font-weight: bold;
+    // color: whitesmoke;
+    width: 180px;
+}
+
+.A input:focus ~ label,
+.A input:valid ~ label,
+.A input:focus + i {
+    color:lightseagreen;
+    box-shadow: none;
+    border: none;
+    top: -18px;
+    font-size: 1em;
+    transition: .5s;
+    // box-shadow: none;
+}
+
+.main{
+    position: absolute;
+    top: 600px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    // right: 50%;
+    padding: 40px;
+    background-color: white;
+    box-shadow: 0 15px 25px;
+    box-sizing: border-box;
+
+}
+.head{
+    position: relative;
+    left:auto;
+    right: auto;
+    padding: 5px;
+    text-align: center;
+    background-color: lightseagreen;
+}
+.main A{
+    position: relative;
+}
+input{
+    padding: 21px 0; 
+    border: none;
+    margin-bottom: 15px;
+    box-shadow: none;
+    border-bottom: 1px solid lightseagreen;
+    outline: none;
+    background: transparent;
+}
+.A label{
+position: absolute;
+top: 0;
+left: 0;
+font-size: 1.3em;
+// padding: 25px; 
+color: grey;
+padding: 0 35px;
+pointer-events: none;
+transition: .5s;
+}
+
+
+
+
+input[type=file]{
+    padding:5px 35px;
+    // color: lightseagreen;
+    // display: inline-block;
+}
+input[type=text]{
+    font-size: 1.3em;
+        padding-left: 35px;
+        // padding: 10px;
+    }
+
+  .A{
+      position: relative;
+     }
+.A i{
+        position: absolute;
+       // left: 0;
+        top: 3px;
+        color: lightseagreen;
+        padding: 3px 15px;
+        transition: .5s;
+        //    margin: -35px 0 0 -110px;
+        }
