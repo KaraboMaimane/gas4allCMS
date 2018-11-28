@@ -45,8 +45,8 @@ export class DatabaseService {
     })
   }
 
-  geoLocation(place: string){
-    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAlp_mcDzZaI7obJ2tUSYPq3YHvPgkSZK0`);
-  }
+  // geoLocation(place: string){
+  //   return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(place)}&key=AIzaSyAlp_mcDzZaI7obJ2tUSYPq3YHvPgkSZK0`);
+  // }
 
 }
