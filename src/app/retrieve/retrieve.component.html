@@ -1,0 +1,19 @@
+<div class="modal-content">
+  <div class="modalcontent">
+    <div class="modalcontent__textcontainer">
+      <h1 class="modalcontent__textcontainer--heading">Retrieve Password</h1>
+      <p class="modalcontent__textcontainer--subtext">Enter your credentials to retrieve your password</p>
+    </div>
+    <div class="modalcontent__iconcontainer">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </div>
+  </div>
+
+  <div class="formcontent">
+    <div class="input-group">
+      <input #email type="email" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"
+        required>
+    </div>
+    <button type="submit" (click)="retrieve(email.value)" class="btn btn-success">Register</button>
+  </div>
+</div>

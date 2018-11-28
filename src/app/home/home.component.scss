@@ -1,0 +1,43 @@
+.herocontainer{
+    background: linear-gradient(rgba(black, .9), transparent), url("../../assets/jonathan-petersson-217672-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 53rem;
+    margin-top: -2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    &__textcontainer{
+        color: whitesmoke;
+        text-align: center;
+        &--heading{
+            font-size: 5rem;
+            letter-spacing: .3rem;
+            text-transform: uppercase;
+        }
+        &--subheading{
+            font-size: 2rem;
+        }
+    }
+}
+
+.contentcontainer{
+    text-align: center;
+    &--heading{
+        font-size: 3rem;
+        text-transform: capitalize;
+        letter-spacing: .2rem;
+    }
+    &--quote{
+        border-left: .4rem solid #eee;
+        padding-left: 1rem;
+        padding-top: .5rem;
+        padding-top: .5rem;
+        font-size: 1.8rem;
+        font-style: italic;
+    }
+    &--story{
+        margin-top: 2rem;
+    }
+}
