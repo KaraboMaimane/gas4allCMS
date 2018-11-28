@@ -14,8 +14,7 @@ export class MapComponent implements OnInit {
 
   constructor(private database: DatabaseService) { }
 
-  async ngOnInit() {
-    await this.database.getLocations().child('users')
+  ngOnInit() {
   }
 
   onChoseLocation(event){
