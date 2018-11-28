@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
+import { Http, Headers, Response } from "@angular/http"; //finally this response
+import {map} from "rxjs/operators"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +11,7 @@ export class DatabaseService {
 
   locations = [];
 
-  constructor() {
+  constructor(private http: Http) {
     firebase.initializeApp({
       apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
       authDomain: "fuelapp-6050c.firebaseapp.com",
@@ -17,7 +20,6 @@ export class DatabaseService {
       storageBucket: "",
       messagingSenderId: "955542967293"
     });
-    
   }
 
   register(email: string, password: string) {
@@ -43,26 +45,8 @@ export class DatabaseService {
     })
   }
 
-  getLocations() {
-    firebase.database().ref('/users').on('value', (data)=>{
-      let keys = Object.keys(data.val());
-      this.addArray(this.loopKeys(keys));
-    })
+  geoLocation(place: string){
+    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAlp_mcDzZaI7obJ2tUSYPq3YHvPgkSZK0`);
   }
 
-  loopKeys(keys){
-    for(let i = 0; i <= keys.length; i++){
-      firebase.database().ref(`/users/${keys[i]}`).on('value', (data)=>{
-        if(data.val() != undefined && data.val() != null){
-          this.addArray(data.val()); 
-        }
-      })
-    }
-
-    console.log(this.locations);
-  }
-
-  addArray(value){
-    this.locations.push(value);
-  }
 }

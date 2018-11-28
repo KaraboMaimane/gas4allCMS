@@ -1,10 +1,9 @@
 <h1>Businesses</h1>
 <div class="form-group">
   <label for="location">Enter A Location</label><input type="text" class="form-control">
+  <button class="btn btn-primary">Find Location</button> <button class="btn btn-success" routerLink="/business">Add business</button>
 </div>
 
 <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-  <agm-marker [latitude]="-26.153117" [longitude]="27.917862"></agm-marker>
-  <agm-marker [latitude]="26.153117" [longitude]="-27.917862"></agm-marker>
+  <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
 </agm-map>
