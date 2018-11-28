@@ -32,6 +32,10 @@ export class DatabaseService {
     return firebase.auth().currentUser;
   }
 
+  retrievePassword(email){
+    return firebase.auth().sendPasswordResetEmail(email);
+  }
+
   addUser(userid, userName, email) {
     return firebase.database().ref(`userdb/${userid}`).set({
       name: userName,

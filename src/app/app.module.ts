@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DatabaseService } from './database.service';
 import { AgmCoreModule } from '@agm/core';
@@ -12,11 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Route, RouterModule, Routes } from '@angular/router';
+import { RetrieveComponent } from './retrieve/retrieve.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'retrieve', component: RetrieveComponent},
   {path: 'map', component: MapComponent}
 ]
 
@@ -28,11 +29,11 @@ const appRoutes: Routes = [
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RetrieveComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAlp_mcDzZaI7obJ2tUSYPq3YHvPgkSZK0'
     }),
