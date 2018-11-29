@@ -1,6 +1,14 @@
-<!-- <body class="bg">
+<div class="wrapper">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="container">
+      <div class="container__headercontainer">
+        <div class="container__headercontainer__imagecontainer">
+          <img src="../../assets/46523495_663028130765239_9096388730293321728_n.jpg" class="img-round image" alt=""
+            width="100px" height="100px">
+            <input type="file" ngModelOptions="{standalone: true}">
+        </div>
 
-
+<<<<<<< HEAD
   <div class="main">
     <h2 class="head">REGISTRATION</h2>
     <br>
@@ -106,8 +114,44 @@
         <div class="A"><input name="ownerName" #businessOwner [value]=names type="text" class="form-control" required="">
           <i class="fas fa-building"></i>
           <label>Business Owners Name</label>
-        </div>
+=======
+        <div class="container__headercontainer__textcontainer">
+          <input
+          type="text" 
+          placeholder="Company Name" 
+          class="company"
+          name="companyName" 
+          required
+          ngModel>
 
+          <!-- <input 
+          type="text" 
+          placeholder="Company Type eg.(CC, PTY LTD)" 
+          class="type"
+          name="companyType" 
+          required
+          ngModel> -->
+        </div>
+      </div>
+
+      <div class="container__infocontainer">
+        <div class="container__infocontainer__heading">
+          <h1 class="heading">Business Profile</h1>
+>>>>>>> 99ec3d54e2734e1f9fb3684903b6804ff3861129
+        </div>
+        <div class="container__infocontainer__inputs">
+          <div class="inputbox"><input 
+            name="ownerName" 
+            type="text" 
+            class="form-control textbox" 
+            required
+            placeholder="Owner Name"
+            ngModel
+            #name="ngModel">
+            <span *ngIf="!name.valid && name.touched" class="help-block helptext">Please enter a valid owner name of this business!</span>
+          </div>
+
+<<<<<<< HEAD
         <div class="A">
           <input type="text" name="address" #address class="form-control" required="">
           <i class="fas fa-user"></i>
@@ -132,8 +176,60 @@
         <div class="A"><input type="text" name="petrol95" #petrol95 class="form-control" required="">
           <i class="fas fa-building"></i>
           <label>Petrol 95</label>
+=======
+          <div class="inputbox">
+            <input 
+            type="text" 
+            name="address" 
+            class="form-control textbox" 
+            required
+            placeholder="Business Address"
+            ngModel
+            #address="ngModel">
+            <span *ngIf="!address.valid && address.touched" class="help-block helptext">Please enter a valid address of this business!</span>
+          </div>
+          <div class="inputbox">
+            <input 
+            type="email" 
+            name="email" 
+            class="form-control textbox" 
+            required
+            placeholder="Business Email"
+            ngModel
+            #email="ngModel" 
+            >
+            <span *ngIf="!email.valid && email.touched" class="help-block helptext">Please enter a valid email!</span>
+          </div>
+          <div class="inputbox">
+            <input 
+            type="tel" 
+            name="telephone" 
+            class="form-control textbox" 
+            required
+            placeholder="Business Telephone"
+            ngModel
+            #telephone="ngModel">
+            <span *ngIf="!telephone.valid && telephone.touched" class="help-block helptext">Please enter a valid telephone!</span>
+          </div>
         </div>
 
+        <div class="container__infocontainer__heading">
+          <h1 class="heading">Products</h1>
+>>>>>>> 99ec3d54e2734e1f9fb3684903b6804ff3861129
+        </div>
+        <div class="container__infocontainer__inputs">
+          <div class="inputbox"><input 
+            type="number" 
+            name="petrol95" 
+            class="form-control textbox" 
+            required
+            placeholder="petrol 95 Price"
+            ngModel
+            #petrol95="ngModel">
+            <span *ngIf="!petrol95.valid && petrol95.touched" class="help-block helptext">Please enter a valid price!</span>
+          </div>
+
+<<<<<<< HEAD
         <div class="A">
           <input type="text" class="form-control" #petrol93 name="petrol93" required="">
           <i class="fas fa-user"></i>
@@ -153,6 +249,46 @@
       <div class="container__infocontainer__heading">
           <button class="btn btn-primary bottombtn" type="submit" (click)="submit(userid,buisnessName.value,businessEmail.value,businessOwner.value,businessTel.value,address.value,petrol93.value,petrol95.value,diesel.value,gas.value)">Submit</button>
         </div>
+=======
+          <div class="inputbox">
+            <input 
+            type="number" 
+            class="form-control textbox" 
+            name="petrol93" 
+            required
+            placeholder="Petrol 93 Price"
+            ngModel
+            #petrol93="ngModel">
+            <span *ngIf="!petrol93.valid && petrol93.touched" class="help-block helptext">Please enter a valid price!</span>
+          </div>
+          <div class="inputbox">
+            <input 
+            type="number" 
+            class="form-control textbox" 
+            name="diesel" 
+            required
+            placeholder="Diesel Price"
+            ngModel
+            #diesel="ngModel">
+            <span *ngIf="!diesel.valid && diesel.touched" class="help-block helptext">Please enter a valid price!</span>
+          </div>
+          <div class="inputbox">
+            <input 
+            type="number" 
+            class="form-control textbox" 
+            name="lpg" 
+            required
+            placeholder="LPG Price"
+            ngModel
+            #lpg="ngModel">
+            <span *ngIf="!lpg.valid && lpg.touched" class="help-block helptext">Please enter a valid price!</span>
+          </div>
+        </div>
+        <div class="container__infocontainer__heading">
+          <button class="btn btn-primary bottombtn" [disabled]="!f.valid" type="submit">Submit</button>
+        </div>
+      </div>
+>>>>>>> 99ec3d54e2734e1f9fb3684903b6804ff3861129
     </div>
-  </div>
+  </form>
 </div>

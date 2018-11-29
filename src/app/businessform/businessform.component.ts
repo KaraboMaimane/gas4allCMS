@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { DatabaseService } from '../database.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 declare var google;
+=======
+import {NgForm} from '@angular/forms';
+>>>>>>> 99ec3d54e2734e1f9fb3684903b6804ff3861129
 @Component({
   selector: 'app-businessform',
   templateUrl: './businessform.component.html',
@@ -38,6 +42,7 @@ infos = new Array();
 
   }
 
+<<<<<<< HEAD
   submit(userid,buisnessName,businessEmail,businessOwner,businessTel,address,petrol93,petrol95,diesel,gas){
     alert(buisnessName+businessEmail+businessOwner+businessTel+address+petrol93+petrol95+diesel+gas)
     let geocoder = new google.maps.Geocoder();
@@ -112,4 +117,10 @@ infos = new Array();
 
  
     }
+=======
+  onSubmit(form: NgForm){
+    console.log(form);
+  }
+
+>>>>>>> 99ec3d54e2734e1f9fb3684903b6804ff3861129
 }
