@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DatabaseService } from './database.service';
 import { AgmCoreModule } from '@agm/core';
@@ -41,7 +41,9 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyAlp_mcDzZaI7obJ2tUSYPq3YHvPgkSZK0'
     }),
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    FormsModule
+    
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]
