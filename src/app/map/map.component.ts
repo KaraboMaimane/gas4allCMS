@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import * as firebase from 'firebase';
+import { Response } from "@angular/http";
 
 @Component({
   selector: 'app-map',
@@ -20,12 +21,7 @@ export class MapComponent implements OnInit {
       this.longitude = data.coords.longitude;
     });
 
-    this.database.geoLocation('s').subscribe(Response=>{
-      console.log(Response);
-    },
-    (error)=>{
-      console.log(error);
-    })
+    // this.geoLocation('fdsafasdfas');
   }
 
   ngOnInit() {
@@ -51,6 +47,16 @@ export class MapComponent implements OnInit {
     console.log(this.locations)
 >>>>>>> 7184d9da90b74b7d860d962e1a45d71c650ef4cb
   }
+
+  // geoLocation(place){
+  //   this.database.geoLocation(place).subscribe((response :Response) => {
+  //     const data = response.json();
+  //     console.log(data);
+  //   },
+  //   (error)=>{
+  //     console.log(error);
+  //   })
+  // }
 
   onChoseLocation(event) {
     this.latitude = event.coords.lat;
