@@ -36,14 +36,13 @@ export class DatabaseService {
     return firebase.auth().currentUser.uid;
   }
 
-  registerBusiness(userid,buisnessName,businessEmail,businessPhone,businessOwner,businessTel,lat,lng,petrol93,petrol95,diesel,gas){
+  registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lat,lng,petrol93,petrol95,diesel,gas){
   
     return firebase.auth().onAuthStateChanged(data=>{
       if(data){
         return firebase.database().ref('businessRegistration/'+ userid).push({
           name:buisnessName,
           email:businessEmail,
-          phone:businessPhone,
           owner:businessOwner,
           tel:businessTel,
           lat:lat,
@@ -66,31 +65,22 @@ export class DatabaseService {
   retrievePassword(email){
     return firebase.auth().sendPasswordResetEmail(email);
   }
+   update(userid,obj){
+    firebase.database().ref(`userdb/${userid}`).update(obj);
+
+  }
 
   addUser(userid, userName, email) {
     return firebase.database().ref(`userdb/${userid}`).set({
       name: userName,
-      email: email
+      email: email,
+
     })
   }
 
-<<<<<<< HEAD
-  geoLocation(place: string){
-    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDANEP6BB4J3BIOSpWkwEQ5QPgF5PCh9Oc`);
-  }
-
-  auth(condition){
-    return firebase.auth().onAuthStateChanged(data=>{
-        if(data){
-          condition = true;
-        }
-    });
-  }
-=======
   // geoLocation(place: string){
   //   return this.http.get(`https://www.globalpetrolprices.com/api/getGasXML_weekly.php?gasoline_diesel=1&rate=LC&countries=97&p=a7594c9d74a6422b728cff761a728e23`);
   // }
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 
   retrieveBusinessInfor(){
     let userid = this.getUser();
@@ -113,9 +103,13 @@ export class DatabaseService {
 
   }
 
-  retrieveInfor(){
-    let userid = this.getUser();
+  retrieveInfor(userid ){
+
     return  firebase.database().ref('userdb/'+ userid);
+  }
+  retrieveBusinessDetails(userid){
+
+
   }
 
 
