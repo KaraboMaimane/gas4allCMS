@@ -4,39 +4,39 @@
   <div class="main">
     <h2 class="head">REGISTRATION</h2>
     <br>
-    <form>
+   
       <h1>Company Information</h1>
       <br>
-      <div class="A"><input type="text" class="form-control" required="">
+      <div class="A"><input type="text" #businessOwner [value]=businessOwner class="form-control" required="">
         <i class="fas fa-building"></i>
-        <label>Business Name</label>
+        <label>Business Owner</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" class="form-control" #buisnessName required="">
         <i class="fas fa-user"></i>
         <label>Business Name</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" class="form-control" #addresss required="">
         <i class="fas fa-address-book"></i>
         <label>Address/Location</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" #businessEmail  [value]=businessEmail class="form-control" required="">
         <i class="fas fa-at"></i>
         <label>E-mail</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" class="form-control" #businessTel required="">
         <i class="fas fa-phone"></i>
         <label>Tel</label>
       </div>
       <br>
-      <div class="A"> <input type="text" class="form-control" required="">
+      <div class="A"> <input type="text" #businessPhone class="form-control" required="">
         <i class="fas fa-mobile"></i>
         <label>Cell</label>
       </div>
@@ -44,19 +44,24 @@
       <h1>Products</h1>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" #gas class="form-control" required="">
         <i class="fas fa-fire"></i>
         <label>Gas</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" class="form-control"  #petrol95 required="">
         <i class="fas fa-gas-pump"></i>
-        <label>Petrol</label>
+        <label>Petrol 95</label>
+      </div>
+      <div class="A">
+        <input type="text" class="form-control" #petrol93 required="">
+        <i class="fas fa-gas-pump"></i>
+        <label>Petrol 93</label>
       </div>
       <br>
       <div class="A">
-        <input type="text" class="form-control" required="">
+        <input type="text" class="form-control"  #diesel required="">
         <i class="fas fa-gas-pump"></i>
         <label>Diesel</label>
       </div>
@@ -70,9 +75,13 @@
         <br>
         <br>
         <div align="center">
-          <button class="btn btn-default">Register</button>
+          <button class="btn btn-default" (click)="submit(userid,buisnessName.value,
+          businessEmail.value,businessPhone.value,
+          businessOwner.value,businessTel.value,addresss.value,petrol93.value,petrol95.value,
+          diesel.value,gas.value)">Register</button>
+          
         </div>
       </div>
-    </form>
+  
   </div>
 </body>
