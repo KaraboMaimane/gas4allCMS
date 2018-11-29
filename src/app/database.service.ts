@@ -74,6 +74,7 @@ export class DatabaseService {
     })
   }
 
+<<<<<<< HEAD
   geoLocation(place: string){
     return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDANEP6BB4J3BIOSpWkwEQ5QPgF5PCh9Oc`);
   }
@@ -85,6 +86,11 @@ export class DatabaseService {
         }
     });
   }
+=======
+  // geoLocation(place: string){
+  //   return this.http.get(`https://www.globalpetrolprices.com/api/getGasXML_weekly.php?gasoline_diesel=1&rate=LC&countries=97&p=a7594c9d74a6422b728cff761a728e23`);
+  // }
+>>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 
   retrieveBusinessInfor(){
     let userid = this.getUser();
