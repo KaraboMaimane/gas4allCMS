@@ -12,4 +12,8 @@ export class BusinessformComponent implements OnInit {
   ngOnInit() {
   }
 
+  submit(){
+
+  }
+
 }
