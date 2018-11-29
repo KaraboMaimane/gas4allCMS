@@ -70,6 +70,7 @@
     transition: all ease .3s;
     color: red;
     animation: slide .4s ease;
+    margin-bottom: 2em;
 }
 
 .textbox.ng-invalid.ng-touched{
@@ -90,3 +91,69 @@
     }
 }
 
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label,
+.inputbox input:focus + i {
+    // position: absolute;
+    color:lightseagreen;
+    left: 0;
+    box-shadow: none;
+    border: none;
+    top: -18px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+}
+
+// .inputbox input{
+//     padding: 21px 0; 
+//     border: none;
+//     font-weight: bold;
+//     margin-bottom: 40px;
+//     box-shadow: none;
+//     border-bottom: 1px solid lightseagreen;
+//     outline: none;
+//     background: transparent;
+// }
+
+// .inputbox label{
+// position: absolute;
+// top: 0;
+// left: 0;
+// font-size: 1.3em;
+// color: grey;
+// padding: 0 35px;
+// pointer-events: none;
+// transition: .4s;
+// }
+// .inputbox i{
+// position: absolute;
+//  top: 0;
+//  left: 0;
+//  color: lightseagreen;
+//   padding: 6px 5px;
+//  transition: .4s;
+//             }
+//  .inputbox input[type=text]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+//  }
+//  .inputbox input[type=email]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+// .inputbox input[type=tel]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+// .inputbox input[type=number]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+//  .inputbox{
+//      position: relative;
+//  }
