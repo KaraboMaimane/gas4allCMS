@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
       this.longitude = data.coords.longitude;
     });
 
-
+    // this.geoLocation('fdsafasdfas');
   }
 
   ngOnInit() {
