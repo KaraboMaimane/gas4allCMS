@@ -25,10 +25,10 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    firebase.database().ref('/users').on('value', (data) => {
+    firebase.database().ref('/userdb').on('value', (data) => {
       let keys = Object.keys(data.val());
       for (let i = 0; i < keys.length; i++) {
-        firebase.database().ref(`/users/${keys[i]}`).on('value',
+        firebase.database().ref(`/userdb/${keys[i]}`).on('value',
           (data) => {
             let business = {
               name: data.val().name,
