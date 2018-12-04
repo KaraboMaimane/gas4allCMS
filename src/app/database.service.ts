@@ -19,7 +19,7 @@ export class DatabaseService {
       authDomain: "fuelapp-6050c.firebaseapp.com",
       databaseURL: "https://fuelapp-6050c.firebaseio.com",
       projectId: "fuelapp-6050c",
-      storageBucket: "",
+      storageBucket: "fuelapp-6050c.appspot.com",
       messagingSenderId: "955542967293"
     });
   }
@@ -70,12 +70,22 @@ export class DatabaseService {
 
   }
 
+  addpic(userid){
+  return  firebase.database().ref('pic/'+ userid).set({
+    url:"../../assets/maxresdefault (3).jpg"
+    })
+  }
+
   addUser(userid, userName, email) {
     return firebase.database().ref(`userdb/${userid}`).set({
       name: userName,
       email: email,
 
+    }).then(data=>{
+      this.addpic(userid);
     })
+
+   
   }
 
   // geoLocation(place: string){
