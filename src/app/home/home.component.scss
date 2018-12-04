@@ -29,16 +29,18 @@
         text-align: center;
         &--heading{
             font-size: 5rem;
-            letter-spacing: .3rem;
-            text-transform: uppercase;
+            // letter-spacing: .3rem;
+            // text-transform: uppercase;
+            font-family: 'Lobster', cursive;
         }
+        
         &--subheading{
             font-size: 2rem;
         }
     }
 }
 .logo{
-    border-radius: 20px;
+    border-radius: 150px;
     // width: 80%;
     text-align: center;
     // background-color: red;
@@ -48,10 +50,11 @@
 
 .image{
     height: 180px;
+    
     width: 180px;
-    border-radius: 30px;
+    border-radius: 90px;
     margin:15px 0 0 10px ;
-    box-shadow:  0 10px 15px rgba(black, 0.5);
+    box-shadow:  0 10px 15px rgba(rgb(59, 59, 59), 0.5);
 }
 .contentcontainer{
     text-align: center;
