@@ -5,11 +5,7 @@
     border-radius: 10px;
     box-shadow: 2px 5px 6px rgba(black, .1);
     &__headercontainer{
-<<<<<<< HEAD
-        background: lightseagreen;
-=======
         background: radial-gradient(circle at 100%,#508ccf, #2960a0 80%);
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
         border-radius: 5px;
         box-shadow: 2px 3px 6px rgba(black, .1);
         padding: 1rem;
@@ -31,11 +27,7 @@
             flex: 0 0 80%;
             margin-left: 10px;
             input{
-<<<<<<< HEAD
-                // margin-top: 10px;
-=======
                 color: #feee;
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
             }
             .company{
                 border: none;
@@ -77,11 +69,6 @@
     margin-top: 1.2em;
 }
 
-<<<<<<< HEAD
-.A input:focus ~ label,
-.A input:valid ~ label,
-.A input:focus + i {
-=======
 .help-block{
     transition: all ease .3s;
     color: red;
@@ -111,7 +98,6 @@
 .inputbox input:focus ~ label,
 .inputbox input:valid ~ label,
 .inputbox input:focus + i {
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
     // position: absolute;
     color:lightseagreen;
     left: 0;
@@ -122,45 +108,6 @@
     font-size: 15px;
     transition: .4s;
 }
-<<<<<<< HEAD
-
-.A input{
-    padding: 21px 0; 
-    border: none;
-    font-weight: bold;
-    margin-bottom: 40px;
-    box-shadow: none;
-    border-bottom: 1px solid lightseagreen;
-    outline: none;
-    background: transparent;
-}
-
-.A label{
-position: absolute;
-top: 0;
-left: 0;
-font-size: 1.3em;
-color: grey;
-padding: 0 35px;
-pointer-events: none;
-transition: .4s;
-}
-.A i{
-position: absolute;
- top: 0;
- left: 0;
- color: lightseagreen;
-  padding: 6px 5px;
- transition: .4s;
-            }
- .A input[type=text]{
-            font-size: 1.3em;
-            padding-left: 35px;
- }
- .A{
-     position: relative;
- }
-=======
 
 // .inputbox input{
 //     padding: 21px 0; 
@@ -213,4 +160,3 @@ position: absolute;
 //  .inputbox{
 //      position: relative;
 //  }
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c

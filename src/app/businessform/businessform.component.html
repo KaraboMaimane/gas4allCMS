@@ -8,68 +8,6 @@
             <input type="file" ngModelOptions="{standalone: true}"  #image accept="image/png, image/jpeg" (change)="insertImage($event)" >
         </div>
 
-<<<<<<< HEAD
-  <!-- <div class="main">
-    <h2 class="head">REGISTRATION</h2>
-    <br>
-    <form>
-      <h1>Company Information</h1>
-      <br>
-      <div class="A"><input type="text" class="form-control" required="">
-        <i class="fas fa-building"></i>
-        <label>Business Name</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-user"></i>
-        <label>Business Name</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-address-book"></i>
-        <label>Address/Location</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-at"></i>
-        <label>E-mail</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-phone"></i>
-        <label>Tel</label>
-      </div>
-      <br>
-      <div class="A"> <input type="text" class="form-control" required="">
-        <i class="fas fa-mobile"></i>
-        <label>Cell</label>
-      </div>
-      <br>
-      <h1>Products</h1>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-fire"></i>
-        <label>Gas</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-gas-pump"></i>
-        <label>Petrol</label>
-      </div>
-      <br>
-      <div class="A">
-        <input type="text" class="form-control" required="">
-        <i class="fas fa-gas-pump"></i>
-        <label>Diesel</label>
-      </div>
-      <br>
-=======
         <div class="container__headercontainer__textcontainer">
           <input
           type="text" 
@@ -79,7 +17,6 @@
           name="companyName" 
           required
           ngModel>
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
 
           <!-- <input 
           type="text" 
@@ -90,41 +27,10 @@
           ngModel> -->
         </div>
       </div>
-<<<<<<< HEAD
-    </form>
-  </div> -->
-
-
-
-<div class="wrapper">
-  <div class="container">
-    <div class="container__headercontainer">
-      <div class="container__headercontainer__imagecontainer">
-        <img src="../../assets/46523495_663028130765239_9096388730293321728_n.jpg" class="img-round image" alt="" width="100px"
-          height="100px">
-      </div>
-      <div class="container__headercontainer__textcontainer">
-        <input type="text" placeholder="Company Name" class="company">
-        <input type="text" placeholder="Company Type eg.(CC, PTY LTD)" class="type">
-      </div>
-    </div>
-
-    <div class="container__infocontainer">
-      <div class="container__infocontainer__heading">
-        <h1 class="heading">Business Profile</h1>
-      </div>
-      
-      <div class="container__infocontainer__inputs">
-        <div class="A">
-          <input name="ownerName" type="text" class="form-control" required="">
-          <i class="fas fa-building"></i>
-          <label>Business Owners Name</label>
-=======
 
       <div class="container__infocontainer">
         <div class="container__infocontainer__heading">
           <h1 class="heading">Business Profile</h1>
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
         </div>
         <div class="container__infocontainer__inputs">
           <div class="inputbox"><input 
@@ -176,36 +82,9 @@
             <span *ngIf="!telephone.valid && telephone.touched" class="help-block helptext">Please enter a valid telephone!</span>
           </div>
         </div>
-<<<<<<< HEAD
-
-    
-        <div class="A">
-            <input type="text" name="E-mail" class="form-control" required="">
-            <i class="fas fa-at"></i>
-            <label>E-mail</label>
-          </div>
-
-        <div class="A">
-          <input type="text" name="telephone" class="form-control" required="">
-          <i class="fas fa-phone"></i>
-          <label>Telephone Number</label>
-        </div>
-      </div>
-
-      <div class="container__infocontainer__heading">
-        <h1 class="heading">Products</h1>
-      </div>
-      <div class="container__infocontainer__inputs">
-
-        <div class="A">
-          <input type="text" name="petrol95" class="form-control" required="">
-          <i class="fas fa-gas-pump"></i>
-          <label>Petrol 95</label>
-=======
 
         <div class="container__infocontainer__heading">
           <h1 class="heading">Products</h1>
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
         </div>
         <div class="container__infocontainer__inputs">
           <div class="inputbox"><input 
@@ -221,23 +100,6 @@
             <span *ngIf="!petrol95.valid && petrol95.touched" class="help-block helptext">Please enter a valid price!</span>
           </div>
 
-<<<<<<< HEAD
-        <div class="A">
-          <input type="text" class="form-control" name="petrol93" required="">
-          <i class="fas fa-exclamation-circle"></i>
-          <label>Petrol 93</label>
-        </div>
-
-        <div class="A">
-          <input type="text" class="form-control" name="diesel" required="">
-          <i class="fas fa-gas-pump"></i>
-          <label>Diesel</label>
-        </div>
-        <div class="A">
-          <input type="text" class="form-control" name="lpg" required="">
-          <i class="fas fa-fire"></i>
-          <label>LPG</label>
-=======
           <div class="inputbox">
             <input 
             type="number" 
@@ -280,7 +142,6 @@
         </div>
         <div class="container__infocontainer__heading">
           <button class="btn btn-primary bottombtn" [disabled]="!f.valid" type="submit">Submit</button>
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
         </div>
       </div>
     </div>

@@ -76,11 +76,6 @@ infos = new Array();
      
 
   }
-<<<<<<< HEAD
-Register(){
-  
-}
-=======
 
   onSubmit(form: NgForm,event:any){
     //console.log(form);
@@ -294,5 +289,4 @@ Register(){
   //   }
   // }
 
->>>>>>> 0f4b4544536289c3a2f95fa75fdc45beb8f02a2c
 }
