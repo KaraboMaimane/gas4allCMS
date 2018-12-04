@@ -3,14 +3,15 @@
     <div class="container">
       <div class="container__headercontainer">
         <div class="container__headercontainer__imagecontainer">
-          <img src="../../assets/46523495_663028130765239_9096388730293321728_n.jpg" class="img-round image" alt=""
+          <img src="{{pic}}" class="img-round image" alt=""
             width="100px" height="100px">
-            <input type="file" ngModelOptions="{standalone: true}">
+            <input type="file" ngModelOptions="{standalone: true}"  #image accept="image/png, image/jpeg" (change)="insertImage($event)" >
         </div>
 
         <div class="container__headercontainer__textcontainer">
           <input
           type="text" 
+        
           placeholder="Company Name" 
           class="company"
           name="companyName" 
@@ -34,7 +35,8 @@
         <div class="container__infocontainer__inputs">
           <div class="inputbox"><input 
             name="ownerName" 
-            type="text" 
+            [value]="ownerName"
+            type="text"        
             class="form-control textbox" 
             required
             placeholder="Owner Name"
@@ -57,6 +59,7 @@
           <div class="inputbox">
             <input 
             type="email" 
+            [value]="email"
             name="email" 
             class="form-control textbox" 
             required
@@ -69,6 +72,7 @@
           <div class="inputbox">
             <input 
             type="tel" 
+            [value]="tel"
             name="telephone" 
             class="form-control textbox" 
             required
@@ -85,7 +89,9 @@
         <div class="container__infocontainer__inputs">
           <div class="inputbox"><input 
             type="number" 
+           
             name="petrol95" 
+         
             class="form-control textbox" 
             required
             placeholder="petrol 95 Price"
@@ -98,7 +104,8 @@
             <input 
             type="number" 
             class="form-control textbox" 
-            name="petrol93" 
+            name="petrol93"
+     
             required
             placeholder="Petrol 93 Price"
             ngModel
@@ -110,6 +117,7 @@
             type="number" 
             class="form-control textbox" 
             name="diesel" 
+         
             required
             placeholder="Diesel Price"
             ngModel
@@ -119,6 +127,7 @@
           <div class="inputbox">
             <input 
             type="number" 
+          
             class="form-control textbox" 
             name="lpg" 
             required
@@ -126,6 +135,9 @@
             ngModel
             #lpg="ngModel">
             <span *ngIf="!lpg.valid && lpg.touched" class="help-block helptext">Please enter a valid price!</span>
+          </div>
+          <div>
+              <input type="file" #image accept="image/png, image/jpeg" (change)="insertImage($event)" required />
           </div>
         </div>
         <div class="container__infocontainer__heading">
