@@ -14,6 +14,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import { RetrieveComponent } from './retrieve/retrieve.component';
 import { BusinessformComponent } from './businessform/businessform.component';
 import { HttpModule } from '@angular/http';
+import { MediaService } from './media.service';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     FormsModule
     
   ],
-  providers: [DatabaseService],
+  providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
