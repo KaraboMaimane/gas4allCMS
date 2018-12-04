@@ -40,12 +40,7 @@ export class MapComponent implements OnInit {
       }
     })
 
-<<<<<<< HEAD
-  async ngOnInit() {
-    // await this.database.getLocations().child('users')
-=======
     console.log(this.locations)
->>>>>>> 7184d9da90b74b7d860d962e1a45d71c650ef4cb
   }
 
   // geoLocation(place){

@@ -15,10 +15,6 @@
 //     padding: 20px;
 //     font-size: 1.3em ;
 //     font-weight: bold;
-<<<<<<< HEAD
-//     // color: whitesmoke;
-=======
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 //     width: 180px;
 // }
 
@@ -31,28 +27,16 @@
 //     top: -18px;
 //     font-size: 1em;
 //     transition: .5s;
-<<<<<<< HEAD
-//     // box-shadow: none;
-=======
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 // }
 
 // .main{
 //     position: absolute;
-<<<<<<< HEAD
-//     top: 800px;
-=======
 //     top: 600px;
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 //     font-weight: bold;
 //     font-family: 'Montserrat', sans-serif;
 //     left: 50%;
 //     transform: translate(-50%,-50%);
 //     width: 800px;
-<<<<<<< HEAD
-//     right: 50%;
-=======
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 //     padding: 40px;
 //     background-color: white;
 //     box-shadow: 0 15px 25px;
@@ -84,10 +68,6 @@
 // top: 0;
 // left: 0;
 // font-size: 1.3em;
-<<<<<<< HEAD
-// // padding: 25px; 
-=======
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 // color: grey;
 // padding: 0 35px;
 // pointer-events: none;
@@ -99,32 +79,10 @@
 
 // input[type=file]{
 //     padding:5px 35px;
-<<<<<<< HEAD
-//     // color: lightseagreen;
-//     // display: inline-block;
-=======
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
 // }
 // input[type=text]{
 //     font-size: 1.3em;
 //         padding-left: 35px;
-<<<<<<< HEAD
-//         // padding: 10px;
-//     }
-
-//   .A{
-//       position: relative;
-//      }
-// .A i{
-//         position: absolute;
-//        // left: 0;
-//         top: 3px;
-//         color: lightseagreen;
-//         padding: 3px 15px;
-//         transition: .5s;
-//         //    margin: -35px 0 0 -110px;
-//         }
-=======
 //     }
 
 //   .A{
@@ -145,7 +103,7 @@
     border-radius: 10px;
     box-shadow: 2px 5px 6px rgba(black, .1);
     &__headercontainer{
-        background: #eee;
+        background: lightseagreen;
         border-radius: 5px;
         box-shadow: 2px 3px 6px rgba(black, .1);
         padding: 1rem;
@@ -160,7 +118,7 @@
             flex: 0 0 80%;
             margin-left: 10px;
             input{
-                
+                // margin-top: 10px;
             }
             .company{
                 border: none;
@@ -185,43 +143,64 @@
         }
     }
 }
-
+.container__infocontainer__inputs{
+    margin-top: 20px;
+}
 .bottombtn{
     display: block;
     margin: 0 auto;
+    background-color: lightseagreen;
     width: 100%;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
-// .A input:focus ~ label,
-// .A input:valid ~ label,
-// .A input:focus + i {
-//     color:lightseagreen;
-//     box-shadow: none;
-//     border: none;
-//     top: -18px;
-//     font-size: 1em;
-//     transition: .5s;
-// }
+.A input:focus ~ label,
+.A input:valid ~ label,
+.A input:focus + i {
+    // position: absolute;
+    color:lightseagreen;
+    left: 0;
+    box-shadow: none;
+    border: none;
+    top: -18px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+}
 
-// input{
-//     padding: 21px 0; 
-//     border: none;
-//     margin-bottom: 15px;
-//     box-shadow: none;
-//     border-bottom: 1px solid lightseagreen;
-//     outline: none;
-//     background: transparent;
-// }
+.A input{
+    padding: 21px 0; 
+    border: none;
+    font-weight: bold;
+    margin-bottom: 40px;
+    box-shadow: none;
+    border-bottom: 1px solid lightseagreen;
+    outline: none;
+    background: transparent;
+}
 
-// .A label{
-// top: 0;
-// left: 0;
-// font-size: 1.3em;
-// color: grey;
-// padding: 0 35px;
-// pointer-events: none;
-// transition: .5s;
-// }
-
->>>>>>> 4c189cc6c9d83492c0d4dc3b89f826944a5c18d1
+.A label{
+position: absolute;
+top: 0;
+left: 0;
+font-size: 1.3em;
+color: grey;
+padding: 0 35px;
+pointer-events: none;
+transition: .4s;
+}
+.A i{
+position: absolute;
+ top: 0;
+ left: 0;
+ color: lightseagreen;
+  padding: 6px 5px;
+ transition: .4s;
+            }
+ .A input[type=text]{
+            font-size: 1.3em;
+            padding-left: 35px;
+ }
+ .A{
+     position: relative;
+ }
