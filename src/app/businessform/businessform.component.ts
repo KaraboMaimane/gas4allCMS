@@ -123,7 +123,8 @@ infos = new Array();
             uid:userid
 
           })
-          this.router.navigate(["/map"]);
+
+       
           console.log("yes yes");
          
            
