@@ -32,7 +32,7 @@ event:any;
 
 
 infos = new Array();
-  constructor(private database: DatabaseService,private router: Router) {
+  constructor(private database: DatabaseService,public router: Router) {
    let  userid = this.database.getUser();
 
   //  firebase.database().ref('userdb/'+ userid).on('value',(data)=>{

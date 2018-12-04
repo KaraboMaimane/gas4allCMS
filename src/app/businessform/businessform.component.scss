@@ -1,7 +1,7 @@
 .container{
     background: white;
-    width: 80%;
-    padding: 2em;
+    width: 70%;
+    padding: 5rem;
     border-radius: 10px;
     box-shadow: 2px 5px 6px rgba(black, .1);
     &__headercontainer{
@@ -58,12 +58,15 @@
         }
     }
 }
-
+.container__infocontainer__inputs{
+    margin-top: 20px;
+}
 .bottombtn{
     display: block;
     margin: 0 auto;
+    background-color: lightseagreen;
     width: 100%;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
 .help-block{
