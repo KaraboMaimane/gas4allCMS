@@ -58,12 +58,15 @@
         }
     }
 }
-
+.container__infocontainer__inputs{
+    margin-top: 20px;
+}
 .bottombtn{
     display: block;
     margin: 0 auto;
+    background-color: lightseagreen;
     width: 100%;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
 .help-block{
