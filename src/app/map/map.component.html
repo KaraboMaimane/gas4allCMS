@@ -1,6 +1,8 @@
-<div class="container-fluid">
-  <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
-    <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+<div>
+  <agm-map [latitude]="latitude" [disableDefaultUI]="true" [styles]="styles" [zoomControl]="false"
+  [streetViewControl]="false" [zoom]="13" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+    <agm-marker *ngFor="let location of locations" [iconUrl]="pump" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+    <agm-marker [latitude]="latitude" [iconUrl]="man" [longitude]="longitude"></agm-marker>
   </agm-map>
   <!-- <h1>Businesses</h1> -->
   <div class="form-group">

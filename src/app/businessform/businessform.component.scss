@@ -5,7 +5,7 @@
     border-radius: 10px;
     box-shadow: 2px 5px 6px rgba(black, .1);
     &__headercontainer{
-        background: radial-gradient(circle at 100%,#508ccf, #2960a0 80%);
+        background: radial-gradient(circle at 100%,#1976D2, #2196F3 80%);
         border-radius: 5px;
         box-shadow: 2px 3px 6px rgba(black, .1);
         padding: 1rem;
@@ -99,7 +99,6 @@
 .inputbox input:valid ~ label,
 .inputbox input:focus + i {
     // position: absolute;
-    color:lightseagreen;
     left: 0;
     box-shadow: none;
     border: none;
@@ -107,6 +106,10 @@
     font-weight: bold;
     font-size: 15px;
     transition: .4s;
+}
+
+button{
+    width: 100%;
 }
 
 // .inputbox input{

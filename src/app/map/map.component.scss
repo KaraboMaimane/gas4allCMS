@@ -1,6 +1,9 @@
 agm-map{
     height: 40rem;
     transform: translateY(-100rem);
+    width: 100%;
+    position: relative;
+    bottom: 2rem;
 }
 
 .bu{
@@ -8,6 +11,7 @@ agm-map{
 }
 
 .form-group{
-    display: flex;
-    justify-content: space-between;
+    button{
+        margin-right: 1rem;
+    }
 }
