@@ -99,7 +99,7 @@ infos = new Array();
   
       if(status == google.maps.GeocoderStatus.OK){
     
-       alert(userid);
+      
     
         let lati = results[0].geometry.location.lat();
        let longi = results[0].geometry.location.lng();
@@ -124,7 +124,7 @@ infos = new Array();
 
           })
 
-       
+       alert("Information Saved")
           console.log("yes yes");
          
            
