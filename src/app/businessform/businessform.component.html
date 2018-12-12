@@ -85,6 +85,14 @@
 
         <div class="container__infocontainer__heading">
           <h1 class="heading">Products</h1>
+          <div>
+        <label class="business" for="business">Shop Type </label>
+        <select class="select, input" value="none" placeholder="business" name="shoptype" ngModel #buisness="ngModel">
+            <option value="spaza">Spaza</option>
+            <option value="supermarket">Supermarket</option>
+            <option value="garage">Garage</option>
+          </select>
+          </div>
         </div>
         <div class="container__infocontainer__inputs">
           <div class="inputbox"><input 

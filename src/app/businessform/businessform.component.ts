@@ -29,6 +29,7 @@ emails;
 ownerName;
 pic
 event:any;
+icon;
 
 
 infos = new Array();
@@ -78,7 +79,7 @@ infos = new Array();
   }
 
   onSubmit(form: NgForm,event:any){
-    //console.log(form);
+    console.log(form);
     let geocoder = new google.maps.Geocoder();
     let resultsMap;
    let  userid = this.database.getUser();
@@ -91,7 +92,10 @@ infos = new Array();
    let petrol95 = form.value.petrol95;
    let gas = form.value.lpg;
    let diesel = form.value.diesel;
-   console.log(userid+company+email+owner+tel+petrol93+petrol95+diesel+gas+form.value.address);
+   let icon = form.value.shoptype;
+
+  
+   console.log(userid+company+email+owner+tel+petrol93+petrol95+diesel+gas+form.value.address,icon);
 
     geocoder.geocode({'address':form.value.address},function(results, status){
  
@@ -104,9 +108,11 @@ infos = new Array();
         let lati = results[0].geometry.location.lat();
        let longi = results[0].geometry.location.lng();
        console.log(lati +" "+ longi);
+
     
      
       // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
+
       return firebase.auth().onAuthStateChanged(data=>{
         if(data){
           firebase.database().ref('userdb/'+ userid).update({
@@ -120,7 +126,8 @@ infos = new Array();
             petrol95:petrol95,
             diesel:diesel,
             gas:gas,
-            uid:userid
+            uid:userid,
+            icon:icon
 
           })
 
