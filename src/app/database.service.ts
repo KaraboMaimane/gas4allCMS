@@ -70,6 +70,10 @@ export class DatabaseService {
 
   }
 
+  updateProduct(userid,obj){
+  return firebase.database().ref(`userdb/${userid}`).update(obj);
+  }
+
   addpic(userid){
   return  firebase.database().ref('pic/'+ userid).set({
     url:"../../assets/maxresdefault (3).jpg"

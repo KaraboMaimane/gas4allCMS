@@ -36,13 +36,7 @@ infos = new Array();
   constructor(private database: DatabaseService,public router: Router) {
    let  userid = this.database.getUser();
 
-  //  firebase.database().ref('userdb/'+ userid).on('value',(data)=>{
-  //    let info = data.val();
-  //    this.ownerName = info.name;
-  //    this.email = info.email;
-     
-  //    console.log(this.name + this.emails +info.url);
-  //  });
+ 
       this.database.retrieveInfor(userid).on('value',data=>{
         let infor = data.val();
         this.names = infor.name;
@@ -133,92 +127,11 @@ infos = new Array();
 
        alert("Information Saved")
           console.log("yes yes");
-         
-           
-            // if (event.target.files && event.target.files[0]) {
-            //   let reader = new FileReader();
-            //   reader.onload = (event: any) => {
-              
-            //     this.url = event.target.result;
-            //   };
-            //   reader.readAsDataURL(event.target.files[0]);
-            //   console.log(event.target.files);
-            //   let selectedfile = event.target.files[0];
-            //   let filename = selectedfile.name;
-            
-           
-        
-            //   let storageRef = firebase.storage().ref("profilepic/" + filename);
-        
-            //   let metadata = { contentType: "image/jpeg", size: 0.75 };
-            //   let uploadTask = storageRef.put(selectedfile, metadata);
-        
-            //   this.profileObj = {
-            //     filename: filename,
-            //     metadata: metadata
-            //   }
-            //   uploadTask.on(
-            //     "state_changed",
-            //     function(snapshot) {},
-            //     function(error) {
-            //       // Handle unsuccessful uploads
-            //       alert("error !!1");
-            //     },
-            //     function() {
-            //       // Handle successful uploads on complete
-                 
-            //       uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-            //         console.log("File available at", downloadURL);
-        
-            //         firebase.auth().onAuthStateChanged(user => {
-            //           if (user) {
-            //             console.log("User has sign in");
-            //             let userID = firebase.auth().currentUser.uid;
-            //             let obj = {
-            //               url: downloadURL
-            //             };
-        
-            //             firebase
-            //               .database()
-            //               .ref("pic/" + userID)
-            //               .set({
-            //                 url: downloadURL
-            //               });
-        
-            //             console.log(userID);
-            //           } else {
-            //             console.log("User has not sign in");
-            //           }
-            //         });
-            //       });
-            //     }
-            //   );
-        
-            //   //});
-        
-        
-            // }
-         
-    
-    
-        //   return firebase.database().ref('businessRegistration/'+ userid).push({
-        //     name:buisnessName,
-        //     email:businessEmail,
-        //     owner:businessOwner,
-        //     tel:businessTel,
-        //     lat:lati,
-        //     lng:longi,
-        //     petrol93:petrol93,
-        //     petrol95:petrol95,
-        //     diesel:diesel,
-        //     gas:gas
-        // },(error=>{
-        //   alert(error);
-        // }))
+       
       
         }else{
     
-          alert("login");
+      
     
         }
       

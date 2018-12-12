@@ -1,0 +1,25 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <label for="">Company Name: <input type="text" placeholder="Name" ngModel name="company"></label>
+  <p>{{company}}</p><br>
+  <!-- <label for="">:  <input type="text" placeholder="Name"></label> -->
+  <label for="">Physical address: <input type="text" placeholder="Physical address" ngModel name="address"></label><br>
+  <p>{{address}}</p>
+  <label for="">Telephone No: <input type="text" placeholder="Telephone No" ngModel name="tel"></label><br>
+  <p>{{tel}}</p>
+  <label for="">Business Type: <input type="text" placeholder="Business Type" ngModel name="icon"></label><br>{{icon}}
+  <button>submit</button>
+</form>
+
+<!-- 
+
+  company name
+  email
+  telephone no
+  business type
+  address 
+  
+  settings will be 
+  username
+  photo and
+  logout
+-->

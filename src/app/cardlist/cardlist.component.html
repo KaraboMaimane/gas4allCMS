@@ -1,0 +1,53 @@
+<div class="dashcards">
+    <div class="cardrow">
+      <div class="card">
+        <div class="imagecontainer">
+          <img src="../../assets/gas-cylinder.png" alt="" class="image">
+        </div>
+
+        <div class="textcontainer">
+          <p class="price">R{{gas}}/5kg</p>
+          <p class="fuel">LPG Gas</p>
+          <button class="btn btn-success" (click)="submit()">Edit</button>
+        </div>
+         <input type="number" placeholder="Enter price" [(ngModel)]="gas" value=0>
+      </div>
+  
+      <div class="card">
+        <div class="imagecontainer">
+          <img src="../../assets/gas-station.png" alt="" class="image">
+        </div>
+
+        <div class="textcontainer">
+          <p class="price">R{{petrol95}}/5kg</p>
+          <p class="fuel">Petrol  95</p>
+          <button class="btn btn-success" (click)="submit()">Edit</button>
+        </div>
+        <input type="number" placeholder="Enter price"  [(ngModel)]="petrol95">
+      </div>
+      <div class="card">
+        <div class="imagecontainer">
+          <img src="../../assets/gas-station.png" alt="" class="image">
+        </div>
+
+        <div class="textcontainer">
+          <p class="price">R{{petrol93}}/5kg</p>
+          <p class="fuel">Petrol93</p>
+          <button class="btn btn-success" (click)="submit()">Edit</button>
+        </div>
+        <input type="number" placeholder="Enter price" [(ngModel)]="petrol93">
+      </div>
+      <div class="card">
+        <div class="imagecontainer">
+          <img src="../../assets/tank-truck.png" alt="" class="image">
+        </div>
+
+        <div class="textcontainer">
+          <p class="price">R{{diesel}}/5kg</p>
+          <p class="fuel">Diesel</p>
+          <button class="btn btn-success" (click)="submit()">Edit</button>
+          <input type="number" placeholder="Enter price" [(ngModel)]="diesel">
+        </div>
+      </div>
+    </div>
+  </div>

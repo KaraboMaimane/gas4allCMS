@@ -1,0 +1,49 @@
+.dashcards{
+    background: rgb(255, 255, 255);
+    width: 80%;
+    margin-left: 1rem;
+    margin-top: 2rem;
+    flex: 4 0 0;
+    height: 20rem;
+    .cardrow{
+        display: flex;
+        justify-content: space-around;
+        flex-basis: 100%;
+        .card{
+            // flex: 1 0 0;
+            // background: lightgrey;
+            box-shadow:  0 0 .9rem rgba(black, .1);
+            // padding: 1rem;
+            border-radius: .5rem;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            align-items: center;
+            padding: 1rem;
+            .imagecontainer{
+                // background: red;
+                .image{
+                    width: 5rem;
+                    height: 5rem;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+
+            .textcontainer{
+                margin-left: 1rem;
+                .price{
+                    font-size: 2rem;
+                    text-align: center;
+                    letter-spacing: .2rem;
+
+                }
+
+                .fuel{
+                    text-align: center;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}

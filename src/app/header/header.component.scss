@@ -84,3 +84,13 @@
       background-color: #1976d2;
     }
   }
+
+  .inline{
+    display: flex;
+    flex-direction: row;
+  }
+  .logo{
+    height: 5rem;
+    width: 5rem;
+    margin-right: 1rem;
+  }

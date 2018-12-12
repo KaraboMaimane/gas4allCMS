@@ -15,13 +15,23 @@ import { RetrieveComponent } from './retrieve/retrieve.component';
 import { BusinessformComponent } from './businessform/businessform.component';
 import { HttpModule } from '@angular/http';
 import { MediaService } from './media.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardlistComponent } from './cardlist/cardlist.component';
+import { BusinessProfileComponent } from './business-profile/business-profile.component';
+import { SettingsComponent } from './settings/settings.component';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'retrieve', component: RetrieveComponent},
   {path: 'map', component: MapComponent},
-  {path: 'business', component: BusinessformComponent}
+  {path: 'business', component: BusinessformComponent},
+  {path: 'dashboard', component: DashboardComponent, children: [
+    {path: 'profile', component: BusinessProfileComponent},
+    {path: 'products', component: CardlistComponent},
+    {path: 'settings', component: SettingsComponent}
+  ]},
+  
 ]
 
 @NgModule({
@@ -34,7 +44,10 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     RetrieveComponent,
-    BusinessformComponent
+    BusinessformComponent,
+    DashboardComponent,
+    CardlistComponent,
+    BusinessProfileComponent, SettingsComponent
   ],
   imports: [
     BrowserModule,
