@@ -1,0 +1,165 @@
+.container{
+    background: white;
+    width: 70%;
+    padding: 5rem;
+    border-radius: 10px;
+    box-shadow: 2px 5px 6px rgba(black, .1);
+    &__headercontainer{
+        background: radial-gradient(circle at 100%,#1976D2, #2196F3 80%);
+        border-radius: 5px;
+        box-shadow: 2px 3px 6px rgba(black, .1);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        &__imagecontainer{
+           img{
+               border-radius: 50%;
+           } 
+           input{
+               width: 10rem;
+               height: 10rem;
+               position: absolute;
+               transform: translateY(-10rem);
+               opacity: 0;
+           }
+        }
+        &__textcontainer{
+            flex: 0 0 80%;
+            margin-left: 10px;
+            input{
+                color: #feee;
+            }
+            .company{
+                border: none;
+                width: 100%;
+                font-size: 3.5rem;
+                background: none;
+                
+            }
+            .type{
+                border: none;
+                width: 100%;
+                font-size: 1.8em;
+                background: none;
+            }
+            input:focus{
+                outline: none;
+            }
+            input::placeholder{
+                color: rgb(173, 173, 173);
+            }   
+        }
+    }
+    &__infocontainer{
+        input{
+            &:not(last-child){
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}
+.container__infocontainer__inputs{
+    margin-top: 20px;
+}
+.bottombtn{
+    display: block;
+    margin: 0 auto;
+    background-color: lightseagreen;
+    width: 100%;
+    margin-top: 1.2em;
+}
+
+.help-block{
+    transition: all ease .3s;
+    color: red;
+    animation: slide .4s ease;
+    margin-bottom: 2em;
+}
+
+.textbox.ng-invalid.ng-touched{
+    box-shadow: 0px 0px .6rem rgba(red, .4);
+    transition: all ease .3s;
+    
+}
+
+@keyframes slide{
+    0%{
+        opacity:0;
+        transform:  translateY(-.5rem);
+    }
+    100%{
+        opacity: 1;
+        transform:  translateY(0rem);
+        display: block;
+    }
+}
+
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label,
+.inputbox input:focus + i {
+    // position: absolute;
+    left: 0;
+    box-shadow: none;
+    border: none;
+    top: -18px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+}
+
+button{
+    width: 100%;
+}
+
+// .inputbox input{
+//     padding: 21px 0; 
+//     border: none;
+//     font-weight: bold;
+//     margin-bottom: 40px;
+//     box-shadow: none;
+//     border-bottom: 1px solid lightseagreen;
+//     outline: none;
+//     background: transparent;
+// }
+
+// .inputbox label{
+// position: absolute;
+// top: 0;
+// left: 0;
+// font-size: 1.3em;
+// color: grey;
+// padding: 0 35px;
+// pointer-events: none;
+// transition: .4s;
+// }
+// .inputbox i{
+// position: absolute;
+//  top: 0;
+//  left: 0;
+//  color: lightseagreen;
+//   padding: 6px 5px;
+//  transition: .4s;
+//             }
+//  .inputbox input[type=text]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+//  }
+//  .inputbox input[type=email]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+// .inputbox input[type=tel]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+// .inputbox input[type=number]{
+//     font-size: 1.3em;
+//     padding-left: 35px;
+// }
+
+//  .inputbox{
+//      position: relative;
+//  }

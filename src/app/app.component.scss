@@ -82,26 +82,14 @@ transition: .5s;
 
 
 
-input[type=file]{
-    padding:5px 35px;
-    // color: lightseagreen;
-    // display: inline-block;
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+.titleText{
+    font-family: 'Lobster', cursive;
 }
-input[type=text]{
-    font-size: 1.3em;
-        padding-left: 35px;
-        // padding: 10px;
-    }
-
-  .A{
-      position: relative;
-     }
-.A i{
-        position: absolute;
-       // left: 0;
-        top: 3px;
-        color: lightseagreen;
-        padding: 3px 15px;
-        transition: .5s;
-        //    margin: -35px 0 0 -110px;
-        }
