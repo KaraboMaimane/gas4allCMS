@@ -38,7 +38,7 @@ company
        this.petrol93 =0;
       this.gas =0;
        this.diesel =0;
-      }
+      } 
 
 
     })

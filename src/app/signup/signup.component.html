@@ -1,0 +1,6 @@
+<form #f="ngForm" (ngSubmit)="login(f)" *ngIf="showSpinner == false">
+  <input name="userName" ngModel type="email" id="login" class="fadeIn second" placeholder="UserName" required>
+  <input name="email" ngModel type="email" id="login" class="fadeIn second" placeholder="E-mail" required>
+  <input name="password" ngModel type="password" id="password" class="fadeIn third" placeholder="Password" required>
+  <input type="submit" class="fadeIn fourth" value="Log In">
+</form>

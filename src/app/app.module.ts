@@ -19,8 +19,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardlistComponent } from './cardlist/cardlist.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { SettingsComponent } from './settings/settings.component';
+
+//New Components
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { NextPageComponent } from './next-page/next-page.component';
+import { ProductsComponent } from './products/products.component';
+
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginPageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'retrieve', component: RetrieveComponent},
@@ -28,9 +35,11 @@ const appRoutes: Routes = [
   {path: 'business', component: BusinessformComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'profile', component: BusinessProfileComponent},
-    {path: 'products', component: CardlistComponent},
+    {path: 'product', component: CardlistComponent},
     {path: 'settings', component: SettingsComponent}
   ]},
+  {path: 'products', component: ProductsComponent},
+  {path: 'next-page', component: NextPageComponent}
   
 ]
 
@@ -47,7 +56,12 @@ const appRoutes: Routes = [
     BusinessformComponent,
     DashboardComponent,
     CardlistComponent,
-    BusinessProfileComponent, SettingsComponent
+    BusinessProfileComponent, 
+    SettingsComponent, 
+    LoginPageComponent, 
+    SpinnerComponent,
+    NextPageComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

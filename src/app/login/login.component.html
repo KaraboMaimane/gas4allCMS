@@ -1,23 +1,36 @@
-<div class="modal-content">
-  <div class="modalcontent">
-    <div class="modalcontent__textcontainer">
-      <h1 class="modalcontent__textcontainer--heading">Log In</h1>
-      <p class="modalcontent__textcontainer--subtext">Enter your credentials to log in</p>
-    </div>
-    <div class="modalcontent__iconcontainer">
-      <span class="glyphicon glyphicon-pencil"></span>
-    </div>
-  </div>
-
-  <div class="formcontent">
-    <div class="input-group">
-      <input #email type="email" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"
-        required>
-      <input #password type="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"
-        required>
-    </div>
-    <button type="submit" (click)="login(email.value, password.value)" class="btn btn-primary">Login</button>
-    <a routerLink="/register">Dont have an account??? Register!</a><br>
-    <a routerLink="/retrieve">Forgot password???</a>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content">
+    <div class="modal-content">
+        <div class="modalcontent">
+          <div class="modalcontent__textcontainer">
+            <h1 class="modalcontent__textcontainer--heading">Log In</h1>
+            <p class="modalcontent__textcontainer--subtext">Enter your credentials to log in</p>
+          </div>
+          <div class="modalcontent__iconcontainer">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </div>
+        </div>
+      
+        <div class="formcontent">
+          <div class="input-group">
+            <input #email type="email" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"
+              required>
+            <input #password type="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1"
+              required>
+          </div>
+          <button type="submit" (click)="login(email.value, password.value)" class="btn btn-primary">Login</button>
+          <a routerLink="/register">Dont have an account??? Register!</a><br>
+          <a routerLink="/retrieve">Forgot password???</a>
+        </div>
+      </div>
 </div>
+</body>
+</html>
