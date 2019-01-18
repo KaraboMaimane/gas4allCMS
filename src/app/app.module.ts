@@ -25,6 +25,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { NextPageComponent } from './next-page/next-page.component';
 import { ProductsComponent } from './products/products.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginPageComponent},
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     LoginPageComponent, 
     SpinnerComponent,
     NextPageComponent,
-    ProductsComponent
+    ProductsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
