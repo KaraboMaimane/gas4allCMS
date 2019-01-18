@@ -1,16 +1,19 @@
-<header>
-  <button (click)=logout()>Exit</button>
-</header>
-<body>
-  <div class="navb">
-    <div class="logo">
-      <img src="../assets/log.png" alt="">
-      <i>
-        <h1>GasRadar</h1>
-      </i>
-    </div>
-  </div>
 
+   <nav class="navb">
+      <div class="logo">
+        <img class="logo" src="../assets/log.png" alt="">
+        <h1 class="heading">GasRadar</h1>
+      </div>
+    
+      <div class="linkcontainer">
+        <a class="link activel" routerLink="/nextpage">Business Profile</a>
+        <a class="link" routerLink="/products">Products</a>
+        <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+      </div>
+    
+    </nav>
+<body class="wrapper">
+ 
   <div class="main">
     <div class="container">
 
@@ -22,105 +25,53 @@
           <h1>GasRadar</h1>
         </i>
 
-
       </div>
-
-
 
       <div class="slider">
         <h2>Business Details</h2>
         <div id="slide">
-<!-- 
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
-            <div class="inp">
-              <input ngModel
-           [(ngModel)]="company " [value]=company name="companyName" type="text" required="">
-              <label for="">Business Name</label>
-            </div>
-            <div class="inp">
-              <input ngModel
-              [(ngModel)]="Owner" [value]=Owner name="ownerName" type="text" required="">
-              <label for="">Owner Name</label>
-            </div>
-            <div class="inp">
-              <input ngModel
-           [(ngModel)]="address"  [value]=address  name="address" type="text" required="">
-              <label for="">Business Address</label>
-            </div>
-            <br>
-            <div class="inp">
-              <input ngModel
-           [(ngModel)]="email"  [value]=email name="email" type="text" required="">
-              <label for="">Business E-mail</label>
-            </div>
-            <div class="inp">
-              <input ngModel
-           [(ngModel)]="tel " [value]=tel name="telephone" type="text" required="">
-              <label for="">Business Tel</label>
-            </div>
-            <div class="combo">
-              <label class="shoptype" for="business">Shop Type: </label>
-              <select ngModel
-           [(ngModel)]="shoptype" name="shoptype" [value]=shoptype class="selects" value="none" placeholder="business">
-                <option value="spaza">Spaza</option>
-                <option value="supermarket">Supermarket</option>
-                <option value="garage">Garage</option>
-              </select>
-            </div>
 
-            <div class="butts">
-              <button class="btn" type="submit" (click)="submit()">Next</button>
-            </div>
-          <!-- </form> -->
-
-
+          <div class="inp">
+            <input ngModel [(ngModel)]="company " [value]=company type="text" required="">
+            <label for="">Business Name</label>
+          </div>
+          <div class="inp">
+            <input ngModel [(ngModel)]="Owner" [value]=Owner type="text" required="">
+            <label for="">Owner Name</label>
+          </div>
+          <div class="inp">
+            <input ngModel [(ngModel)]="address" [value]=address type="text" required="">
+            <label for="">Business Address</label>
+          </div>
+          <br>
+          <div class="inp">
+            <input ngModel [(ngModel)]="email" [value]=email type="text" required="">
+            <label for="">Business E-mail</label>
+          </div>
+          <div class="inp">
+            <input ngModel [(ngModel)]="tel " [value]=tel type="text" required="">
+            <label for="">Business Tel</label>
+          </div>
+          <div class="combo">
+            <label class="business" for="business">Shop Type: </label>
+            <select ngModel [(ngModel)]="shoptype" name="shoptype" [value]=shoptype class="selects" value="none"
+              placeholder="business">
+              <option value="spaza">Spaza</option>
+              <option value="supermarket">Supermarket</option>
+              <option value="garage">Garage</option>
+            </select>
+          </div>
 
         </div>
-
       </div>
-
-
-
-
-
     </div>
 
 
-   
+    <div class="butts">
+      <button class="btn" (click)="submit()" type="submit">Next</button>
+    </div>
   </div>
 
 
 
 </body>
-
-
-
-
-<!-- <div id="slide1">
-              <h2>Products</h2>
-              <div class="inp">
-              <input type="text" required="">
-              <label for="">LPG Price</label>
-            </div>
-            <div class="inp">
-                <input type="text"required="">
-                <label for="">Petrol 95 Price</label>
-            </div>
-             <div class="inp">
-                  <input type="text" required=""> 
-                  <label for="">Petrol 93 Price</label>
-             </div>
-             <div class="inp">
-                <input type="text" required=""> 
-                    <label for="">Diesel</label>
-              </div>
-             
-              <div class="combo">
-              <label class="business" for="business">Shop Type: </label>
-              <select class="selects" value="none" placeholder="business" >
-                  <option value="spaza">Spaza</option>
-                  <option value="supermarket">Supermarket</option>
-                  <option value="garage">Garage</option>
-                </select>
-              </div>
-          </div> -->

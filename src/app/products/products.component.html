@@ -1,95 +1,112 @@
-<body>
+
+<body class="wrapper">
+
+  <nav class="navb">
+    <div class="logo">
+      <img class="logo" src="../assets/log.png" alt="">
+      <h1 class="heading">GasRadar</h1>
+    </div>
   
-    <!-- <div class="navb">
+    <div class="linkcontainer">
+      <a class="link" (click)="busipage()">Business Profile</a>
+      <a class="link activel">Products</a>
+      <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+    </div>
+  
+  </nav>
+  <!-- <div class="navb">
         <div class="logo">
         <img src="../assets/log.png" alt="">
         <i><h1>GasRadar</h1></i>
       </div>
       </div> -->
     
-    <div class="main">
-      <div class="container">
-    
-        <div class="left">
-            <div class="logs">
-                <img src="../assets/log.png" alt="">
-              </div>
-       <i><h1>GasRadar</h1></i>
-        </div>
-    
-    
-    
-        <div class="right">
-            <h2>Product Prices</h2>
-            <div class="grid">
+  <div class="main">
+    <div class="container">
 
-    <div class="fuel1">
+      <div class="left">
+        <div class="logs">
+          <img src="../assets/log.png" alt="">
+        </div>
+        <i>
+          <h1>GasRadar</h1>
+        </i>
+      </div>
+
+
+
+      <div class="right">
+        <h2>Product Prices</h2>
+        <div class="grid">
+
+          <div class="fuel1">
             <div class="box1">
               <div class="imge">
-         <img src="../../assets/gas-cylinder.png" alt="">
-        </div>
-        <div class="text"> 
-          <h2>LPG Gas</h2>
-           <input type="number" [(ngModel)]="gas"> <br>
-           <button type="submit">Edit</button>
-        </div>
-        </div>
-        <div class="box2">
-            <div class="imge">
+                <img src="../../assets/gas-cylinder.png" alt="">
+              </div>
+              <div class="text">
+                <h2>LPG Gas </h2>
+                <!-- <h3>R 10/PKG </h3> -->
+                <input type="text"  [(ngModel)]="gas" placeholder="R"> <br>
+                <!-- <button type="submit">Edit</button> -->
+              </div>
+            </div>
+            <div class="box2">
+              <div class="imge">
                 <img src="../../assets/tank-truck.png" alt="">
-               </div>
-               <div class="text"> 
-                 <h2>Diesel</h2>
-                 <input type="number" [(ngModel)]="diesel"> <br>
-                  <button type="submit">Edit</button>
-               </div>
-        </div>
-        </div>
-        <div class="fuel2">
-         <div class="div1">
-            <div class="imge">
+              </div>
+              <div class="text">
+                <h2>Diesel</h2>
+                <input type="text"  [(ngModel)]="diesel" placeholder="R"> <br>
+                <!-- <button type="submit">Edit</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="fuel2">
+            <div class="div1">
+              <div class="imge">
                 <img src="../../assets/gas-station.png" alt="">
-               </div>
-               <div class="text"> 
-                 <h2>Petrol 95</h2>
-                 <input type="number" [(ngModel)]="petrol95"> <br>
-                  <button type="submit" >Edit</button>
-               </div>
-        </div>
+              </div>
+              <div class="text">
+                <h2>Petrol 95</h2>
+                <input type="text" [(ngModel)]="petrol95" placeholder="R"> <br>
+                <!-- <button type="submit">Edit</button> -->
+              </div>
+            </div>
 
-        <div class="div2">
-            <div class="imge">
+            <div class="div2">
+              <div class="imge">
                 <img src="../../assets/gas-station.png" alt="">
-               </div>
-               <div class="text"> 
-                 <h2>Petrol 93</h2>
-                 <input type="number" [(ngModel)]="petrol93"> <br>
-                  <button type="submit">Edit</button>
-               </div>
-        </div>
+              </div>
+              <div class="text">
+                <h2>Petrol 93</h2>
+                <input type="text"  [(ngModel)]="petrol93" placeholder="R"> <br>
+                <!-- <button type="submit">Edit</button> -->
+              </div>
+            </div>
           </div>
         </div>
-          <!-- <div class="fuel">
+        <!-- <div class="fuel">
         3
             </div>
             <div class="fuel">
         4
               </div> -->
 
-        </div> 
-
-
-
-
-
       </div>
-    
-    
-      <div class="butts">
-          <button class="btn" type="submit" (click)="edit()">Submit</button>
-        </div>
+
+
+
+
+
     </div>
-    
-     
-     
+
+
+    <div class="butts">
+      <button class="btn" type="submit">Submit</button>
+    </div>
+  </div>
+
+
+
 </body>

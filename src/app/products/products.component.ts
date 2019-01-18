@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { DatabaseService } from '../database.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +17,7 @@ export class ProductsComponent implements OnInit {
 username;
 email;
 company
-  constructor(private database: DatabaseService) {
+  constructor(private database: DatabaseService, private router: Router) {
     this.userid = this.database.getUser();
     firebase.database().ref('userdb/'+ this.userid).on('value',data=>{
       let infor = data.val();
@@ -44,6 +45,17 @@ company
 
    }
 
+   logout(){
+    this.database.logOut().then(()=>{
+      console.log('exit')
+      this.router.navigate(['/signin']);
+    })
+  }
+
+  busipage(){
+    this.router.navigate(["/next-page"]);
+  }
+
    edit(){
     alert(this.diesel+""+this.gas+""+this.petrol93+""+this.petrol95);
     return firebase.auth().onAuthStateChanged(data=>{
@@ -69,5 +81,7 @@ company
 
   ngOnInit() {
   }
+
+
 
 }

@@ -1,0 +1,173 @@
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.Editcontainer{
+    text-align: center;
+    margin: 10em 0 0 20em;
+    width: 75em;
+    height: 50em;
+    background: #f5f5f5;
+    display: flex;
+    box-shadow: 0 1rem 5rem rgba(black,.2);
+    flex-direction: row;
+     
+    .butts{
+        text-align: center;
+        // display: block;
+        position: relative;
+        background-color: green;
+        height: 20px;
+        width: 20px;
+        // margin:10px 0 10px 20px;
+     .btn{
+        border-bottom: none;
+        box-shadow: 2px 4px 8px rgba(grey,.5);
+    }
+    button{
+        padding: 1em;
+        width: 30em;
+        
+        font-size: 1em;
+        background-color:rgba(2, 197, 2, 0.692);
+        border: none;
+        color: white;
+        // border-radius: 10px;
+    }
+    }
+
+    h2{
+        position: absolute;
+    //    text-align: center;
+       margin: 1em 0 0 29em;
+       color: $secondary-text-color;
+   }
+   .leftcont{
+       width: 25em;
+       height: 50em;
+       background-color: blue;
+         
+    // width: 28em;
+    background-image:linear-gradient(rgba(#2196F3,5),rgba(grey,.9)),url('../../assets/6fc4299dfa18327fee201fade0fee731.jpg');    // background-image:linear-gradient(rgba(#2196F3,5),rgba(grey,.9)),url('../assets/6fc4299dfa18327fee201fade0fee731.jpg');
+    // height: 48em;
+    .logs{
+        // margin: 10px auto;
+         margin-left: 11.5em;
+        
+        position: absolute;
+        margin-top: 15.8em;
+        // box-shadow: 2px 3px 8px rgba(black,.5);
+        border-radius: 3.8em;
+        background-color: none;
+        border: none;
+    }
+    h1{
+        position: relative;
+        margin: 11.8em 0 0 0;
+        // text-align: center;
+        color:$accent-color;
+        font-family: 'Lobster', cursive ;
+        text-shadow: 2px 3px 8px black;
+        /* font-family: 'Timmana', sans-serif, Lobster; */
+      }
+      img{
+        height: 100px;
+        width: 100px;
+        border-radius: 12%;
+    }
+   } 
+   .rightcont{
+       h1{
+           position: absolute;
+           text-align: center;
+        //    display: inline-block;
+       }
+       display: flex;
+       width: 48em;
+       height: 50em;
+    //    background-color: red;
+       .details{
+        //    text-align: center;
+        //    margin: 7em 0 0 0;
+        //    width: 37.5em;
+        //    height: 50em;
+        //    background-color: green;
+           .textinput{
+                //  margin: .6em 0 0 0;
+               label{
+                   font-size: 20px;
+                   margin: 0 4em 1em 0;    
+               }
+               input{
+                // margin: 0 0 0 14em;
+                   padding: .8em;
+                   width: 30em;
+                   border: none;
+                   outline: none;
+                   box-shadow: 0 1rem 5rem rgba(black,.2);
+
+               }
+           }
+
+           .combo{
+            margin: 20px 0 0 100px;
+           //  box-shadow: 2px 13px 8px rgba(grey,.2);
+            .business{
+               font-weight: 650;
+               font-size: 1.1em;
+               color: $secondary-text-color;
+               
+            }
+       
+           .selects{
+               color: $secondary-text-color;
+               width: 19.8em;
+               padding: 10px;
+               border: none;
+               font-weight: 650;
+               font-size: 1.1em;
+               box-shadow: 2px 13px 8px rgba(grey,.2);
+               
+       
+               // margin-left: 30px;
+           }
+           option{
+               font-weight: 650;
+               font-size: 1.3em; 
+               color: $accent-color;
+           }
+        }
+       }
+       .prod{
+        width: 37.5em;
+        height: 50em;
+        text-align: center;
+        margin: 5em 0 0 0;
+        // background-color: yellow;
+        .textinput{
+            margin: 3em 0 0 0 ;
+            label{
+                margin: 10em 3.8em 1em 0;    
+            }
+            input{
+                padding: .8em;
+                margin: 0 0 0 0;
+                border: none;
+                width: 20em;
+                outline: none;
+                box-shadow: 3px 8px 5px rgba(grey,.2);
+
+            }
+        }
+       }
+   }
+}

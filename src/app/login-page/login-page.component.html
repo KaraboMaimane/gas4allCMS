@@ -2,7 +2,7 @@
   <div id="formContent">
     <!-- Tabs Titles -->
     <h2 class="active underlineHover" > Sign In </h2>
-    <h2 class="inactive underlineHover" >Sign Up </h2>
+    <h2 class="inactive underlineHover" (click)="signup()" >Sign Up </h2>
 
     <!-- Icon -->
     <div class="fadeIn first">
@@ -13,6 +13,7 @@
     <h1 *ngIf="showSpinner">Please wait...</h1>
     <app-spinner *ngIf="showSpinner"></app-spinner>
     <h1 *ngIf="success">Success!!!</h1>
+    <h1 *ngIf="fail">Login Fail</h1>
 
     <!-- Login Form -->
     <form #f="ngForm" (ngSubmit)="login(f)" *ngIf="showSpinner == false">

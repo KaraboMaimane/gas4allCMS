@@ -55,6 +55,7 @@ export class NextPageComponent implements OnInit {
   logout(){
     this.database.logOut().then(()=>{
       console.log('exit')
+      this.router.navigate(['/signin'])
     })
   }
 

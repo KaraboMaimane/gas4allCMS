@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   showSpinner: boolean = false;
   success: boolean;
+  fail: boolean;
   constructor(private database: DatabaseService, private router: Router) { }
 
   ngOnInit() {
@@ -28,8 +29,23 @@ export class LoginPageComponent implements OnInit {
     ).catch(
       (error)=>{
         console.log(error);
+        this.showSpinner = false;
+        this.showFail();
       }
     );
+  }
+
+  showFail(){
+    console.log('fail');
+    this.fail = true;
+    let timer = setInterval(()=>{
+      this.fail = false;
+      clearInterval(timer);
+    }, 3000);
+  }
+
+  signup(){
+    this.router.navigate(["/signup"]);
   }
 
 }
