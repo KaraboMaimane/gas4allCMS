@@ -30,7 +30,7 @@
         </div>
         <div class="text"> 
           <h2>LPG Gas</h2>
-           <input type="text"> <br>
+           <input type="number" [(ngModel)]="gas"> <br>
            <button type="submit">Edit</button>
         </div>
         </div>
@@ -40,7 +40,7 @@
                </div>
                <div class="text"> 
                  <h2>Diesel</h2>
-                  <input type="text"> <br>
+                 <input type="number" [(ngModel)]="diesel"> <br>
                   <button type="submit">Edit</button>
                </div>
         </div>
@@ -52,8 +52,8 @@
                </div>
                <div class="text"> 
                  <h2>Petrol 95</h2>
-                  <input type="text"> <br>
-                  <button type="submit">Edit</button>
+                 <input type="number" [(ngModel)]="petrol95"> <br>
+                  <button type="submit" >Edit</button>
                </div>
         </div>
 
@@ -63,7 +63,7 @@
                </div>
                <div class="text"> 
                  <h2>Petrol 93</h2>
-                  <input type="text"> <br>
+                 <input type="number" [(ngModel)]="petrol93"> <br>
                   <button type="submit">Edit</button>
                </div>
         </div>
@@ -86,7 +86,7 @@
     
     
       <div class="butts">
-          <button class="btn" type="submit">Submit</button>
+          <button class="btn" type="submit" (click)="edit()">Submit</button>
         </div>
     </div>
     

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { DatabaseService } from './database.service';
+import { Router } from '@angular/router';
+import * as firebase from 'firebase'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,9 +18,23 @@ export class AppComponent {
 
 
 
-  constructor(private database: DatabaseService) {
+  constructor(private database: DatabaseService,router: Router) {
+    
+    console.log('users!')
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        console.log("im onine")
+        router.navigate(['/next-page']);
+      } else {
+        // No user is signed in.
+        console.log("im offline")
+        router.navigate(['/app']);
+      }
+    });
 
   }
+
 
   login(email, password){
     this.database.login(email, password).then((data)=>{

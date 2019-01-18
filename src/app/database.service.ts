@@ -12,16 +12,18 @@ export class DatabaseService {
 
   locations = [];
   arry=[];
+  state;
+  authenticate = firebase.auth();
 
   constructor(private http: Http) {
-    firebase.initializeApp({
-      apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
-      authDomain: "fuelapp-6050c.firebaseapp.com",
-      databaseURL: "https://fuelapp-6050c.firebaseio.com",
-      projectId: "fuelapp-6050c",
-      storageBucket: "fuelapp-6050c.appspot.com",
-      messagingSenderId: "955542967293"
-    });
+    // firebase.initializeApp({
+    //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
+    //   authDomain: "fuelapp-6050c.firebaseapp.com",
+    //   databaseURL: "https://fuelapp-6050c.firebaseio.com",
+    //   projectId: "fuelapp-6050c",
+    //   storageBucket: "fuelapp-6050c.appspot.com",
+    //   messagingSenderId: "955542967293"
+    // });
   }
 
   register(email: string, password: string) {
@@ -34,6 +36,33 @@ export class DatabaseService {
 
   getUser() {
     return firebase.auth().currentUser.uid;
+  }
+
+  onAuth(){
+   return new Promise((accpt,rej)=>{
+     this.authenticate.onAuthStateChanged(user =>{
+       if(user != null){
+         this.state = 1;
+       }
+       else{
+         this.state = 0;
+       }
+       accpt(this.state)
+     })
+     
+   })
+  }
+
+  forgotPassword(email:any){
+    return this.authenticate.sendPasswordResetEmail(email);
+  }
+
+  logOut(){
+    console.log('exit')
+    return new Promise((accpt, rej) => {
+      this.authenticate.signOut();
+      accpt("log Out Success")
+    })
   }
 
   registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lat,lng,petrol93,petrol95,diesel,gas){

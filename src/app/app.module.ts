@@ -26,6 +26,18 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { NextPageComponent } from './next-page/next-page.component';
 import { ProductsComponent } from './products/products.component';
 import { RegistrationComponent } from './registration/registration.component';
+import * as firebase from 'firebase'
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
+    authDomain: "fuelapp-6050c.firebaseapp.com",
+    databaseURL: "https://fuelapp-6050c.firebaseio.com",
+    projectId: "fuelapp-6050c",
+    storageBucket: "fuelapp-6050c.appspot.com",
+    messagingSenderId: "955542967293"
+  };
+  firebase.initializeApp(config);
 
 const appRoutes: Routes = [
   {path: '', component: LoginPageComponent},

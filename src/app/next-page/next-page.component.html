@@ -1,3 +1,6 @@
+<header>
+  <button (click)=logout()>Exit</button>
+</header>
 <body>
   <div class="navb">
     <div class="logo">
@@ -27,38 +30,38 @@
       <div class="slider">
         <h2>Business Details</h2>
         <div id="slide">
-
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<!-- 
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)"> -->
             <div class="inp">
               <input ngModel
-              #name="ngModel" name="companyName" type="text" required="">
+           [(ngModel)]="company " [value]=company name="companyName" type="text" required="">
               <label for="">Business Name</label>
             </div>
             <div class="inp">
               <input ngModel
-              #owner="ngModel" name="ownerName" type="text" required="">
+              [(ngModel)]="Owner" [value]=Owner name="ownerName" type="text" required="">
               <label for="">Owner Name</label>
             </div>
             <div class="inp">
               <input ngModel
-              #name="ngModel" name="address" type="text" required="">
+           [(ngModel)]="address"  [value]=address  name="address" type="text" required="">
               <label for="">Business Address</label>
             </div>
             <br>
             <div class="inp">
               <input ngModel
-              #name="ngModel" name="email" type="text" required="">
+           [(ngModel)]="email"  [value]=email name="email" type="text" required="">
               <label for="">Business E-mail</label>
             </div>
             <div class="inp">
               <input ngModel
-              #name="ngModel" name="telephone" type="text" required="">
+           [(ngModel)]="tel " [value]=tel name="telephone" type="text" required="">
               <label for="">Business Tel</label>
             </div>
             <div class="combo">
               <label class="shoptype" for="business">Shop Type: </label>
               <select ngModel
-              #name="ngModel" name="shoptype" class="selects" value="none" placeholder="business">
+           [(ngModel)]="shoptype" name="shoptype" [value]=shoptype class="selects" value="none" placeholder="business">
                 <option value="spaza">Spaza</option>
                 <option value="supermarket">Supermarket</option>
                 <option value="garage">Garage</option>
@@ -66,9 +69,9 @@
             </div>
 
             <div class="butts">
-              <button class="btn" type="submit">Next</button>
+              <button class="btn" type="submit" (click)="submit()">Next</button>
             </div>
-          </form>
+          <!-- </form> -->
 
 
 
