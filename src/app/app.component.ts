@@ -25,7 +25,7 @@ export class AppComponent {
       if (user) {
         // User is signed in.
         console.log("im onine")
-        router.navigate(['/home']);
+        router.navigate(['/products']);
       } else {
         // No user is signed in.
         console.log("im offline")

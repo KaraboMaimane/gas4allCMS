@@ -101,6 +101,7 @@ nav{
 display: flex;
 flex-direction: row;
 height: 48em;
+width: 90%;
 max-width: 85em;
 // padding: 5rem;
 text-align: center;
@@ -114,11 +115,12 @@ box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
     // margin: 10em 0 0 0;
     // background-color: blue;
     display: flex;
+    justify-content: center;
     flex-direction: column;
      h2{
-         position: absolute;
+        //  position: absolute;
         text-align: center;
-        margin: 1em 10em 0 10em;
+        // margin: 1em 10em 0 10em;
         color: $secondary-text-color;
     }
     .grid{
@@ -344,21 +346,21 @@ box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
 
 .left{
     
-    width: 30em;
-    // background-attachment: fixed;
-    background-repeat: no-repeat;
-    // background-size: contain;
-    background-position: center;
-    background-image:linear-gradient(rgba(#2196F3,5),rgba(grey,.9)),url('../../assets/ac633fd40110397d1dda88bcf40e6216.jpg');    // background-image:linear-gradient(rgba(#2196F3,5),rgba(grey,.9)),url('../assets/6fc4299dfa18327fee201fade0fee731.jpg');
-    height: 48em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 0 0 -2.5em;
-    overflow: hidden;
+    width: 28em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:linear-gradient(rgba(#2196F3,5),rgba(grey,.9)),url('../../assets/ac633fd40110397d1dda88bcf40e6216.jpg'); 
+    // height: 48em;
     .logs{
         // margin: 10px auto;
-         margin-left:10em;
+        //  margin-left:10em;
         
-        position: absolute;
-        margin-top: 15em;
+        // position: absolute;
+        // margin-top: 15em;
         // box-shadow: 2px 3px 8px rgba(black,.5);
         border-radius: 3.8em;
         background-color: none;
@@ -366,7 +368,7 @@ box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
     }
     h1{
         position: relative;
-        margin: 9em 0 0 0;
+        // margin: 9em 0 0 0;
         text-align: center;
         color:$accent-color;
         font-family: 'Lobster', cursive ;
