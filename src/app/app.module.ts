@@ -45,6 +45,7 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'map', component: MapComponent},
+  {path:'home', component:HomeComponent},
   {path: 'business', component: BusinessformComponent},
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'profile', component: BusinessProfileComponent},

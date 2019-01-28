@@ -56,6 +56,9 @@ company
     this.router.navigate(["/next-page"]);
   }
 
+  home(){
+    this.router.navigate(["/home"]);
+  }
    edit(){
     alert(this.diesel+""+this.gas+""+this.petrol93+""+this.petrol95);
     return firebase.auth().onAuthStateChanged(data=>{

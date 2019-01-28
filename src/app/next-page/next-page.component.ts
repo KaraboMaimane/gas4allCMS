@@ -58,7 +58,9 @@ export class NextPageComponent implements OnInit {
       this.router.navigate(['/signin'])
     })
   }
-
+  home(){
+    this.router.navigate(["/home"]);
+  }
   submit(){
 
     let geocoder = new google.maps.Geocoder();
