@@ -9,16 +9,19 @@ $secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
 
 .herocontainer{
+ 
     background: linear-gradient(rgba(black, .9), transparent), url("../../assets/jonathan-petersson-217672-unsplash.jpg");
     background-size: cover;
     background-position: center;
     height: 60rem;
+    border-bottom: 3px solid whitesmoke; 
     border-radius: 0 0 85% 85% /30%;
     // margin-top: -2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-attachment: fixed;
+    box-shadow:  0  1rem 3rem rgba(black, .3);
     // &__logo{
     //     // position: absolute;
     //     border-radius: 20px;
@@ -84,9 +87,9 @@ $divider-color:        #BDBDBD;
     }
  
     &--heading{
+        color:$accent-color;
         font-family: 'Nunito Sans', sans-serif;
         text-align: center;
-        color:whitesmoke;
         font-size: 4.8rem;
         text-transform: capitalize;
         letter-spacing: .2rem;
