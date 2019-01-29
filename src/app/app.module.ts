@@ -27,6 +27,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import * as firebase from 'firebase'
 import { SignupComponent } from './signup/signup.component';
 import { RetrieveComponent } from './retrieve/retrieve.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
 
   // Initialize Firebase
   var config = {
@@ -50,10 +51,12 @@ const appRoutes: Routes = [
   {path: 'dashboard', component: DashboardComponent, children: [
     {path: 'profile', component: BusinessProfileComponent},
     {path: 'product', component: CardlistComponent},
+  
     {path: 'settings', component: SettingsComponent}
   ]},
   {path: 'products', component: ProductsComponent},
-  {path: 'next-page', component: NextPageComponent}
+  {path: 'next-page', component: NextPageComponent},
+  {path: 'more-info', component: MoreInfoComponent},
   
 ]
 
@@ -76,7 +79,8 @@ const appRoutes: Routes = [
     ProductsComponent,
     RegistrationComponent,
     SignupComponent,
-    RetrieveComponent
+    RetrieveComponent,
+    MoreInfoComponent
   ],
   imports: [
     BrowserModule,

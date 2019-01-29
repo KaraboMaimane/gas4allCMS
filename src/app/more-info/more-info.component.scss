@@ -1,0 +1,95 @@
+// NEW CSS
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+*{
+    padding: 0rem;
+    margin: 0;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+}
+
+.container{
+    height: 75rem;
+    width:85rem;
+    max-width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    background-color: whitesmoke;
+    overflow: hidden;
+    .div1{
+        height: 42.5rem;
+        width:85rem;
+        background-image:linear-gradient(#2196F3,rgba(grey,1));
+    
+    }
+    .div2{
+        height: 42.5rem;
+        width:85rem;
+        background-color: white; 
+    }
+}
+.navb{
+    display: flex;
+    background-color: #2196F3;
+    height: 50px;
+    justify-content: space-between;
+      position: fixed;
+    width: 100vw;
+
+  .logo{
+    display: flex;
+    justify-content: space-around;
+   img{
+       height: 50px;
+       width: 50px;
+   }
+    h1{
+        font-family: 'Lobster', cursive ;
+        color:$accent-color;
+        font-size: 1.2em;
+        margin-left: 10px;
+        // margin-top: 5px;
+    }
+}
+    .linkcontainer{
+        font-family: 'Open Sans', sans-serif !important;
+        display: flex;
+        align-items: stretch;
+        align-self: center;
+        font-size: 1.5rem;
+        height: 100%;
+        .link{
+            transition: ease all .2s;
+            padding-top: 1.2rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem; 
+            color: white;
+            &:hover{
+                background: var(--primary-color-light);
+                color: whitesmoke;
+            }
+        }
+        
+    }
+
+    .activel{
+        background: var(--primary-color-dark);
+    }
+}

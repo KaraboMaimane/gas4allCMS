@@ -58,6 +58,10 @@ export class NextPageComponent implements OnInit {
       this.router.navigate(['/signin'])
     })
   }
+
+  products(){
+    this.router.navigate(['/products'])
+  }
   home(){
     this.router.navigate(["/home"]);
   }
@@ -90,30 +94,29 @@ export class NextPageComponent implements OnInit {
 
     }
 
-    alert(objinfor);
+ 
   
     geocoder.geocode({ 'address':obj.address}, function (results, status) {
 
-      alert(status);
+    
 
 
       if (status == google.maps.GeocoderStatus.OK){
-        alert("in")
+      
 
 
         let lati = results[0].geometry.location.lat();
         let longi = results[0].geometry.location.lng();
         console.log(lati + " " + longi);
 
-        alert("inside")
-        alert(userid);
+     
 
         // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
   
         return firebase.auth().onAuthStateChanged(data => {
           alert("inside auth" + data)
           if (data) {
-            alert("inside auth" + "inside data");
+    
             firebase.database().ref('userdb/' + userid).update({
               name:objinfor.name,
               email:objinfor.email,
@@ -134,7 +137,7 @@ export class NextPageComponent implements OnInit {
             })
 
             alert("Information Saved")
-            console.log("yes yes");
+         
 
 
           } else {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { DatabaseService } from '../database.service';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-products',
@@ -43,6 +44,9 @@ company
     })
 
 
+   }
+   More(){
+     this.router.navigate(["/more-info"]);
    }
 
    logout(){

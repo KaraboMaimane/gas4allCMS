@@ -34,7 +34,7 @@ company
         this.gas = infor.gas;
     
       }else{
-        alert(false);
+      
         this.petrol95 =0;
        this.petrol93 =0;
       this.gas =0;
@@ -52,7 +52,7 @@ company
 
   submit(){
    
-    alert(this.diesel+""+this.gas+""+this.petrol93+""+this.petrol95);
+   
     return firebase.auth().onAuthStateChanged(data=>{
     
       if(data){
@@ -63,9 +63,7 @@ company
           gas:this.gas,
       })
 
-      }else(
-        alert("false")
-      )
+      }
   
 
         })
