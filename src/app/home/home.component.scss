@@ -1,124 +1,126 @@
-// CSS THEMES
-$primary-color-dark:   #1976D2;
-$primary-color:        #2196F3;
-$primary-color-light:  #BBDEFB;
-$primary-color-text:   #FFFFFF;
-$accent-color:         #FFC107;
-$primary-text-color:   #212121;
-$secondary-text-color: #757575;
-$divider-color:        #BDBDBD;
+:root {
 
-.herocontainer{
- 
-    background: linear-gradient(rgba(black, .9), transparent), url("../../assets/jonathan-petersson-217672-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 60rem;
-    border-bottom: 3px solid whitesmoke; 
-    border-radius: 0 0 85% 85% /30%;
-    // margin-top: -2rem;
+    --primary-color-dark:   #1976D2;
+    --primary-color:        #2196F3;
+    --primary-color-light:  #BBDEFB;
+    --primary-color-text:   #FFFFFF;
+    --accent-color:         #FFC107;
+
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+
+    --shadow-dark: 0 2rem 6rem rgba(0,0,0,.3);
+    --shadow-light: 0 2rem 5rem rgba(0,0,0,.06);
+
+    --line: 1px solid var(--color-grey-light-2);
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+.navb{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-attachment: fixed;
-    box-shadow:  0  1rem 3rem rgba(black, .3);
-    // &__logo{
-    //     // position: absolute;
-    //     border-radius: 20px;
-    //     width: 80%;
-    //     text-align: center;
-    //     // background-color: red;
-    //     // margin-bottom: 70px;
-    //     margin-right: 30px;
-    //     &__image{
-    //         height: 50px;
-    //         width: 50px;
-    //         border-radius: 30px;
-    //         margin:15px 0 0 10px ;
-    //         box-shadow:  0 10px 15px rgba(black, 0.5);
-    //     }
-    // }
-    &__textcontainer{
-        color: whitesmoke;
-        text-align: center;
-        &--heading{
-            color:$accent-color;
-            text-shadow:  0 10px 15px rgba(rgb(59, 59, 59), 0.5);
-            font-size: 5rem;
-            // letter-spacing: .3rem;
-            // text-transform: uppercase;
-            font-family: 'Lobster', cursive;
+    background-color: var(--primary-color);
+    height: 5rem;
+    justify-content: space-between;
+    /* width: 200em; */
+    position: fixed;
+    width: 100vw;
+    color: white !important;
+  .logo{
+    display: flex;
+   img{
+       height: 50px;
+       width: 50px;
+    //    margin-left: 20px;
+   }
+    h1{
+        font-family: 'Lobster', cursive ;
+        color:var(--accent-color);
+        font-size: 1.6rem;
+        margin-left: 10px;
+        // margin-top: 5px; 
+    }
+    }
+    .linkcontainer{
+        font-family: 'Open Sans', sans-serif !important;
+        display: flex;
+        align-items: stretch;
+        align-self: center;
+        font-size: 1.5rem;
+        height: 100%;
+        .link{
+            transition: ease all .2s;
+            padding-top: 1.2rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            color: white; 
+            &:hover{
+                background: var(--primary-color-light);
+                color: var(--color-grey-dark-1);
+            }
         }
         
-        &--subheading{
-            margin: 1.5rem 0 0;
-            font-size: 2rem;
+    }
+
+    .activel{
+        background: var(--primary-color-dark);
+    }
+} 
+
+.contentcontainer {
+    position: relative;
+    top: 5rem;
+    height: 90vh;
+    background: red;
+    display: flex;
+    flex-flow: column; 
+    .main{
+        display: flex;
+        flex-flow: row nowrap;
+        height: 50%; 
+        .listcontainer{
+            flex: 1;
+
+            .card:nth-child(even){
+                background: yellow;
+            }
         }
-
-        .btn{
-            margin: 1rem 0 0;
-            box-shadow:  0  1rem 3rem rgba(grey, .1);
+        .mapcontainer{
+            flex: 1;
         }
     }
-}
-.logo{
-    border-radius: 150px;
-    // width: 80%;
-    text-align: center;
-    
-    // background-color: red;
-    // margin-bottom: 70px;
-    // margin-right: 30px;
+
+    .outlets{
+        display: flex;
+        flex-flow: row nowrap;
+        height: 50%;
+        .totalcontainer{
+            background: purple;
+            flex: 1;
+        }
+        .garage{
+            background: pink;
+            flex: 1;
+        }
+        .spaza{
+            background: yellow;
+            flex: 1; 
+        }
+    }
+
 }
 
-.image{
-    height: 180px;
-    
-    width: 180px;
-    border-radius: 90px;
-    margin:15px 0 0 10px ;
-    box-shadow:  0 10px 15px rgba(rgb(59, 59, 59), 0.5);
-}
-.contentcontainer{
-      text-align: center;
-
-    &--container-fluid{
-        margin: 6rem 0 0;
-    }
- 
-    &--heading{
-        color:$accent-color;
-        font-family: 'Nunito Sans', sans-serif;
-        text-align: center;
-        font-size: 4.8rem;
-        text-transform: capitalize;
-        letter-spacing: .2rem;
-        padding-top: 1rem;
-    }
-    &--quote{
-        font-family: 'Nunito Sans', sans-serif;
-        text-align: center;
-        color:whitesmoke;
-        border-left: .4rem solid #eee;
-        padding-left: 1rem;
-        padding-top: 1rem;
-        // padding-top: .5rem;
-        font-size: 2.8rem;
-        font-style: italic;
-    }
-    &--story{
-        font-family: 'Nunito Sans', sans-serif;
-        text-align: center;
-        font-size: 1.8rem;
-        color:whitesmoke;
-        margin-top: 2rem;
-    }
-    &--storys{
-        font-family: 'Nunito Sans', sans-serif;
-        text-align: center;
-        font-size: 2.8rem;
-        padding-top: 1rem;
-        color: whitesmoke;
-        font-style: italic;
-    }
+agm-map{
+    height: 100%;
+    // transform: translateY(-100rem);
+    width: 100%;
 }

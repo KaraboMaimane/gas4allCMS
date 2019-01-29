@@ -1,29 +1,77 @@
-<div class="herocontainer container-fluid">
-  <div class="main">
-  <div class="herocontainer__textcontainer">
-      <div class="logo">
-          <img class="image" src="../../assets/Untitled-1 - Copy.png" alt="">
-        </div>
-    <i><p class="herocontainer__textcontainer--heading">GasRadar</p></i>
-    <p class="herocontainer__textcontainer--subheading">The fuel finding assistant you can rely on</p>
-    <button routerLink="/next-page" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Get Started</button>
+<nav class="navb">
+  <div class="logo">
+    <img class="logo" src="../assets/log.png" alt="">
+    <h1 class="heading">GasRadar</h1>
   </div>
-  </div>
-</div>
-<div class="contentcontainer--container-fluid">
-  <h1 class="contentcontainer--heading">About GasRadar?</h1>
-  <p class="contentcontainer--quote">The GasRadar app is a GPS-based application program developed for smartphones and tablets 
-    which provides prices and business details of nearby fuel stations, Supermarkets and Spaza shops from user-submitted data, 
-    and directly from station operators. The app has an Android version only for now.</p>
-  <p class="contentcontainer--story">This app focuses on helping the communities locate LPG Gas outlets near them at reasonable 
-    prices - as we are facing a lot of load shedding in South Africa lately. We also help our users locate nearby fuel stations 
-    near them and even in remote areas.
-  </p>
 
-  <h1 class="contentcontainer--heading">Our Customers?</h1>
-  <p class="contentcontainer--storys">Our clients are from the deep townships of SOWETO. The small businesses at the corner
-    of the street, the fuel garages/ stations and Supermarkets in the locations in and around Soweto. The customers/ users of 
-    our app are also from the locations and abroad throughout the other areas outside Soweto and even on other provinces in SA.
-    These are people who use gas whether to cook or light up their homes, cars etc - whatever they use it for they always need to find it.
-    </p>
+  <div class="linkcontainer">
+    <a class="link" (click)=home() routerLink="/home">home</a>
+    <a class="link activel" routerLink="/nextpage">Business Profile</a>
+    <a class="link" routerLink="/products">Products</a>
+    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+  </div>
+
+</nav>
+
+<div class="map">
+
+</div>
+
+<nav class="navb">
+  <div class="logo">
+    <img class="logo" src="../assets/log.png" alt="">
+    <h1 class="heading">GasRadar</h1>
+  </div>
+
+  <div class="linkcontainer">
+    <a class="link" (click)=home() routerLink="/home">home</a>
+    <a class="link activel" routerLink="/nextpage">Business Profile</a>
+    <a class="link" routerLink="/products">Products</a>
+    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+  </div>
+
+</nav>
+
+<div class="contentcontainer">
+  <div class="main">
+    <div class="listcontainer">
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+      <div class="card">
+        <p class="heading">Thandos Tuck Shop</p>
+        <p class="text">location</p>
+      </div>
+    </div>
+    <div class="mapcontainer">
+      <agm-map [latitude]="latitude" [disableDefaultUI]="true" [zoomControl]="false" [streetViewControl]="false" [zoom]="13"
+        [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="pump" [latitude]="location.lat"
+          [longitude]="location.lng"></agm-marker>
+        <agm-marker [latitude]="latitude" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <div class="outlets">
+    <div class="totalcontainer">dfsaf</div>
+    <div class="garage">dfsaf</div>
+    <div class="spaza">dfsaf</div>
+  </div>
 </div>

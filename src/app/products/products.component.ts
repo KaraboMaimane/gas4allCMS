@@ -34,7 +34,7 @@ company
         this.gas = infor.gas;
     
       }else{
-        alert(false);
+  
         this.petrol95 =0;
        this.petrol93 =0;
       this.gas =0;
@@ -77,9 +77,7 @@ company
         alert("Information saved");
       })
 
-      }else(
-        alert("false")
-      )
+      }
   
 
         })

@@ -94,29 +94,28 @@ export class NextPageComponent implements OnInit {
 
     }
 
- 
+  
   
     geocoder.geocode({ 'address':obj.address}, function (results, status) {
 
-    
+   
 
 
       if (status == google.maps.GeocoderStatus.OK){
-      
+       
 
 
         let lati = results[0].geometry.location.lat();
         let longi = results[0].geometry.location.lng();
         console.log(lati + " " + longi);
 
-     
 
         // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
   
         return firebase.auth().onAuthStateChanged(data => {
-          alert("inside auth" + data)
+        
           if (data) {
-    
+           
             firebase.database().ref('userdb/' + userid).update({
               name:objinfor.name,
               email:objinfor.email,
@@ -137,7 +136,7 @@ export class NextPageComponent implements OnInit {
             })
 
             alert("Information Saved")
-         
+          
 
 
           } else {
@@ -186,20 +185,20 @@ export class NextPageComponent implements OnInit {
 
 
       if (status == google.maps.GeocoderStatus.OK){
-        alert("in")
+
 
 
         let lati = results[0].geometry.location.lat();
         let longi = results[0].geometry.location.lng();
         console.log(lati + " " + longi);
 
-        alert("inside")
+     
         alert(userid);
 
         // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
   
         return firebase.auth().onAuthStateChanged(data => {
-          alert("inside auth" + data)
+       
           if (data) {
             alert("inside auth" + "inside data"+petrol93);
             firebase.database().ref('userdb/' + userid).update({
@@ -219,7 +218,7 @@ export class NextPageComponent implements OnInit {
           
 
             this.router.navigate(["/products"])
-            console.log("yes yes");
+         
           } else {
 
 
