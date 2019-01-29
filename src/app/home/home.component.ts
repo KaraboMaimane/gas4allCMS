@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { MediaService } from '../media.service';
 import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   pump: string;
   styles;
   name: string;
-  constructor(private database: DatabaseService, private media: MediaService) {
+  constructor(private database: DatabaseService, private media: MediaService, private router: Router) {
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
@@ -71,5 +72,9 @@ export class HomeComponent implements OnInit {
 
   return(location){
     console.log(location);
+  }
+
+  nextPage(page: string){
+    this.router.navigate([page]);
   }
 }

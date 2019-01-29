@@ -5,32 +5,16 @@
   </div>
 
   <div class="linkcontainer">
-    <a class="link" (click)=home() routerLink="/home">home</a>
-    <a class="link activel" routerLink="/nextpage">Business Profile</a>
-    <a class="link" routerLink="/products">Products</a>
-    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+      <a class="link activel"  (click)="nextPage('home')" >Home</a>
+    <a class="link" (click)="nextPage('next-page')">Business Profile</a>
+    <a class="link">Products</a>
+    <a class="link" (click)="More()" routerLink = "/more-info">More Info</a>
+    <a class="link" (click)="logout()" routerLink="/busedit">Logout</a>
   </div>
 
 </nav>
 
-<div class="map">
 
-</div>
-
-<nav class="navb">
-  <div class="logo">
-    <img class="logo" src="../assets/log.png" alt="">
-    <h1 class="heading">GasRadar</h1>
-  </div>
-
-  <div class="linkcontainer">
-    <a class="link" (click)=home() routerLink="/home">home</a>
-    <a class="link activel" routerLink="/nextpage">Business Profile</a>
-    <a class="link" routerLink="/products">Products</a>
-    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
-  </div>
-
-</nav>
 
 <div class="contentcontainer">
   <div class="main">
@@ -59,9 +43,31 @@
         <p class="heading">Thandos Tuck Shop</p>
         <p class="text">location</p>
       </div>
+      <div class="card">
+          <img [src]="pump" alt="">
+          <p class="heading">Thandos Tuck Shop</p>
+          <p class="text">location</p>
+        </div>
+        <div class="card">
+          <p class="heading">Thandos Tuck Shop</p>
+          <p class="text">location</p>
+        </div>
+        <div class="card">
+          <p class="heading">Thandos Tuck Shop</p>
+          <p class="text">location</p>
+        </div>
+        <div class="card">
+          <p class="heading">Thandos Tuck Shop</p>
+          <p class="text">location</p>
+        </div>
+        <div class="card">
+          <p class="heading">Thandos Tuck Shop</p>
+          <p class="text">location</p>
+        </div>
+
     </div>
     <div class="mapcontainer">
-      <agm-map [latitude]="latitude" [disableDefaultUI]="true" [zoomControl]="false" [streetViewControl]="false" [zoom]="13"
+      <agm-map [styles]="styles" [latitude]="latitude" [disableDefaultUI]="true" [zoomControl]="false" [streetViewControl]="false" [zoom]="8"
         [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
         <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="pump" [latitude]="location.lat"
           [longitude]="location.lng"></agm-marker>
@@ -70,8 +76,19 @@
     </div>
   </div>
   <div class="outlets">
-    <div class="totalcontainer">dfsaf</div>
-    <div class="garage">dfsaf</div>
-    <div class="spaza">dfsaf</div>
+    <div class="totalcontainer">
+      
+      <p class="heading">Registered Fuel Outlets</p>
+      <p class="number">340</p>
+    </div>
+    <div class="garage">
+      <p class="garages">Garages</p>
+      <div class="number">300</div>
+    </div>
+    <div class="spaza">
+      <p class="spaza">Local Businesses</p>
+      <div class="number">40</div>
+    </div>
+
   </div>
 </div>
