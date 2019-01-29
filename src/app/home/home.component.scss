@@ -66,6 +66,7 @@ html{
             &:hover{
                 background: var(--primary-color-light);
                 color: var(--color-grey-dark-1);
+                text-decoration: none;
             }
         }
         
@@ -80,18 +81,36 @@ html{
     position: relative;
     top: 5rem;
     height: 90vh;
-    background: red;
     display: flex;
     flex-flow: column; 
     .main{
         display: flex;
         flex-flow: row nowrap;
         height: 50%; 
+        background:var(--color-grey-light-1);
         .listcontainer{
             flex: 1;
+            height: 100%;
+            overflow-y: scroll; 
+            padding: 1rem;
+            .card{
+                box-shadow: 0 0 .9rem rgba(black, .2);
+                margin: 2rem 0;
+                border-radius: .5rem;
+                padding: .5rem;
 
+                .heading{
+                    font-size: 2rem;
+                }
+
+                .text{
+                    font-size: 1.6rem;
+                }
+            }
             .card:nth-child(even){
-                background: yellow;
+                // background: w;
+            }
+            .card:nth-child(even){
             }
         }
         .mapcontainer{
@@ -103,16 +122,14 @@ html{
         display: flex;
         flex-flow: row nowrap;
         height: 50%;
+        background: var(--color-grey-light-1);
         .totalcontainer{
-            background: purple;
             flex: 1;
         }
         .garage{
-            background: pink;
             flex: 1;
         }
         .spaza{
-            background: yellow;
             flex: 1; 
         }
     }
@@ -121,6 +138,5 @@ html{
 
 agm-map{
     height: 100%;
-    // transform: translateY(-100rem);
     width: 100%;
 }

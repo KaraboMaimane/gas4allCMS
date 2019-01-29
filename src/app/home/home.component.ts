@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,9 @@ import * as firebase from 'firebase';
 })
 export class HomeComponent implements OnInit {
   //setting up our coordinates here
+  totalOulets;
+  totalSpaza =0;
+  totalGarage = 0;
   latitude;
   longitude;
   locations = [];
@@ -21,6 +25,8 @@ export class HomeComponent implements OnInit {
   pump: string;
   styles;
   name: string;
+  icon;
+  iconArray = [];
   constructor(public router: Router,private database: DatabaseService, private media: MediaService) {
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
@@ -39,6 +45,10 @@ export class HomeComponent implements OnInit {
     firebase.database().ref('/userdb').on('value', (data) => {
       let keys = Object.keys(data.val());
       for (let i = 0; i < keys.length; i++) {
+
+        this.totalOulets = i +  1;
+        console.log(this.totalOulets);
+
         firebase.database().ref(`/userdb/${keys[i]}`).on('value',
           (data) => {
             let business = {
@@ -57,11 +67,28 @@ export class HomeComponent implements OnInit {
               icon: data.val().icon
 
             }
+
+
             this.locations.push(business);
+
+            if(data.val().icon == "spaza"){
+              this.totalSpaza =this.totalSpaza + 1;
+              this.icon=this.media.shop;
+            }else{
+              this.totalGarage = this.totalGarage + 1;
+              this.icon= this.media.fuelpump;
+            }
+            let o ={
+              icon:this.icon
+            }
+
+            this.iconArray.push(o);
           })
+
+        
       }
     })
-
+console.log(this.totalSpaza,this.totalGarage);
     console.log(this.locations)
   }
 

@@ -35,29 +35,9 @@
 <div class="contentcontainer">
   <div class="main">
     <div class="listcontainer">
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
-      </div>
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
-      </div>
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
-      </div>
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
-      </div>
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
-      </div>
-      <div class="card">
-        <p class="heading">Thandos Tuck Shop</p>
-        <p class="text">location</p>
+      <div *ngFor="let location of locations" (click)="return(location)" class="card">
+        <p class="heading">{{location.name}}</p>
+        <p class="text">{{location.address}}</p>
       </div>
     </div>
     <div class="mapcontainer">
@@ -70,8 +50,8 @@
     </div>
   </div>
   <div class="outlets">
-    <div class="totalcontainer">dfsaf</div>
-    <div class="garage">dfsaf</div>
-    <div class="spaza">dfsaf</div>
+    <div class="totalcontainer"> All Outlets: {{totalOulets}}</div>
+    <div class="garage">Total Shops: {{totalSpaza}}</div>
+    <div class="spaza">Total Garages:{{totalGarage}}</div>
   </div>
 </div>
