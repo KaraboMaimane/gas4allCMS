@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     await this.database.login(username, password).then(
       (data)=>{
         alert('You have successfully logged in');
-        this.router.navigate(['/map']);
+        this.router.navigate(['/home']);
       }
     ).catch(error=>{
       console.log(error);
