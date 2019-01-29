@@ -40,9 +40,19 @@ export class HomeComponent implements OnInit {
         firebase.database().ref(`/userdb/${keys[i]}`).on('value',
           (data) => {
             let business = {
+              address: data.val().address,
               name: data.val().name,
               lat: data.val().lat,
-              lng: data.val().lng
+              lng: data.val().lng,
+              email: data.val().email,
+              phone: data.val().phone,
+              owner: data.val().owner,
+              tel: data.val().tel,
+              diesel: data.val().diesel,
+              gas: data.val().gas,
+              petrol93: data.val().petrol93,
+              petrol95: data.val().petrol95,
+
             }
             this.locations.push(business);
           })
