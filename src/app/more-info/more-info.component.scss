@@ -81,18 +81,33 @@ $divider-color:        #BDBDBD;
             // align-content: flex-start;
             width: 37.5rem;
             height: 63.75rem;
-            background-color: green;
+            // background-color: green;
             img{
                 margin: 2rem 0 0 ;
                 height: 13%;
                 width: 20%;
-                display: block;
+                // display: block;
             }
         }
         .info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            // justify-content: space-around;
             width: 37.5rem;
             height: 63.75rem;
-          background-color: orange;
+        //   background-color: orange;
+        }
+        .text{
+            display: flex;
+            align-items: center;
+            margin: 6.9rem 0 0;
+            width: 37.5rem;
+            // background-color: grey;
+        }
+        h2{
+            // margin: 4.5rem 0 0 ;
+            // padding: 1rem 0 0 ; 
         }
     }
 }
