@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { MediaService } from '../media.service';
+import { Router } from '@angular/router';
+import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
 
 @Component({
@@ -19,7 +21,7 @@ export class HomeComponent implements OnInit {
   pump: string;
   styles;
   name: string;
-  constructor(private database: DatabaseService, private media: MediaService) {
+  constructor(public router: Router,private database: DatabaseService, private media: MediaService) {
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
@@ -52,6 +54,7 @@ export class HomeComponent implements OnInit {
               gas: data.val().gas,
               petrol93: data.val().petrol93,
               petrol95: data.val().petrol95,
+              icon: data.val().icon
 
             }
             this.locations.push(business);
@@ -80,6 +83,18 @@ export class HomeComponent implements OnInit {
   }
 
   return(location){
-    console.log(location);
+   
+    locationsArr.push(location);
+    this.router.navigate(['/more-info'])
+    
+    console.log(locationsArr);
   }
+
+  logout(){
+    this.database.logOut().then(()=>{
+      console.log('exit')
+      this.router.navigate(['/signin']);
+    })
+  }
+
 }
