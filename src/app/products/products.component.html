@@ -11,7 +11,8 @@
         <a class="link" (click)=home() routerLink="/home">home</a>
       <a class="link" (click)="busipage()">Business Profile</a>
       <a class="link activel">Products</a>
-      <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+      <a class="link" (click)="More()" routerLink = "/more-info">More-INFO</a>
+      <a class="link" (click)="logout()" routerLink="/busedit">Logout</a>
     </div>
   
   </nav>
@@ -47,9 +48,9 @@
               </div>
               <div class="text">
                 <h2>LPG Gas </h2>
-                <!-- <h3>R 10/PKG </h3> -->
+               
                 <input type="text"  [(ngModel)]="gas" placeholder="R"> <br>
-                <!-- <button type="submit">Edit</button> -->
+        
               </div>
             </div>
             <div class="box2">
@@ -59,7 +60,7 @@
               <div class="text">
                 <h2>Diesel</h2>
                 <input type="text"  [(ngModel)]="diesel" placeholder="R"> <br>
-                <!-- <button type="submit">Edit</button> -->
+             
               </div>
             </div>
           </div>
@@ -71,7 +72,7 @@
               <div class="text">
                 <h2>Petrol 95</h2>
                 <input type="text" [(ngModel)]="petrol95" placeholder="R"> <br>
-                <!-- <button type="submit">Edit</button> -->
+        
               </div>
             </div>
 
@@ -82,17 +83,10 @@
               <div class="text">
                 <h2>Petrol 93</h2>
                 <input type="text"  [(ngModel)]="petrol93" placeholder="R"> <br>
-                <!-- <button type="submit">Edit</button> -->
               </div>
             </div>
           </div>
         </div>
-        <!-- <div class="fuel">
-        3
-            </div>
-            <div class="fuel">
-        4
-              </div> -->
 
       </div>
 

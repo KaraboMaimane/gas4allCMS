@@ -37,7 +37,7 @@ this.userid = this.database.getUser();
       this.icon = infor.icon;
       this.address = infor.address
     })
-    alert(this.email +" "+ this.company);
+  
 
   }
 
@@ -56,7 +56,7 @@ this.userid = this.database.getUser();
       if(status == google.maps.GeocoderStatus.OK){
         let lati = results[0].geometry.location.lat();
         let longi = results[0].geometry.location.lng();
-        alert(lati + " "+longi + id);
+        
         // let userid = this.database.getUser();
 
      

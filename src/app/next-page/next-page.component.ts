@@ -58,6 +58,10 @@ export class NextPageComponent implements OnInit {
       this.router.navigate(['/signin'])
     })
   }
+
+  products(){
+    this.router.navigate(['/products'])
+  }
   home(){
     this.router.navigate(["/home"]);
   }
