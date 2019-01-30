@@ -163,7 +163,11 @@ $divider-color:        #BDBDBD;
                 background-color: palegreen;
                 .text{
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-around;
+                    width: 37.5rem;
+                    height: 3.15rem;
+                    font-size: 1.8rem;
+                    background-color: #212121;
                 }
             }
         }
