@@ -72,7 +72,7 @@
 </div>
 
 <div class="info">
-<div class="gas">
+<div class="gas" *ngIf="gas !> 0">
 <div class="head">
   <div class="pic">
 <img src="../../assets/gas-cylinder.png" alt="">
@@ -90,7 +90,7 @@
 
 </div>
 
- <div class="fuel">
+ <div class="fuel" *ngIf="petrol93 !> 0">
     <div class="head">
     <div class="pic">
       <img src="../../assets/gas-station.png" alt="">
@@ -101,7 +101,7 @@
       </div>
  
 
-   <div class="fuelprice">
+   <div class="fuelprice" >
       <!-- <p>9 kg</p> - <p>R{{gas}}</p> -->
        <p>Petrol 93: R{{petrol93}}</p> - <p>Petrol 95: R{{petrol95}}</p>  
    </div>

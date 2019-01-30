@@ -111,11 +111,12 @@ console.log(this.totalSpaza,this.totalGarage);
   }
 
   return(location){
-   
+    locationsArr.length = 0;
     locationsArr.push(location);
     this.router.navigate(['/more-info'])
     
     console.log(locationsArr);
+    
   }
 
   logout(){
