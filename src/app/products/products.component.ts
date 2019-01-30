@@ -87,6 +87,9 @@ company
   ngOnInit() {
   }
 
+  nextPage(page: string){
+    this.router.navigate([page]);
+  }
 
 
 }

@@ -71,12 +71,13 @@ export class HomeComponent implements OnInit {
 
             this.locations.push(business);
 
-            if(data.val().icon == "spaza"){
-              this.totalSpaza =this.totalSpaza + 1;
-              this.icon=this.media.shop;
-            }else{
+            if(data.val().icon == "garage"){
               this.totalGarage = this.totalGarage + 1;
               this.icon= this.media.fuelpump;
+            }else{
+              this.totalSpaza =this.totalSpaza + 1;
+              this.icon=this.media.shop;
+          
             }
             let o ={
               icon:this.icon
@@ -122,6 +123,10 @@ console.log(this.totalSpaza,this.totalGarage);
       console.log('exit')
       this.router.navigate(['/signin']);
     })
+  }
+
+  nextPage(page: string){
+    this.router.navigate([page]);
   }
 
 }

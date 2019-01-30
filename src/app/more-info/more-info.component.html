@@ -5,11 +5,10 @@
   </div>
 
   <div class="linkcontainer">
-      <a class="link" (click)=home() routerLink="/home">home</a>
-      <a class="link" (click)="busipage()">Business Profile</a>
-      <a class="link activel">Products</a>
-      <!-- <a class="link" (click)="More()" routerLink = "/more-info">More-INFO</a> -->
-      <a class="link" (click)="logout()" routerLink="/busedit">Logout</a>
+      <a class="link activel">Home</a>
+      <a class="link" (click)="nextPage('next-page')">My Business </a>
+      <a class="link" (click)="nextPage('products')">My Products</a>
+      <a class="link" (click)=logout()>Logout</a>
   </div>
 </nav>
 
@@ -17,25 +16,64 @@
   <div class="container">
 <div class="div1">
   <div class="logo">
-    <img src="../../assets/house (1).png" alt="">
+    <img src=".{{icon}}" alt="">
   </div>
   <div class="headertext">
-  <h1 text-wrap>Sibusiso's Gas Supply</h1>
+  <h1 text-wrap>{{name}}</h1>
   </div>
 </div>
 
 <div class="div2">
 <div class="sidecons">
+  <div class="icons">
 <img src="../../assets/manager.png" alt="">
-<img src="../../assets/manager.png" alt="">
-<img src="../../assets/manager.png" alt="">
-<img src="../../assets/manager.png" alt="">
-<img src="../../assets/manager.png" alt="">
+<img src="../../assets/call-answer.png" alt="">
+<img src="../../assets/arroba-sign.png" alt="">
+<img src="../../assets/home.png" alt="">
+<!-- <img src="../../assets/" alt=""> -->
+</div>
+
+<div class="infom">
+        <h2>Owner's Name</h2>
+        <p>{{owner}}</p>
+        <h2>E-mail</h2>
+        <p>{{email}}</p>
+        <h2>Address</h2>
+        <p>{{address}}</p>
+        <h2>Tel</h2>
+        <p>{{tel}}</p>
+</div>
+
 </div>
 
 <div class="info">
+<div class="gas">
+<div class="head">
+  <div class="pic">
+<img src="../../assets/gas-cylinder.png" alt="">
+  </div>
+  <div class="prod">
+    <h1>LPG</h1>
+  </div>
+</div>
 
-  <h1>{{name}}</h1>
+<div class="head2">
+ <div class="text">
+   <p>9Kg</p> - <p>R{{gas}}</p>
+ </div>
+</div>
+
+</div>
+ <div class="fuel">
+    <img src="../../assets/gas-station.png" alt="">
+    <h1>Petrol93: R{{petrol93}}</h1>
+    <h1>Petrol95: R{{petrol95}}</h1>
+ </div>
+</div>
+</div>
+  </div>
+</body>
+ <!-- <h1>{{name}}</h1>
   <h1>Address: {{address}}</h1>
   <h1>Business Owner: {{owner}}</h1>
   <h1>Email: {{email}}</h1>
@@ -43,11 +81,6 @@
   <h1>Petrol93: {{petrol93}}</h1>
   <h1>Petrol93: {{petrol95}}</h1>
   <h1>Gas: {{gas}}</h1>
-  <h1>{{icon}}</h1>
-</div>
-</div>
-  </div>
-<!-- </body> -->
-
+  <h1>{{icon}}</h1> -->
 
 <!-- <h1>we are</h1> -->

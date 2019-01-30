@@ -8,11 +8,10 @@
     </div>
   
     <div class="linkcontainer">
-        <a class="link" (click)=home() routerLink="/home">home</a>
-      <a class="link" (click)="busipage()">Business Profile</a>
-      <a class="link activel">Products</a>
-      <!-- <a class="link" (click)="More()" routerLink = "/more-info">More-INFO</a> -->
-      <a class="link" (click)="logout()" routerLink="/busedit">Logout</a>
+        <a class="link" (click)="nextPage('home')">Home</a>
+        <a class="link" (click)="nextPage('next-page')">My Business </a>
+        <a class="link activel" (click)="nextPage('products')">My Products</a>
+        <a class="link" (click)=logout()>Logout</a>
     </div>
   
   </nav>

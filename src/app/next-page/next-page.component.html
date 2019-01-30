@@ -6,11 +6,10 @@
       </div>
     
       <div class="linkcontainer">
-          <a class="link" (click)=home() routerLink="/home">home</a>
-        <a class="link activel" routerLink="/nextpage">Business Profile</a>
-        <a class="link" routerLink="/products">Products</a>
-        <a class="link" (click)=more() routerLink="/more-info">More-INFO</a>
-        <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+          <a class="link" (click)="nextPage('home')">Home</a>
+          <a class="link activel" (click)="nextPage('next-page')">My Business </a>
+          <a class="link" (click)="nextPage('products')">My Products</a>
+          <a class="link" (click)=logout()>Logout</a>
       </div>
     
     </nav>

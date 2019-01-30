@@ -299,4 +299,8 @@ export class NextPageComponent implements OnInit {
 
   //       })
   // }
+
+  nextPage(page: string){
+    this.router.navigate([page]);
+  }
 }
