@@ -43,9 +43,10 @@ $divider-color:        #BDBDBD;
         background-image:linear-gradient(#2196F3,rgba(grey,1));
        .logo{
            display: flex;
-        //    justify-content: column;
+           justify-content: center;
            align-items: center;
            height: 18.5rem;
+           width:20rem;
         //    background-color: wheat;
            img{
                height: 10em;
