@@ -18,6 +18,7 @@ import { CardlistComponent } from './cardlist/cardlist.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
+
 //New Components
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -89,8 +90,7 @@ const appRoutes: Routes = [
     }),
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    FormsModule
-    
+    FormsModule,
   ],
   providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]
