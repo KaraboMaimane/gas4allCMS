@@ -64,6 +64,7 @@ $divider-color:        #BDBDBD;
 
            h1{
             margin: 0 5em 0 0;
+            color: $accent-color;
            }
        }
     
@@ -85,28 +86,46 @@ $divider-color:        #BDBDBD;
             .icons{
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
                 width:14.75rem;
                 height: 56.3rem;
                 align-items: center;
                 // background-color: grey;
+                .con{
+                    display: flex;
+                    justify-content: center;
+                    width:14.75rem;
+                    height:10rem; 
+                }
                  img{
-                margin: 5.5rem 0 0 ;
-                height: 50px;
-                width: 50px;
+                // margin: 5rem 0 0 ;
+                height: 30px;
+                width: 30px;
                 // display: block;
             }
             }
             .infom{
                 display: flex;
                 flex-direction: column;
-                // justify-content: space-around;
+                // align-content: center;
+                justify-content: center;
                 width:23.75rem;
                 height: 56.3rem;
                 // align-items: center;
                 // background-color: orangered;
+                .details{
+                    display: flex;
+                    flex-direction: column;
+                    // justify-content: center;
+                    width:14.75rem;
+                    height:10rem; 
+                    // background-color: lightgreen;
+
+                }
                 h2{
                 font-size: 2rem;
-                margin: 6.5rem 0 0;
+                margin: .5rem 0 0;
+                color: $secondary-text-color;
                 }
             }
            
@@ -124,15 +143,18 @@ $divider-color:        #BDBDBD;
         .gas{
             display: flex;
             flex-direction: column;
-            // margin: 6.9rem 0 0;
-            width: 37.5rem;
+            margin: 3.9rem 0 0;
+            width: 35.5rem;
             height: 28.15rem;
+            // box-shadow: 0 1rem 3rem rgba(0,0,0,.3);
+            // border-radius: 12px;
             // background-color: purple;
             .head{
                 display: flex;
                 flex-direction: row;
                 width: 37.5rem;
                 height: 10rem;
+          
                 // background-color: palegreen;
                 .pic{
                     display: flex;
@@ -142,8 +164,8 @@ $divider-color:        #BDBDBD;
                     height: 10rem;
                     // background-color: pink;
                     img{
-                        height:80px;
-                        width: 80px;
+                        height:60px;
+                        width: 60px;
                     }
                 }
                 .prod{
@@ -153,19 +175,24 @@ $divider-color:        #BDBDBD;
                     width: 22.75rem;
                     height: 10rem;
                     // background-color: burlywood;
+                    h1{
+                        color: $secondary-text-color;
+                    }
                 }
             }
 
             .head2{
                 display: flex;
+                align-items: center;
                 width: 37.5rem;
                 height: 18.15rem;
                 // background-color: palegreen;
                 .text{
                     display: flex;
                     justify-content: space-around;
-                    width: 37.5rem;
+                    width: 33rem;
                     height: 5.15rem;
+                    color: $secondary-text-color;
                     font-size: 1.8rem;
                     // background-color: #212121;
                 }
@@ -175,17 +202,50 @@ $divider-color:        #BDBDBD;
             display: flex;
             flex-direction: column;
             // align-items: center;
-            width: 37.5rem;
+            width: 35.5rem;
             height: 28.15rem;
+            margin: 0 0 5em 0;
             // background-color: lawngreen;
-            h1{
-                font-size: 3.5rem;
-                margin: 2rem 0 0;
+            .head{
+                display: flex;
+                flex-direction: row;
+                width: 37.5rem;
+                height: 10rem;
             }
+            p{
+                font-size: 1.8rem;
+                // margin: 2rem 0 0;
+                color: $secondary-text-color;
+            }
+            .prod{
+                display: flex;
+                color: $secondary-text-color;
+                // justify-content: center;
+                align-items: center;
+                width: 22.75rem;
+                height: 10rem;
+                // background-color: burlywood;
+            }
+            .pic{
+                display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 14.75rem;
+                    height: 10rem;
+                    // background-color: pink; 
             img{
                 height: 50px;
                 width: 50px;
             }
+        }
+        .fuelprice{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 33rem;
+            height: 5.15rem;
+            
+        }
         }
       
     }
