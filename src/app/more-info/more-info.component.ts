@@ -42,4 +42,9 @@ tel;
     
   }
 
+
+  nextPage(page:string){
+    this.router.navigate([page]);
+  }
+
 }

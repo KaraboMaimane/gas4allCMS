@@ -5,11 +5,10 @@
   </div>
 
   <div class="linkcontainer">
-      <a class="link" (click)=home() routerLink="/home">home</a>
-      <a class="link" (click)="busipage()">Business Profile</a>
-      <a class="link activel">Products</a>
-      <!-- <a class="link" (click)="More()" routerLink = "/more-info">More-INFO</a> -->
-      <a class="link" (click)="logout()" routerLink="/busedit">Logout</a>
+      <a class="link activel">Home</a>
+      <a class="link" (click)="nextPage('next-page')">My Business </a>
+      <a class="link" (click)="nextPage('products')">My Products</a>
+      <a class="link" (click)=logout()>Logout</a>
   </div>
 </nav>
 
@@ -38,8 +37,11 @@
         <h2>Owner's Name</h2>
         <p>{{owner}}</p>
         <h2>E-mail</h2>
+        <p>{{email}}</p>
         <h2>Address</h2>
+        <p>{{address}}</p>
         <h2>Tel</h2>
+        <p>{{tel}}</p>
 </div>
 
 </div>
@@ -57,13 +59,15 @@
 
 <div class="head2">
  <div class="text">
-   <p>9Kg</p> - <p>{{gas}}</p>
+   <p>9Kg</p> - <p>R{{gas}}</p>
  </div>
 </div>
 
 </div>
  <div class="fuel">
-
+    <img src="../../assets/gas-station.png" alt="">
+    <h1>Petrol93: R{{petrol93}}</h1>
+    <h1>Petrol95: R{{petrol95}}</h1>
  </div>
 </div>
 </div>
