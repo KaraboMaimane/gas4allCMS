@@ -32,7 +32,7 @@
     <div class="mapcontainer">
       <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
         [streetViewControl]="false" [zoom]="13" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
-        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="location.icon"
+        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="icon"
           [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
         <agm-marker [latitude]="latitude" [iconUrl]="man" [longitude]="longitude"></agm-marker>
       </agm-map>
