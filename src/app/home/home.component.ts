@@ -13,9 +13,9 @@ import * as firebase from 'firebase';
 })
 export class HomeComponent implements OnInit {
   //setting up our coordinates here
-  totalOulets;
-  totalSpaza =0;
-  totalGarage = 0;
+  totalOulets: number = 0;
+  totalSpaza: number  = 0;
+  totalGarage:number = 0;
   latitude;
   longitude;
   locations = [];
