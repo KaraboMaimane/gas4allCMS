@@ -121,12 +121,56 @@ $divider-color:        #BDBDBD;
           background-color: orange;
         //   border-radius: 80% 80% 0 0/30%;
         }
-        .text{
-            // display: flex;
-            // align-items: center;
-            margin: 6.9rem 0 0;
+        .gas{
+            display: flex;
+            flex-direction: column;
+            // margin: 6.9rem 0 0;
             width: 37.5rem;
-            // background-color: grey;
+            height: 28.15rem;
+            background-color: purple;
+            .head{
+                display: flex;
+                flex-direction: row;
+                width: 37.5rem;
+                height: 10rem;
+                background-color: palegreen;
+                .pic{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 14.75rem;
+                    height: 10rem;
+                    background-color: pink;
+                    img{
+                        height:80px;
+                        width: 80px;
+                    }
+                }
+                .prod{
+                    display: flex;
+                    // justify-content: center;
+                    align-items: center;
+                    width: 22.75rem;
+                    height: 10rem;
+                    background-color: burlywood;
+                }
+            }
+
+            .head2{
+                display: flex;
+                width: 37.5rem;
+                height: 18.15rem;
+                background-color: palegreen;
+                .text{
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+        .fuel{
+            width: 37.5rem;
+            height: 28.15rem;
+            background-color: lawngreen;
         }
       
     }

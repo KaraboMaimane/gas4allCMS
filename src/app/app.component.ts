@@ -24,7 +24,7 @@ export class AppComponent {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
-        console.log("im onine")
+        console.log("im online")
         router.navigate(['/more-info']);
       } else {
         // No user is signed in.
