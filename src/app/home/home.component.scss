@@ -76,10 +76,8 @@
                 display: flex;
                 align-items: center;
                 transition: .3s ease all;
-                
                 &:hover{
-                    background: linear-gradient(to right bottom, var(--primary-color-light), var(--primary-color-light)) , url('../../assets//6fc4299dfa18327fee201fade0fee731.jpg')!important;
-                    // color: var(--accent-color) !important;
+                    background: var(--primary-color-light);
                 }
                 .icon{
                     width: 5rem;
