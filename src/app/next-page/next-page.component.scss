@@ -117,7 +117,7 @@ position: relative;
         transition: .3s;
     }
 .inp input:focus{
-    transition: .8s;
+    transition: .3s ease all;
     border-bottom-color: #1976D2;
 }
     .inp input:focus ~ label ,
