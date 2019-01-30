@@ -40,6 +40,7 @@ $divider-color:        #BDBDBD;
         height: 21.25rem;
         width:75rem;
         border-radius: 0 0 80% 80%/30%;
+        border-bottom: 3px solid $accent-color;
         background-image:linear-gradient(#2196F3,rgba(grey,1));
        .logo{
            display: flex;
@@ -117,17 +118,16 @@ $divider-color:        #BDBDBD;
                 .details{
                     display: flex;
                     flex-direction: column;
-                    // justify-content: flex-start;
+                    justify-content: flex-start;
                     width:14.75rem;
-                    margin: .1rem 0 0 1rem ;
+                    padding: .5rem;
                     height:10rem; 
-                //   padding: 1rem 0 0 0;
                     // background-color: lightgreen;
                  
                 }
                 h2{
                 font-size: 2rem;
-                margin: .5rem 0 0;
+                // margin: .5rem 0 0;
                 color: $secondary-text-color;
                 }
             }
@@ -136,11 +136,11 @@ $divider-color:        #BDBDBD;
         .info{
             display: flex;
             flex-direction: column;
-            align-items: center;
-            // justify-content: space-around;
+            // align-items: center;
+            // justify-content: center;
             width: 37.5rem;
             height: 56.3rem;
-            margin: 1rem 0 0;
+            margin: 5rem 0 0;
             // padding: 1rem 0 0 2rem;
         //   background-color: orange;
         //   border-radius: 80% 80% 0 0/30%;
@@ -151,7 +151,7 @@ $divider-color:        #BDBDBD;
             margin: 5rem 0 0;
             // padding: .5rem;
             width: 34.5rem;
-            height: 20.15rem;
+            height: 15.15rem;
             box-shadow: 0 .5rem 2rem 0 rgba(0,0,0,.2);
             border-radius: 12px;
             // background-color: purple;
@@ -195,8 +195,10 @@ $divider-color:        #BDBDBD;
                 // background-color: palegreen;
                 .text{
                     display: flex;
+                    align-items: center;
                     justify-content: space-around;
                     width: 33rem;
+                    // margin: 2rem 0;
                     height: 5.15rem;
                     color: $secondary-text-color;
                     font-size: 1.8rem;
@@ -209,7 +211,7 @@ $divider-color:        #BDBDBD;
             flex-direction: column;
             // align-items: center;
             width: 34.5rem;
-            height: 20.15rem;
+            height: 15.15rem;
             margin: 1rem 0 4em 0;
             border-radius: 12px;
             box-shadow: 0 1rem 5rem 0  rgba(0,0,0,.3);
