@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-signup',
@@ -24,6 +25,17 @@ export class SignupComponent implements OnInit {
       (data)=>{
         console.log(data);
         this.router.navigate(['/signin']);
+
+        let user = firebase.auth().currentUser;
+        if(user.emailVerified == true){
+          
+    
+    }else{
+
+      //alert("confirm your email");
+      this.database.confirmation();
+    }
+
       }
     ).catch(
       (error)=>{

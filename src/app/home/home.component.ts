@@ -4,6 +4,7 @@ import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
+
 // import {Popup} from 'ng2-opd-popup';
 
 @Component({
@@ -12,6 +13,25 @@ import * as firebase from 'firebase';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+// PopUp
+details = [];
+
+  
+address;
+diesel;
+email;
+gas;
+// icon;
+lat;
+lng;
+name;
+owner;
+petrol93;
+petrol95;
+phone;
+tel;
+
+
   //setting up our coordinates here
   totalOulets: number = 0;
   totalSpaza: number  = 0;
@@ -27,11 +47,17 @@ export class HomeComponent implements OnInit {
   name: string;
   icon;
   iconArray = [];
+
+  modal;
+
   constructor( public router: Router,private database: DatabaseService, private media: MediaService) {
+    this.modal = 'false';
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
-    this.styles = this.media.mapstyle
+    this.styles = this.media.mapstyle;
+
+    console.log(this.modal);
     
     this.location = navigator.geolocation.getCurrentPosition((data)=>{
       this.latitude = data.coords.latitude;
@@ -107,7 +133,7 @@ console.log(this.totalSpaza,this.totalGarage);
   //   console.log('pop')
   // }
 
-  
+
   onChoseLocation(event) {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
@@ -118,7 +144,20 @@ console.log(this.totalSpaza,this.totalGarage);
   return(location){
     locationsArr.length = 0;
     locationsArr.push(location);
-    this.router.navigate(['/more-info'])
+   
+
+    this.address  = locationsArr[0].address;
+    this.diesel  = locationsArr[0].diesel;
+    this.email  = locationsArr[0].email;
+    this.gas  = locationsArr[0].gas;
+    this.icon  = locationsArr[0].icon;
+    this.name  = locationsArr[0].name;
+    this.owner  = locationsArr[0].owner;
+    this.petrol93  = locationsArr[0].petrol93;
+    this.petrol95  = locationsArr[0].petrol95;
+    this.tel  = locationsArr[0].tel;
+    
+    // this.router.navigate(['/more-info'])
     
     console.log(locationsArr);
     

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
-import { map } from "rxjs/operators"
-import { Alert, promise } from 'selenium-webdriver';
+// import { map } from "rxjs/operators"
+// import { Alert, promise } from 'selenium-webdriver';
 import Swal from 'sweetalert2';
-
+import { Popup } from 'ng2-opd-popup';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +16,7 @@ export class DatabaseService {
   state;
   authenticate = firebase.auth();
 
-  constructor(private http: Http) {
+  constructor(private popup:Popup,private http: Http) {
     // firebase.initializeApp({
     //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
     //   authDomain: "fuelapp-6050c.firebaseapp.com",
@@ -28,7 +28,17 @@ export class DatabaseService {
   }
 
   register(email: string, password: string) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(data=>{
+      let user = firebase.auth().currentUser;
+      console.log(user);
+
+      user.sendEmailVerification().then(function(a){
+      console.log(a);
+
+       }).catch(function(error) {
+       // An error happened.
+       });
+    });
   }
 
   login(email: string, password: string) {
@@ -156,6 +166,14 @@ export class DatabaseService {
 
   }
 
+ showPopup(){
+   this.popup.options ={
+     color: "#2196F3"
+   }
+    this.popup.show();
+    console.log('pop')
+  }
+
   success() {
     Swal.fire({
       position: 'center',
@@ -163,6 +181,17 @@ export class DatabaseService {
       title: 'Your data has been saved',
       showConfirmButton: false,
       timer: 2500
+    })
+  }
+
+  
+  confirmation() {
+    Swal.fire({
+      position: 'center',
+      type: 'information',
+      title: 'Please verify your email address ',
+      showConfirmButton: false,
+      timer: 3000
     })
   }
 

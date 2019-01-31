@@ -12,11 +12,22 @@
   </div>
 
 </nav>
+<popup class="Poping">
 
+  <!-- <h1>{{name}}</h1>
+  <h1>Address: {{address}}</h1>
+  <h1>Business Owner: {{owner}}</h1>
+  <h1>Email: {{email}}</h1>
+  <h1>Phone: {{tel}}</h1>
+  <h1>Petrol93: {{petrol93}}</h1>
+  <h1>Petrol93: {{petrol95}}</h1>
+  <h1>Gas: {{gas}}</h1>
+  <h1>{{icon}}</h1> -->
+</popup>
 <div class="contentcontainer">
   <div class="main">
     <div class="listcontainer">
-      <div *ngFor="let location of locations" (click)="return(location)" class="card">
+      <div *ngFor="let location of locations" (click)="return(location);modal = 'true' " class="card">
         <img src="../../assets/pin (2).png" class="pin" alt="" *ngIf="location.icon == 'garage'">
         <img src="../../assets/house (1).png" class="pin" alt="" *ngIf="location.icon != 'garage'">
 
@@ -34,14 +45,14 @@
     <div class="mapcontainer">
       <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
         [streetViewControl]="false" [zoom]="11" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
-        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="icon" [latitude]="location.lat"
-          [longitude]="location.lng"></agm-marker>
+        <agm-marker (markerClick)="return(location); modal = 'true'" *ngFor="let location of locations" [iconUrl]="icon"
+          [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
         <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
         <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false"
           [fillColor]="'#FFC107'" [radius]="10000">
         </agm-circle>
       </agm-map>
-
+<button>Biz</button> <label class="label1">My Business</label>
     </div>
   </div>
   <div class="outlets">
@@ -72,5 +83,110 @@
       </div>
     </div>
 
+  </div>
+
+</div>
+
+<div class="modalf" (click)="modal = 'false'" *ngIf="modal == 'true'">
+
+  <div class="alert">
+    <div class="container">
+      <div class="div1">
+        <div class="logo">
+          <img src="../../assets/log.png" alt="">
+        </div>
+        <div class="headertext">
+          <h1 text-wrap>{{name}}</h1>
+        </div>
+      </div>
+
+      <div class="div2">
+        <div class="sidecons">
+          <div class="icons">
+            <div class="con">
+              <img src="../../assets/manager.png" alt="">
+            </div>
+            <div class="con">
+              <img src="../../assets/arroba-sign.png" alt="">
+            </div>
+            <div class="con">
+              <img src="../../assets/home.png" alt="">
+            </div>
+            <div class="con">
+              <img src="../../assets/call-answer.png" alt="">
+            </div>
+
+            <!-- <img src="../../assets/" alt=""> -->
+          </div>
+
+          <div class="infom">
+            <div class="details">
+              <h2>Owner's Name</h2>
+              <p>{{owner}}</p>
+            </div>
+            <div class="details">
+              <h2>E-mail</h2>
+              <p>{{email}}</p>
+            </div>
+            <div class="details">
+              <h2>Address</h2>
+              <p>{{address}}</p>
+            </div>
+            <div class="details">
+              <h2>Tel</h2>
+              <p>{{tel}}</p>
+            </div>
+
+
+            <!-- <h2>E-mail</h2>
+                      <p>{{email}}</p>
+                      <h2>Address</h2>
+                      <p>{{address}}</p>
+                      <h2>Tel</h2>
+                      <p>{{tel}}</p> -->
+          </div>
+
+        </div>
+
+        <div class="info">
+          <div class="gas" *ngIf="gas !> 0">
+            <div class="head">
+              <div class="pic">
+                <img src="../../assets/gas-cylinder.png" alt="">
+              </div>
+              <div class="prod">
+                <h1>LPG</h1>
+              </div>
+            </div>
+
+            <div class="head2">
+              <div class="text">
+                <p>9 kg</p> - <p>R{{gas}}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="fuel" *ngIf="petrol93 !> 0">
+            <div class="head">
+              <div class="pic">
+                <img src="../../assets/gas-station.png" alt="">
+              </div>
+              <div class="prod">
+                <h1>FUEL</h1>
+              </div>
+            </div>
+
+
+            <div class="fuelprice">
+              <!-- <p>9 kg</p> - <p>R{{gas}}</p> -->
+              <p>Petrol 93: R{{petrol93}}</p> - <p>Petrol 95: R{{petrol95}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="tn" (click)="modal = 'false'">Okay</button>
   </div>
 </div>

@@ -21,11 +21,18 @@ export class AppComponent {
   constructor(private database: DatabaseService,router: Router) {
     
     console.log('users!')
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
+    firebase.auth().onAuthStateChanged(function(userx) {
+      if (userx) {
         // User is signed in.
+        // let user = firebase.auth().currentUser;
+        //console.log(userx);
+      
         console.log("im online")
-        router.navigate(['/home']);
+        if(userx.emailVerified == true){
+          router.navigate(['/home'])
+    }else{
+      // alert("confirm");
+    }
       } else {
         // No user is signed in.
         console.log("im offline")
