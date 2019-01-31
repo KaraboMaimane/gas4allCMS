@@ -39,10 +39,15 @@ export class DatabaseService {
        // An error happened.
        });
     });
+<<<<<<< HEAD
+=======
+    
+>>>>>>> bfb1a1e8d303af7461d525e45c71640fb013daa0
   }
 
   login(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
+  
   }
 
   getUser() {
