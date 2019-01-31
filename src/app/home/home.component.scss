@@ -64,31 +64,35 @@
         height: 50%; 
         background:var(--color-grey-light-1);
         .listcontainer{
-            flex: 1;
+            flex: 0 0 35%;
             height: 100%;
             overflow-y: scroll; 
             padding: 1rem;
             .card{
-                box-shadow: 0 0 .9rem rgba(black, .2);
+                box-shadow: 0 0 .9rem rgba(black, .5);
                 margin: 2rem 0;
                 border-radius: .5rem;
                 padding: .5rem;
                 display: flex;
                 align-items: center;
                 transition: .3s ease all;
-                
-                
+                &:hover{
+                    background: var(--primary-color-light);
+                }
                 .icon{
                     width: 5rem;
                     height: 5rem;
                 }
                 .heading{
                     font-size: 2rem;
+                    text-transform: capitalize;
                 }
 
                 .text{
                     font-size: 1.6rem;
                     color: var(--color-grey-dark-2);
+                    text-transform: capitalize;
+
                 }
                 &:hover{
                     background: var(--primary-color) !important;
@@ -96,9 +100,11 @@
                 }
             }
             .card:nth-child(even){
-                background: var(--color-grey-light-2);
+                background: var(--color-grey-light-3);
+                animation: left .5s ease;
             }
-            .card:nth-child(even){
+            .card:nth-child(odd){
+                animation: right .5s ease;
             }
         }
         .mapcontainer{
@@ -110,9 +116,11 @@
         display: flex;
         flex-flow: row nowrap;
         height: 50%;
-        background: var(--color-grey-light-1);
-        border-top: 1px solid var(--color-grey-light-2);
-        box-shadow: 0 .3rem 9rem rgba(black, .3);
+        background: linear-gradient(to right bottom, rgba(red, .4), var(--primary-color-dark)) , url('../../assets/jonathan-petersson-217672-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        // border-top: 1px solid var(--color-grey-light-2);
+        // box-shadow: 0 .3rem .5rem rgba(black, .3);
         .outletcontainer{
             flex: 1;
             height: 100%;
@@ -121,16 +129,20 @@
 
             justify-content: center;
             transition: .2s ease all;
-            &:hover{
-                background: var(--primary-color);
-            }
             .outlet{
                 width: 100%;
-                box-shadow: 0 0 1.5rem rgba(black, .2);
+                box-shadow:  0 .3rem  .5rem black;
                 padding: 2rem;
                 margin: 1rem;
-                background: white;
-
+                background: rgba(white, .9);
+                transition: ease all .4s;
+                border-radius: .3rem;
+                &:hover{
+                    box-shadow:  0 .3rem  4rem black;
+                    background: var(--primary-color);
+                    color: var(--accent-color);
+                    transform: translateY(-.5rem);
+                }
                 .heading{
                     font-size: 2.5rem;
                     text-align: center;
@@ -237,3 +249,27 @@ agm-map{
           color: var(--color-grey-dark-2);
       }
   }
+
+  @keyframes left{
+      0%{
+        opacity: 0;
+        transform: translateX(-1rem);
+      }
+
+      100%{
+        opacity: 1;
+        transform: translateX(0);
+      }
+  }
+
+  @keyframes right{
+    0%{
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

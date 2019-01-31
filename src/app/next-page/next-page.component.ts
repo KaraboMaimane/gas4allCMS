@@ -166,7 +166,7 @@ export class NextPageComponent implements OnInit {
               // this.modal = 'true';
               // this.modal1 = 'true';
               console.log(this.modal, this.modal1)
-            alert("Your information was saved successfully")
+            
             // this.database.success();
            
             Swal.fire({

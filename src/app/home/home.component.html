@@ -19,10 +19,10 @@
       <div *ngFor="let location of locations" (click)="return(location)" class="card">
         <img src="../../assets/pin (2).png" class="pin" alt="" *ngIf="location.icon == 'garage'">
         <img src="../../assets/house (1).png" class="pin" alt="" *ngIf="location.icon != 'garage'">
-        
+
         <div class="outletdetails">
           <p class="heading">{{location.name | slice:0:25}}</p>
-          <p class="text">{{location.address | slice:0:30}}</p>
+          <p class="text">{{location.address | slice:0:25}}</p>
         </div>
       </div>
       <div class="listspinner" *ngIf="locations.length < 1">
@@ -33,11 +33,15 @@
     </div>
     <div class="mapcontainer">
       <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
-        [streetViewControl]="false" [zoom]="13" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
-        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="icon"
-          [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
-        <agm-marker [latitude]="latitude" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+        [streetViewControl]="false" [zoom]="11" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="icon" [latitude]="location.lat"
+          [longitude]="location.lng"></agm-marker>
+        <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+        <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false"
+          [fillColor]="'#FFC107'" [radius]="10000">
+        </agm-circle>
       </agm-map>
+
     </div>
   </div>
   <div class="outlets">
