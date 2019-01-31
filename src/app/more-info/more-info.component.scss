@@ -40,12 +40,14 @@ $divider-color:        #BDBDBD;
         height: 21.25rem;
         width:75rem;
         border-radius: 0 0 80% 80%/30%;
+        border-bottom: 3px solid $accent-color;
         background-image:linear-gradient(#2196F3,rgba(grey,1));
        .logo{
            display: flex;
-        //    justify-content: column;
+           justify-content: center;
            align-items: center;
            height: 18.5rem;
+           width:20rem;
         //    background-color: wheat;
            img{
                height: 10em;
@@ -64,6 +66,7 @@ $divider-color:        #BDBDBD;
 
            h1{
             margin: 0 5em 0 0;
+            color: $accent-color;
            }
        }
     
@@ -76,24 +79,185 @@ $divider-color:        #BDBDBD;
         background-color: white; 
         .sidecons{
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            // align-items: center;
             // align-content: flex-start;
             width: 37.5rem;
-            height: 63.75rem;
-            background-color: green;
-            img{
-                margin: 2rem 0 0 ;
-                height: 13%;
-                width: 20%;
-                display: block;
+            height: 56.3rem;
+            // background-color: green;
+            .icons{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width:14.75rem;
+                height: 56.3rem;
+                align-items: center;
+                // background-color: grey;
+                .con{
+                    display: flex;
+                    justify-content: center;
+                    width:14.75rem;
+                    height:10rem; 
+                }
+                 img{
+                // margin: 5rem 0 0 ;
+                height: 30px;
+                width: 30px;
+                // display: block;
             }
+            }
+            .infom{
+                display: flex;
+                flex-direction: column;
+                // align-content: center;
+                justify-content: center;
+                width:23.75rem;
+                height: 56.3rem;
+                // align-items: center;
+                // background-color: orangered;
+                .details{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    width:14.75rem;
+                    padding: .5rem;
+                    height:10rem; 
+                    // background-color: lightgreen;
+                 
+                }
+                h2{
+                font-size: 2rem;
+                // margin: .5rem 0 0;
+                color: $secondary-text-color;
+                }
+            }
+           
         }
         .info{
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            // justify-content: center;
             width: 37.5rem;
-            height: 63.75rem;
-          background-color: orange;
+            height: 56.3rem;
+            margin: 5rem 0 0;
+            // padding: 1rem 0 0 2rem;
+        //   background-color: orange;
+        //   border-radius: 80% 80% 0 0/30%;
         }
+        .gas{
+            display: flex;
+            flex-direction: column;
+            margin: 5rem 0 0;
+            // padding: .5rem;
+            width: 34.5rem;
+            height: 15.15rem;
+            box-shadow: 0 .5rem 2rem 0 rgba(0,0,0,.2);
+            border-radius: 12px;
+            // background-color: purple;
+            .head{
+                display: flex;
+                flex-direction: row;
+                width: 37.5rem;
+                height: 10rem;
+          
+                // background-color: palegreen;
+                .pic{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 14.75rem;
+                    height: 10rem;
+                    // background-color: pink;
+                    img{
+                        height:60px;
+                        width: 60px;
+                    }
+                }
+                .prod{
+                    display: flex;
+                    // justify-content: center;
+                    align-items: center;
+                    width: 22.75rem;
+                    height: 10rem;
+                    // background-color: burlywood;
+                    h1{
+                        color: $secondary-text-color;
+                    }
+                }
+            }
+
+            .head2{
+                display: flex;
+                align-items: center;
+                width: 37.5rem;
+                height: 18.15rem;
+                // background-color: palegreen;
+                .text{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 33rem;
+                    // margin: 2rem 0;
+                    height: 5.15rem;
+                    color: $secondary-text-color;
+                    font-size: 1.8rem;
+                    // background-color: #212121;
+                }
+            }
+        }
+        .fuel{
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            width: 34.5rem;
+            height: 15.15rem;
+            margin: 1rem 0 4em 0;
+            border-radius: 12px;
+            box-shadow: 0 1rem 5rem 0  rgba(0,0,0,.3);
+            // background-color: lawngreen;
+            .head{
+                display: flex;
+                flex-direction: row;
+                width: 37.5rem;
+                height: 10rem;
+            }
+            p{
+                font-size: 1.8rem;
+                // margin: 2rem 0 0;
+                color: $secondary-text-color;
+            }
+            .prod{
+                display: flex;
+                color: $secondary-text-color;
+                // justify-content: center;
+                align-items: center;
+                width: 22.75rem;
+                height: 10rem;
+                // background-color: burlywood;
+            }
+            .pic{
+                display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 14.75rem;
+                    height: 10rem;
+                    // background-color: pink; 
+            img{
+                height: 50px;
+                width: 50px;
+            }
+        }
+        .fuelprice{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 33rem;
+            height: 5.15rem;
+            
+        }
+        }
+      
     }
 }
 .navb{

@@ -28,6 +28,7 @@ tel;
 
   ngOnInit() {
     console.log(locationsArr)
+    
     this.address  = locationsArr[0].address;
     this.diesel  = locationsArr[0].diesel;
     this.email  = locationsArr[0].email;
@@ -39,7 +40,12 @@ tel;
     this.petrol95  = locationsArr[0].petrol95;
     this.tel  = locationsArr[0].tel;
     console.log(this.address)
-    
+     
+  }
+
+
+  nextPage(page:string){
+    this.router.navigate([page]);
   }
 
 }

@@ -5,29 +5,10 @@
   </div>
 
   <div class="linkcontainer">
-    <a class="link" (click)=home() routerLink="/home">home</a>
-    <a class="link activel" routerLink="/nextpage">Business Profile</a>
-    <a class="link" routerLink="/products">Products</a>
-    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
-  </div>
-
-</nav>
-
-<div class="map">
-
-</div>
-
-<nav class="navb">
-  <div class="logo">
-    <img class="logo" src="../assets/log.png" alt="">
-    <h1 class="heading">GasRadar</h1>
-  </div>
-
-  <div class="linkcontainer">
-    <a class="link" (click)=home() routerLink="/home">home</a>
-    <a class="link activel" routerLink="/nextpage">Business Profile</a>
-    <a class="link" routerLink="/products">Products</a>
-    <a class="link" (click)=logout() routerLink="/busedit">Logout</a>
+    <a class="link activel">Home</a>
+    <a class="link" (click)="nextPage('next-page')">My Business</a>
+    <a class="link" (click)="nextPage('products')">My Products</a>
+    <a class="link" (click)=logout()>Logout</a>
   </div>
 
 </nav>
@@ -36,22 +17,60 @@
   <div class="main">
     <div class="listcontainer">
       <div *ngFor="let location of locations" (click)="return(location)" class="card">
-        <p class="heading">{{location.name}}</p>
-        <p class="text">{{location.address}}</p>
+        <img src="../../assets/pin (2).png" class="pin" alt="" *ngIf="location.icon == 'garage'">
+        <img src="../../assets/house (1).png" class="pin" alt="" *ngIf="location.icon != 'garage'">
+
+        <div class="outletdetails">
+          <p class="heading">{{location.name | slice:0:25}}</p>
+          <p class="text">{{location.address | slice:0:25}}</p>
+        </div>
       </div>
+      <div class="listspinner" *ngIf="locations.length < 1">
+        <app-spinner></app-spinner>
+        <p class="loading">Hold on... We are getting places near you.</p>
+      </div>
+
     </div>
     <div class="mapcontainer">
-      <agm-map [latitude]="latitude" [disableDefaultUI]="true" [zoomControl]="false" [streetViewControl]="false" [zoom]="13"
-        [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
-        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="pump" [latitude]="location.lat"
+      <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
+        [streetViewControl]="false" [zoom]="11" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
+        <agm-marker (markerClick)="return(location)" *ngFor="let location of locations" [iconUrl]="icon" [latitude]="location.lat"
           [longitude]="location.lng"></agm-marker>
-        <agm-marker [latitude]="latitude" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+        <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+        <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false"
+          [fillColor]="'#FFC107'" [radius]="10000">
+        </agm-circle>
       </agm-map>
+
     </div>
   </div>
   <div class="outlets">
-    <div class="totalcontainer"> All Outlets: {{totalOulets}}</div>
-    <div class="garage">Total Shops: {{totalSpaza}}</div>
-    <div class="spaza">Total Garages:{{totalGarage}}</div>
+    <div class="outletcontainer">
+      <div class="outlet">
+        <img class="containericon" src="../../assets/deal.svg" alt="">
+        <p class="heading">Registered Outlets</p>
+        <p class="number" *ngIf="totalOulets > 1">{{totalOulets}}</p>
+        <app-spinner *ngIf="totalOulets < 1"></app-spinner>
+      </div>
+
+    </div>
+    <div class="outletcontainer">
+      <div class="outlet">
+        <img class="containericon" src="../../assets/pin (2).png" alt="">
+        <p class="heading">Garages</p>
+        <p class="number" *ngIf="totalGarage > 1">{{totalGarage}}</p>
+        <app-spinner *ngIf="totalGarage < 1"></app-spinner>
+      </div>
+    </div>
+
+    <div class="outletcontainer">
+      <div class="outlet">
+        <img class="containericon" src="../../assets/house (1).png" alt="">
+        <p class="heading">Local Businesses</p>
+        <p class="number" *ngIf="totalSpaza > 1">{{totalSpaza}}</p>
+        <app-spinner *ngIf="totalSpaza < 1"></app-spinner>
+      </div>
+    </div>
+
   </div>
 </div>

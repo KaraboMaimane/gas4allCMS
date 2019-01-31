@@ -4,7 +4,7 @@ import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
-
+// import {Popup} from 'ng2-opd-popup';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +13,9 @@ import * as firebase from 'firebase';
 })
 export class HomeComponent implements OnInit {
   //setting up our coordinates here
-  totalOulets;
-  totalSpaza =0;
-  totalGarage = 0;
+  totalOulets: number = 0;
+  totalSpaza: number  = 0;
+  totalGarage:number = 0;
   latitude;
   longitude;
   locations = [];
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   name: string;
   icon;
   iconArray = [];
-  constructor(public router: Router,private database: DatabaseService, private media: MediaService) {
+  constructor( public router: Router,private database: DatabaseService, private media: MediaService) {
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
@@ -71,12 +71,13 @@ export class HomeComponent implements OnInit {
 
             this.locations.push(business);
 
-            if(data.val().icon == "spaza"){
-              this.totalSpaza =this.totalSpaza + 1;
-              this.icon=this.media.shop;
-            }else{
+            if(data.val().icon == "garage"){
               this.totalGarage = this.totalGarage + 1;
               this.icon= this.media.fuelpump;
+            }else{
+              this.totalSpaza =this.totalSpaza + 1;
+              this.icon=this.media.shop;
+          
             }
             let o ={
               icon:this.icon
@@ -101,7 +102,12 @@ console.log(this.totalSpaza,this.totalGarage);
   //     console.log(error);
   //   })
   // }
- 
+  // showPopup(){
+  //   this.popup.show();
+  //   console.log('pop')
+  // }
+
+  
   onChoseLocation(event) {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;
@@ -110,11 +116,12 @@ console.log(this.totalSpaza,this.totalGarage);
   }
 
   return(location){
-   
+    locationsArr.length = 0;
     locationsArr.push(location);
     this.router.navigate(['/more-info'])
     
     console.log(locationsArr);
+    
   }
 
   logout(){
@@ -122,6 +129,10 @@ console.log(this.totalSpaza,this.totalGarage);
       console.log('exit')
       this.router.navigate(['/signin']);
     })
+  }
+
+  nextPage(page: string){
+    this.router.navigate([page]);
   }
 
 }

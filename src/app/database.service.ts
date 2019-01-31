@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
-import {map} from "rxjs/operators"
+import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { Alert, promise } from 'selenium-webdriver';
 export class DatabaseService {
 
   locations = [];
-  arry=[];
+  arry = [];
   state;
   authenticate = firebase.auth();
 
@@ -50,26 +51,26 @@ export class DatabaseService {
     return firebase.auth().currentUser.uid;
   }
 
-  onAuth(){
-   return new Promise((accpt,rej)=>{
-     this.authenticate.onAuthStateChanged(user =>{
-       if(user != null){
-         this.state = 1;
-       }
-       else{
-         this.state = 0;
-       }
-       accpt(this.state)
-     })
-     
-   })
+  onAuth() {
+    return new Promise((accpt, rej) => {
+      this.authenticate.onAuthStateChanged(user => {
+        if (user != null) {
+          this.state = 1;
+        }
+        else {
+          this.state = 0;
+        }
+        accpt(this.state)
+      })
+
+    })
   }
 
-  forgotPassword(email:any){
+  forgotPassword(email: any) {
     return this.authenticate.sendPasswordResetEmail(email);
   }
 
-  logOut(){
+  logOut() {
     console.log('exit')
     return new Promise((accpt, rej) => {
       this.authenticate.signOut();
@@ -77,47 +78,47 @@ export class DatabaseService {
     })
   }
 
-  registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lat,lng,petrol93,petrol95,diesel,gas){
-  
-    return firebase.auth().onAuthStateChanged(data=>{
-      if(data){
-        return firebase.database().ref('businessRegistration/'+ userid).push({
-          name:buisnessName,
-          email:businessEmail,
-          owner:businessOwner,
-          tel:businessTel,
-          lat:lat,
-          lng:lng,
-          petrol93:petrol93,
-          petrol95:petrol95,
-          diesel:diesel,
-          gas:gas
-      })
-      }else{
+  registerBusiness(userid, buisnessName, businessEmail, businessOwner, businessTel, lat, lng, petrol93, petrol95, diesel, gas) {
+
+    return firebase.auth().onAuthStateChanged(data => {
+      if (data) {
+        return firebase.database().ref('businessRegistration/' + userid).push({
+          name: buisnessName,
+          email: businessEmail,
+          owner: businessOwner,
+          tel: businessTel,
+          lat: lat,
+          lng: lng,
+          petrol93: petrol93,
+          petrol95: petrol95,
+          diesel: diesel,
+          gas: gas
+        })
+      } else {
 
         alert("login");
 
       }
-    
 
-  })
+
+    })
   }
 
-  retrievePassword(email){
+  retrievePassword(email) {
     return firebase.auth().sendPasswordResetEmail(email);
   }
-   update(userid,obj){
+  update(userid, obj) {
     firebase.database().ref(`userdb/${userid}`).update(obj);
 
   }
 
-  updateProduct(userid,obj){
-  return firebase.database().ref(`userdb/${userid}`).update(obj);
+  updateProduct(userid, obj) {
+    return firebase.database().ref(`userdb/${userid}`).update(obj);
   }
 
-  addpic(userid){
-  return  firebase.database().ref('pic/'+ userid).set({
-    url:"../../assets/maxresdefault (3).jpg"
+  addpic(userid) {
+    return firebase.database().ref('pic/' + userid).set({
+      url: "../../assets/maxresdefault (3).jpg"
     })
   }
 
@@ -126,46 +127,63 @@ export class DatabaseService {
       name: userName,
       email: email,
 
-    }).then(data=>{
+    }).then(data => {
       this.addpic(userid);
     })
 
-   
+
   }
 
   // geoLocation(place: string){
   //   return this.http.get(`https://www.globalpetrolprices.com/api/getGasXML_weekly.php?gasoline_diesel=1&rate=LC&countries=97&p=a7594c9d74a6422b728cff761a728e23`);
   // }
 
-  retrieveBusinessInfor(){
+  retrieveBusinessInfor() {
     let userid = this.getUser();
-    return new Promise((pass,fail)=>{
-      firebase.database().ref('userdb/'+ userid).on('value',data =>{
+    return new Promise((pass, fail) => {
+      firebase.database().ref('userdb/' + userid).on('value', data => {
         let infor = data.val();
-      let buisnessName = infor.name;
-      let  businessEmail = infor.email;
+        let buisnessName = infor.name;
+        let businessEmail = infor.email;
         console.log(infor + userid);
         let obj = {
-          name:infor.name,
+          name: infor.name,
           email: infor.email
         }
-          this.arry.push(obj)
+        this.arry.push(obj)
 
-   });
-   pass(this.arry);
-     })
-
-
-  }
-
-  retrieveInfor(userid ){
-
-    return  firebase.database().ref('userdb/'+ userid);
-  }
-  retrieveBusinessDetails(userid){
+      });
+      pass(this.arry);
+    })
 
 
   }
 
+  retrieveInfor(userid) {
 
+    return firebase.database().ref('userdb/' + userid);
+  }
+  retrieveBusinessDetails(userid) {
+
+
+  }
+
+  success() {
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Your data has been saved',
+      showConfirmButton: false,
+      timer: 2500
+    })
+  }
+
+  fail() {
+    Swal.fire({
+      type: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+      footer: '<a href>Some fields are invalid or empty</a>'
+    })
+  }
 }

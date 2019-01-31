@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import { DatabaseService } from '../database.service';
 import { NgForm } from '@angular/forms';
 declare var google;
+import { Alert, promise } from 'selenium-webdriver';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-next-page',
@@ -30,7 +32,11 @@ export class NextPageComponent implements OnInit {
   profileObj = {};
   infos = new Array();
 
+  modal;
+  modal1;
+
   constructor(private database: DatabaseService, private router: Router) {
+
     let userid = this.database.getUser();
 
     this.database.retrieveInfor(userid).on('value', data => {
@@ -67,10 +73,36 @@ export class NextPageComponent implements OnInit {
   }
   submit(){
 
-    let geocoder = new google.maps.Geocoder();
+    if(this.company == "" || this.company == undefined){
+      //  alert("Enter business name");
+       this.database.fail();
+
+    }else if(this.Owner == "" || this.Owner == undefined){
+      //  alert("Enter Owners name");
+
+      this.database.fail();
+    }else
+    if(this.address == "" || this.address == undefined){
+      //  alert("Enter business address");
+
+      this.database.fail();
+    }else
+    if(this.email == "" || this.email == undefined){
+      //  alert("Enter business email")
+
+      this.database.fail();
+    }else
+    if(this.tel == "" || this.tel == undefined){
+      //  alert("Enter business Contact details")
+
+      this.database.fail();
+    }
+
+    else{
+      let geocoder = new google.maps.Geocoder();
     let resultsMap;
     let userid = this.database.getUser();
-;
+
 
 
     console.log(userid + this.company + this.email + this.Owner + this.tel + this.address, this.shoptype);
@@ -130,12 +162,25 @@ export class NextPageComponent implements OnInit {
               // petrol93 :objinfor.petrol93,
               // gas :objinfor.gas,
               //  iesel:objinfor.diesel,
-
-              
-
+            }).then(data=>{
+              // this.modal = 'true';
+              // this.modal1 = 'true';
+              console.log(this.modal, this.modal1)
+            
+            // this.database.success();
+           
+            Swal.fire({
+              position: 'center',
+              type: 'success',
+              title: 'Your data has been saved',
+              showConfirmButton: false,
+              timer: 2500
             })
 
-            alert("Information Saved")
+            },(error =>{
+              alert("data not stored")
+            }))
+
           
 
 
@@ -152,6 +197,8 @@ export class NextPageComponent implements OnInit {
       
 
     })
+    }
+    
   }
 
   onSubmit(form: NgForm) {
@@ -214,7 +261,7 @@ export class NextPageComponent implements OnInit {
 
             })
 
-            alert("Information Saved")
+            // this.modal = 'true';
           
 
             this.router.navigate(["/products"])
@@ -222,7 +269,7 @@ export class NextPageComponent implements OnInit {
           } else {
 
 
-
+            // this.modal = 'true';
           }
 
 
@@ -276,7 +323,7 @@ export class NextPageComponent implements OnInit {
   // }
 
   ngOnInit() {
-
+    // this.database.success();
   }
 
   // submit(){
@@ -299,4 +346,9 @@ export class NextPageComponent implements OnInit {
 
   //       })
   // }
+
+  nextPage(page: string){
+    this.router.navigate([page]);
+  }
+
 }

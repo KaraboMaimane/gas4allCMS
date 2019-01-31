@@ -40,7 +40,7 @@ company
       this.gas =0;
        this.diesel =0;
       }
-      console.log(this.diesel+""+this.gas+""+this.petrol93+""+this.petrol95);
+      console.log(this.diesel+","+this.gas+","+this.petrol93+","+this.petrol95);
     })
 
 
@@ -64,7 +64,13 @@ company
     this.router.navigate(["/home"]);
   }
    edit(){
-    alert(this.diesel+""+this.gas+""+this.petrol93+""+this.petrol95);
+     if(this.petrol93 == null || this.petrol93 == undefined && this.petrol95 == null || this.petrol95 == undefined && this.diesel == null || this.diesel == undefined && this.gas == null || this.gas == undefined){
+      this.petrol95 =0;
+       this.petrol93 =0;
+      this.gas =0;
+       this.diesel =0; 
+     }
+
     return firebase.auth().onAuthStateChanged(data=>{
     
       if(data){
@@ -74,7 +80,7 @@ company
           diesel:this.diesel,
           gas:this.gas,
       }).then(data=>{
-        alert("Information saved");
+       this.database.success();
       })
 
       }
@@ -87,6 +93,9 @@ company
   ngOnInit() {
   }
 
+  nextPage(page: string){
+    this.router.navigate([page]);
+  }
 
 
 }
