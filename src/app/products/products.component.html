@@ -37,7 +37,7 @@
 
 
       <div class="right">
-        <h2>Product Prices</h2>
+        <h2>My Product Prices</h2>
         <div class="grid">
 
           <div class="fuel1">
@@ -48,7 +48,7 @@
               <div class="text">
                 <h2>LPG Gas </h2>
                
-                <input type="text"  [(ngModel)]="gas" placeholder="R"> <br>
+                <input  type="number"  [(ngModel)]="gas" placeholder="R"onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
         
               </div>
             </div>
@@ -58,7 +58,7 @@
               </div>
               <div class="text">
                 <h2>Diesel</h2>
-                <input type="text"  [(ngModel)]="diesel" placeholder="R"> <br>
+                <input type="number"  [(ngModel)]="diesel" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
              
               </div>
             </div>
@@ -70,7 +70,7 @@
               </div>
               <div class="text">
                 <h2>Petrol 95</h2>
-                <input type="text" [(ngModel)]="petrol95" placeholder="R"> <br>
+                <input type="number" [(ngModel)]="petrol95" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
         
               </div>
             </div>
@@ -81,7 +81,7 @@
               </div>
               <div class="text">
                 <h2>Petrol 93</h2>
-                <input type="text"  [(ngModel)]="petrol93" placeholder="R"> <br>
+                <input type="number"  [(ngModel)]="petrol93" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"   > <br>
               </div>
             </div>
           </div>
@@ -97,7 +97,11 @@
 
 
     <div class="butts">
+<<<<<<< HEAD
+      <button class="btn" type="submit" (click)= "edit()">Submit</button>
+=======
       <button class="btn" type="submit" (click)="edit()">Submit</button>
+>>>>>>> a5b6559f218c2b96841711965fa238cf537c8ccb
     </div>
   </div>
 

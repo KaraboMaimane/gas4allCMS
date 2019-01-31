@@ -94,6 +94,10 @@
                     text-transform: capitalize;
 
                 }
+                &:hover{
+                    background: var(--primary-color) !important;
+                    color: var(--accent-color);
+                }
             }
             .card:nth-child(even){
                 background: var(--color-grey-light-3);
@@ -114,6 +118,7 @@
         height: 50%;
         background: linear-gradient(to right bottom, rgba(red, .4), var(--primary-color-dark)) , url('../../assets/jonathan-petersson-217672-unsplash.jpg');
         background-size: cover;
+        background-position: center;
         // border-top: 1px solid var(--color-grey-light-2);
         // box-shadow: 0 .3rem .5rem rgba(black, .3);
         .outletcontainer{
