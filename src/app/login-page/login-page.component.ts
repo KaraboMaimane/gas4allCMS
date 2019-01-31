@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
         console.log(data);
         this.showSpinner = false;
         this.success = true;
-        this.router.navigate(['/products'])
+         this.router.navigate(['/products'])
       }
     ).catch(
       (error)=>{

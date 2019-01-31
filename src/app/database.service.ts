@@ -27,11 +27,23 @@ export class DatabaseService {
   }
 
   register(email: string, password: string) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(data=>{
+      let user = firebase.auth().currentUser;
+      console.log(user);
+
+      user.sendEmailVerification().then(function(a){
+      console.log(a);
+
+       }).catch(function(error) {
+       // An error happened.
+       });
+    });
+    
   }
 
   login(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
+  
   }
 
   getUser() {

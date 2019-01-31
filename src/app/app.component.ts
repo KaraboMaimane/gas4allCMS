@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatabaseService } from './database.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase'
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,26 @@ export class AppComponent {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
+
+        let user = firebase.auth().currentUser;
+        console.log(user);
+
+      
         console.log("im online")
-        router.navigate(['/home']);
+   
+      
+        if(user.emailVerified == true){
+       
+          router.navigate(['/home']);
+          
+    
+    }else{
+
+      alert("confirm");
+    }
+
+    
+
       } else {
         // No user is signed in.
         console.log("im offline")
@@ -38,7 +57,9 @@ export class AppComponent {
 
   login(email, password){
     this.database.login(email, password).then((data)=>{
+      console.log(data);
       alert(`${data.user.email} is successfully registered`);
+
       console.log(data);
     }).catch((error)=>{
       alert(error);
