@@ -4,7 +4,7 @@ import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
-
+// import {Popup} from 'ng2-opd-popup';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   name: string;
   icon;
   iconArray = [];
-  constructor(public router: Router,private database: DatabaseService, private media: MediaService) {
+  constructor( public router: Router,private database: DatabaseService, private media: MediaService) {
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
@@ -102,7 +102,12 @@ console.log(this.totalSpaza,this.totalGarage);
   //     console.log(error);
   //   })
   // }
- 
+  // showPopup(){
+  //   this.popup.show();
+  //   console.log('pop')
+  // }
+
+  
   onChoseLocation(event) {
     this.latitude = event.coords.lat;
     this.longitude = event.coords.lng;

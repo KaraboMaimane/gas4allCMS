@@ -29,6 +29,7 @@ import * as firebase from 'firebase'
 import { SignupComponent } from './signup/signup.component';
 import { RetrieveComponent } from './retrieve/retrieve.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+// import {PopupModule} from 'ng2-opd-popup';
 
   // Initialize Firebase
   var config = {
@@ -91,6 +92,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
+    // PopupModule.forRoot(),
   ],
   providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]
