@@ -24,7 +24,7 @@ gas;
 // icon;
 lat;
 lng;
-name;
+// name;
 owner;
 petrol93;
 petrol95;
