@@ -31,13 +31,7 @@ export class SignupComponent implements OnInit {
           
     
     }else{
-<<<<<<< HEAD
-
-      //alert("confirm your email");
-      this.database.confirmation();
-=======
       alert("confirm");
->>>>>>> bfb1a1e8d303af7461d525e45c71640fb013daa0
     }
 
       }

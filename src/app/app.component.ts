@@ -25,17 +25,6 @@ export class AppComponent {
     firebase.auth().onAuthStateChanged(function(userx) {
       if (userx) {
         // User is signed in.
-<<<<<<< HEAD
-        // let user = firebase.auth().currentUser;
-        //console.log(userx);
-      
-        console.log("im online")
-        if(userx.emailVerified == true){
-          router.navigate(['/home'])
-    }else{
-      // alert("confirm");
-    }
-=======
 
         let user = firebase.auth().currentUser;
         console.log(user);
@@ -56,7 +45,6 @@ export class AppComponent {
 
     
 
->>>>>>> bfb1a1e8d303af7461d525e45c71640fb013daa0
       } else {
         // No user is signed in.
         console.log("im offline")

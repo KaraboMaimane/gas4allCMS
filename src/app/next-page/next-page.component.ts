@@ -40,22 +40,22 @@ export class NextPageComponent implements OnInit {
 
     let userid = this.database.getUser();
 
-    this.database.retrieveInfor(userid).on('value', data => {
-      let infor = data.val();
-      this.names = infor.name;
-      this.email = infor.email;
-      this.company = infor.name;
-      this.Owner = infor.owner;
-      this.petrol93 = infor.petrol93;
-      this.petrol95 = infor.petrol95;
-      this.diesel = infor.diesel;
-      this.gas = infor.gas;
-      this.address= infor.address;
-      this.tel = infor.tel;
-      this.shoptype = infor.icon;
+    // this.database.retrieveInfor(userid).on('value', data => {
+    //   let infor = data.val();
+    //   this.names = infor.name;
+    //   this.email = infor.email;
+    //   this.company = infor.name;
+    //   this.Owner = infor.owner;
+    //   this.petrol93 = infor.petrol93;
+    //   this.petrol95 = infor.petrol95;
+    //   this.diesel = infor.diesel;
+    //   this.gas = infor.gas;
+    //   this.address= infor.address;
+    //   this.tel = infor.tel;
+    //   this.shoptype = infor.icon;
 
-      console.log(this.email);
-    })
+    //   console.log(this.email);
+    // })
 
   }
 
