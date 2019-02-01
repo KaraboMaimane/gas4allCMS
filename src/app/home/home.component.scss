@@ -307,6 +307,17 @@ agm-map{
     }
 }
 
+
+$primary-color-dark:   #1976D2;
+$primary-color:        #2196F3;
+$primary-color-light:  #BBDEFB;
+$primary-color-text:   #FFFFFF;
+$accent-color:         #FFC107;
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        #BDBDBD;
+
+
 .modalf{ 
     background: rgba(black, .8);
     position: fixed;  
@@ -317,17 +328,10 @@ agm-map{
     z-index: 99999;
     margin: 0 auto;
     animation: fadein .3s ease;
-   
+
+
+
       // NEW CSS
-    $primary-color-dark:   #1976D2;
-    $primary-color:        #2196F3;
-    $primary-color-light:  #BBDEFB;
-    $primary-color-text:   #FFFFFF;
-    $accent-color:         #FFC107;
-    $primary-text-color:   #212121;
-    $secondary-text-color: #757575;
-    $divider-color:        #BDBDBD;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -413,9 +417,10 @@ agm-map{
                         justify-content: center;
                         width:14.75rem;
                         height:10rem; 
+                   
                     }
                      img{
-                    // margin: 5rem 0 0 ;
+                    margin: 0 0 0 1rem;
                     height: 30px;
                     width: 30px;
                     // display: block;
@@ -433,16 +438,20 @@ agm-map{
                     .details{
                         display: flex;
                         flex-direction: column;
-                        justify-content: flex-start;
+                        align-items:flex-start ;
                         width:14.75rem;
-                        padding: .5rem 0 0;
+                        // padding: .5rem 0 0;
                         height:10rem; 
                         // background-color: lightgreen;
                      
                     }
+                    p{
+                        margin:0 0 1rem;
+                    }
                     h2{
+                    margin: 0;
                     font-size: 2rem;
-                    // margin: .5rem 0 0;
+                    // margin: 0 0 1rem;
                     color: $secondary-text-color;
                     }
                 }
