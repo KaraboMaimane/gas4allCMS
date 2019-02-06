@@ -4,15 +4,21 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatabaseService } from '../database.service';
 import { NgForm } from '@angular/forms';
+import {Popup} from 'ng2-opd-popup';
 declare var google;
+<<<<<<< HEAD
 import { Alert, promise } from 'selenium-webdriver';
 // import Swal from 'sweetalert2';
+=======
+
+import Swal from 'sweetalert2';
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
 @Component({
   selector: 'app-next-page',
   templateUrl: './next-page.component.html',
   styleUrls: ['./next-page.component.scss']
-})
+}) 
 export class NextPageComponent implements OnInit {
 
   petrol95 = 0;
@@ -35,26 +41,26 @@ export class NextPageComponent implements OnInit {
   modal;
   modal1;
 
-  constructor(private database: DatabaseService, private router: Router) {
+  constructor(private popup:Popup,private database: DatabaseService, private router: Router) {
 
     let userid = this.database.getUser();
 
-    this.database.retrieveInfor(userid).on('value', data => {
-      let infor = data.val();
-      this.names = infor.name;
-      this.email = infor.email;
-      this.company = infor.name;
-      this.Owner = infor.owner;
-      this.petrol93 = infor.petrol93;
-      this.petrol95 = infor.petrol95;
-      this.diesel = infor.diesel;
-      this.gas = infor.gas;
-      this.address= infor.address;
-      this.tel = infor.tel;
-      this.shoptype = infor.icon;
+    // this.database.retrieveInfor(userid).on('value', data => {
+    //   let infor = data.val();
+    //   this.names = infor.name;
+    //   this.email = infor.email;
+    //   this.company = infor.name;
+    //   this.Owner = infor.owner;
+    //   this.petrol93 = infor.petrol93;
+    //   this.petrol95 = infor.petrol95;
+    //   this.diesel = infor.diesel;
+    //   this.gas = infor.gas;
+    //   this.address= infor.address;
+    //   this.tel = infor.tel;
+    //   this.shoptype = infor.icon;
 
-      console.log(this.email);
-    })
+    //   console.log(this.email);
+    // })
 
   }
 
@@ -64,7 +70,7 @@ export class NextPageComponent implements OnInit {
       this.router.navigate(['/signin'])
     })
   }
-
+ 
   products(){
     this.router.navigate(['/products'])
   }
@@ -169,6 +175,7 @@ export class NextPageComponent implements OnInit {
             
             // this.database.success();
            
+<<<<<<< HEAD
             // Swal.fire({
             //   position: 'center',
             //   type: 'success',
@@ -176,6 +183,19 @@ export class NextPageComponent implements OnInit {
             //   showConfirmButton: false,
             //   timer: 2500
             // })
+=======
+            Swal.fire({
+              position: 'center',
+              type: 'success',
+              title: 'Your data has been saved',
+              showConfirmButton: false,
+              timer: 2500
+            }).then(()=>{
+              this.router.navigate(['products'])
+            })
+            
+            console.log('heeeeeeeeeeeeita');
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
             },(error =>{
               alert("data not stored")

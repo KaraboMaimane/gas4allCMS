@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import locationsArr from '../app/GlobalArray';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
+<<<<<<< HEAD
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
 declare var Swal; 
 
 @Injectable({ 
+=======
+// import { map } from "rxjs/operators"
+// import { Alert, promise } from 'selenium-webdriver';
+import Swal from 'sweetalert2';
+import { Popup } from 'ng2-opd-popup';
+@Injectable({
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
   providedIn: 'root'
 })
 export class DatabaseService {
@@ -15,8 +24,24 @@ export class DatabaseService {
   arry = [];
   state;
   authenticate = firebase.auth();
+<<<<<<< HEAD
  
   constructor(private http: Http) {
+=======
+  userName
+  userEmail
+  userOwner
+  userPetrol93
+  userPetrol95
+  userDiesel;
+  infor = new Array();
+  userGas
+  userAddress
+  userTel
+  shoptype
+  details = new Array();
+  constructor(private popup: Popup, private http: Http) {
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
     // firebase.initializeApp({
     //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
     //   authDomain: "fuelapp-6050c.firebaseapp.com",
@@ -28,11 +53,23 @@ export class DatabaseService {
   }
   
   register(email: string, password: string) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password);
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(data => {
+      let user = firebase.auth().currentUser;
+      console.log(user);
+
+      user.sendEmailVerification().then(function (a) {
+        console.log(a);
+
+      }).catch(function (error) {
+        // An error happened.
+      });
+    });
+
   }
 
   login(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
+
   }
 
   getUser() {
@@ -155,14 +192,67 @@ export class DatabaseService {
 
   }
 
-  retrieveInfor(userid) {
+  retrieveInfor() {
+    locationsArr.length = 0;
+    let userid = this.getUser();
+    return new Promise((accpt, rej) => {
+      firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
+        var business = data.val();
+        // console.log(business);
 
-    return firebase.database().ref('userdb/' + userid);
+        
+      
+          let obj = {
+            address: business.address,
+diesel: business.diesel,
+email:  business.email,
+gas: business.gas,
+icon:  business.icon,
+lat:  business.lat,
+lng: business.lng,
+name:  business.name,
+owner: business.owner,
+petrol93: business.petrol93,
+petrol95: business.petrol95,
+tel:  business.tel,
+uid:business.uid,
+          }
+
+         // this.details.push(obj);
+        locationsArr.push(obj);
+          console.log(locationsArr[0].address);
+
+          
+ 
+     
+        // this.userName = infor.name;
+        // this.userEmail = infor.email;
+        // this.userOwner = infor.owner;
+        // this.userPetrol93 = infor.petrol93;
+        // this.userPetrol95 = infor.petrol95;
+        // this.userDiesel = infor.diesel;
+        // this.userGas = infor.gas;
+        // this.userAddress = infor.address;
+        // this.userTel = infor.tel;
+        // this.shoptype = infor.icon;
+      })
+    })
+
+    // return firebase.database().ref('userdb/' + userid);
   }
+
   retrieveBusinessDetails(userid) {
 
 
   } 
+
+  showPopup() {
+    this.popup.options = {
+      color: "#2196F3"
+    }
+    this.popup.show();
+    console.log('pop')
+  }
 
   success() {
     Swal.fire({
@@ -171,6 +261,17 @@ export class DatabaseService {
       title: 'Your data has been saved',
       showConfirmButton: false,
       timer: 2500
+    })
+  }
+
+
+  confirmation() {
+    Swal.fire({
+      position: 'center',
+      type: 'information',
+      title: 'Please verify your email address ',
+      showConfirmButton: false,
+      timer: 3000
     })
   }
 

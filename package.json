@@ -27,7 +27,11 @@
     "core-js": "^2.5.4",
     "firebase": "^5.8.2",
     "jquery": "^3.3.1",
+<<<<<<< HEAD
     "ngx-cleave-directive": "^1.0.4",
+=======
+    "ng2-opd-popup": "^1.1.21",
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
     "popper.js": "^1.14.5",
     "rxjs": "~6.3.3",
     "sweetalert2": "^7.33.1",

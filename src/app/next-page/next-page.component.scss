@@ -21,7 +21,18 @@ $accent-color:         #FFC107;
 $primary-text-color:   #212121;
 $secondary-text-color: #757575;
 $divider-color:        #BDBDBD;
-
+.pop{
+    .logs{
+        border-radius: 3.8em;
+        background-color: none;
+        border: none;
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 12%;
+        }
+    } 
+}
 .wrapper{
     display: flex;
     align-items: center;

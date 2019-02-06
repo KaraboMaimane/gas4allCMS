@@ -34,9 +34,9 @@ company
     
       }else{
   
-        this.petrol95 =0;
-       this.petrol93 =0;
-      this.gas =0;
+        this.petrol95=0;
+       this.petrol93=0;
+      this.gas=0;
        this.diesel =0;
       }
       console.log(this.diesel+","+this.gas+","+this.petrol93+","+this.petrol95);

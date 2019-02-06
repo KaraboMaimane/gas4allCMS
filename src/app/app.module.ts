@@ -28,9 +28,13 @@ import * as firebase from 'firebase'
 import { SignupComponent } from './signup/signup.component';
 import { RetrieveComponent } from './retrieve/retrieve.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+<<<<<<< HEAD
 import { LoaderComponent } from './loader/loader.component';
 import { NgxCleaveDirectiveModule } from 'ngx-cleave-directive';
 import { LoginComponent } from './login/login.component';
+=======
+import {PopupModule} from 'ng2-opd-popup';
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
   // Initialize Firebase
   var config = {
@@ -95,7 +99,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
+<<<<<<< HEAD
     NgxCleaveDirectiveModule
+=======
+    PopupModule.forRoot(),
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
   ],
   providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]

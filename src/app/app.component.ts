@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DatabaseService } from './database.service';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase'
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent {
   constructor(private database: DatabaseService,router: Router) {
     
     console.log('users!')
+<<<<<<< HEAD
     // firebase.auth().onAuthStateChanged(function(user) {
     //   if (user) {
     //     // User is signed in.
@@ -32,13 +34,46 @@ export class AppComponent {
     //     router.navigate(['/app']);
     //   }
     // });
+=======
+    firebase.auth().onAuthStateChanged(function(userx) {
+      if (userx) {
+        // User is signed in.
+
+        let user = firebase.auth().currentUser;
+        console.log(user);
+
+      
+        console.log("im online")
+   
+      
+        if(user.emailVerified == true){
+       
+          router.navigate(['/home']);
+          
+    
+    }else{
+
+      alert("confirm");
+    }
+
+    
+
+      } else {
+        // No user is signed in.
+        console.log("im offline")
+        router.navigate(['/app']);
+      }
+    });
+>>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
   }
 
 
   login(email, password){
     this.database.login(email, password).then((data)=>{
+      console.log(data);
       alert(`${data.user.email} is successfully registered`);
+
       console.log(data);
     }).catch((error)=>{
       alert(error);

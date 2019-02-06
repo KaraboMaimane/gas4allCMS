@@ -203,4 +203,251 @@
       <button (click)="page = 'home';" class="submit bt2">No</button>
     </div>
   </div>
+
+</div>
+
+
+<!-- MODAL 1 -->
+<div class="modalf"  *ngIf="modal == 'true'">
+
+  <div class="alert">
+    <div class="container">
+      <div class="div1">
+        <div class="logo">
+          <img src="../../assets/log.png" alt="">
+        </div>
+        <div class="headertext">
+          <h1 text-wrap>{{name}}</h1>
+        </div>
+      </div>
+
+      <div class="div2">
+        <div class="sidecons">
+          <div id="icons">
+            <div id="con" >
+              <img src="../../assets/manager.png"  class="animated infinite bounce delay-2s" alt="">
+            </div>
+            <div id="con">
+              <img src="../../assets/arroba-sign.png" alt="">
+            </div>
+            <div id="con">
+              <img src="../../assets/home.png" alt="">
+            </div>
+            <div id="con">
+              <img src="../../assets/call-answer.png" alt="">
+            </div>
+
+          </div>
+
+          <div class="infom">
+            <div class="details">
+              <h2>Owner's Name</h2>
+              <p>{{owner}}</p>
+            </div>
+            <div class="details">
+              <h2>E-mail</h2>
+              <p>{{email}}</p>
+            </div>
+            <div class="details">
+              <h2>Address</h2>
+              <p>{{address}}</p>
+            </div>
+            <div class="details">
+              <h2>Tel</h2>
+              <p>{{tel}}</p>
+            </div>
+          
+          </div>
+
+        </div>
+
+        <div class="info">
+          <div class="gas" *ngIf="gas !> 0">
+            <div class="head">
+              <div class="pic">
+                <img src="../../assets/gas-cylinder.png" alt="">
+              </div>
+              <div class="prod">
+                <h1>LPG</h1>
+              </div>
+            </div>
+
+            <div class="head2">
+              <div class="text">
+                <p>9 kg</p> - <p>R{{gas}}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="fuel" *ngIf="petrol93 !> 0">
+            <div class="head">
+              <div class="pic">
+                <img src="../../assets/gas-station.png" alt="">
+              </div>
+              <div class="prod">
+                <h1>FUEL</h1>
+              </div>
+            </div>
+            <div class="fuelprice">
+              <p>Petrol 93: R{{petrol93}}</p> - <p>Petrol 95: R{{petrol95}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <button  class="animated infinite bounce delay-2s" id="tn" (click)="modal = 'false'">Okay</button>
+  </div>
+</div>
+
+<!-- MODAL 2 -->
+<div class="modalf"  *ngIf="modal2 == 'true'">
+<div class="alert">
+  <div class="container2">
+
+    <div class="left">
+      <div class="logs">
+        <img src="../assets/log.png" alt="">
+      </div>
+      <i>
+        <h1>GasRadar</h1>
+      </i>
+
+    </div>
+
+    <div class="slider">
+      <h2>My Business Details</h2>
+      <div id="slide">
+
+        <div class="inp">
+          <input required ngModel [(ngModel)]="userName" maxlength="30" [value]=company type="text" required="">
+          <label for="">Business Name</label>
+        </div>
+        <div class="inp">
+          <input required ngModel [(ngModel)]="userOwner" maxlength="25" [value]=Owner type="text" required="">
+          <label for="">Owner Name</label>
+        </div>
+        <div class="inp">
+          <input required ngModel [(ngModel)]="userAddress" maxlength="50" [value]=address type="text" required="">
+          <label for="">Business Address</label>
+        </div>
+        <br>
+        <div class="inp">
+          <input required ngModel [(ngModel)]="userEmail" maxlength="30" [value]=email type="email" required="">
+          <label for="">Business E-mail</label>
+        </div>
+        <div class="inp">
+          <input required ngModel [(ngModel)]="userTel" [value]=tel type="number" required="" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;">
+          <label for="">Business Tel</label>
+        </div>
+        <label for="">is required</label>
+        <div class="combo">
+          <label class="business" for="business">Shop Type: </label>
+          <select required ngModel [(ngModel)]="shoptype" name="shoptype" [value]=shoptype class="selects" value="none"
+            placeholder="business">
+            <option value="spaza">Spaza</option>
+            <option value="supermarket">Supermarket</option>
+            <option value="garage">Garage</option>
+          </select>
+        </div>
+
+        <div class="butts">
+          <button class="btn" (click)="submit()" type="submit">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <button  class="animated infinite bounce delay-2s" id="tn" (click)="view();modal3 = 'true';modal2 = 'false'" >Next</button>
+</div>
+
+</div>
+
+<!-- MODAL 3 -->
+<!-- (click)="modal3 = 'false'" -->
+<div class="modalf"  *ngIf="modal3 == 'true'">
+  <div class="alert">
+    <div class="main">
+      <div class="container3" >
+  
+        <div class="left">
+          <div class="logs">
+            <img src="../assets/log.png" alt="">
+          </div>
+          <i>
+            <h1>GasRadar</h1>
+          </i>
+        </div>
+  
+  
+  
+        <div class="right">
+          <h2>My Product Prices</h2>
+          <div class="grid">
+              <!-- this.product_Petrol95 =0;
+              this.product_Petrol93 =0;
+             this.product_Gas =0;
+              this.product_Diesel =0; -->
+            <div class="fuel1">
+              <div class="box1">
+                <div class="imge">
+                  <img src="../../assets/gas-cylinder.png" alt="">
+                </div>
+                <div class="text">
+                  <h2>LPG Gas </h2>
+                 
+                  <input  type="number"  [(ngModel)]="product_Gas" placeholder="R"onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
+          
+                </div>
+              </div>
+              <div class="box2">
+                <div class="imge">
+                  <img src="../../assets/tank-truck.png" alt="">
+                </div>
+                <div class="text">
+                  <h2>Diesel</h2>
+                  <input type="number"  [(ngModel)]="product_Diesel" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
+               
+                </div>
+              </div>
+            </div>
+            <div class="fuel2">
+              <div class="div1">
+                <div class="imge">
+                  <img src="../../assets/gas-station.png" alt="">
+                </div>
+                <div class="text">
+                  <h2>Petrol 95</h2>
+                  <input type="number" [(ngModel)]="product_Petrol95" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" > <br>
+          
+                </div>
+              </div>
+  
+              <div class="div2">
+                <div class="imge">
+                  <img src="../../assets/gas-station.png" alt="">
+                </div>
+                <div class="text">
+                  <h2>Petrol 93</h2>
+                  <input type="number"  [(ngModel)]="product_Petrol93" placeholder="R" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"   > <br>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+  
+  
+  
+  
+      </div>
+  
+  
+      <div class="butts">
+        <button class="btn" type="submit" (click)="edit();modal3 = 'false'">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
