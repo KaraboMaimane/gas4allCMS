@@ -18,7 +18,6 @@ import { CardlistComponent } from './cardlist/cardlist.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
 import { SettingsComponent } from './settings/settings.component';
 
-
 //New Components
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -29,6 +28,9 @@ import * as firebase from 'firebase'
 import { SignupComponent } from './signup/signup.component';
 import { RetrieveComponent } from './retrieve/retrieve.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { LoaderComponent } from './loader/loader.component';
+import { NgxCleaveDirectiveModule } from 'ngx-cleave-directive';
+import { LoginComponent } from './login/login.component';
 
   // Initialize Firebase
   var config = {
@@ -81,7 +83,9 @@ const appRoutes: Routes = [
     RegistrationComponent,
     SignupComponent,
     RetrieveComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    LoaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +95,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
+    NgxCleaveDirectiveModule
   ],
   providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]

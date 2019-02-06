@@ -138,7 +138,7 @@ position: relative;
     }  
   
     }
-}
+
  .combo{
      margin: 25px 0 0 50px;
     //  box-shadow: 2px 13px 8px rgba(grey,.2);
@@ -195,7 +195,7 @@ position: relative;
         border-radius: 12%;
     }
 }
-
+}
 
 nav{
   
@@ -264,37 +264,7 @@ nav{
     height: 100vh;
     z-index: 99999;
     animation: fadein .3s ease;
-    .alert{
-        background: white;
-        width: 70%;
-        margin: 0 auto;
-        display: block;
-        margin: 20rem;
-        animation: movedown .4s ease;
-        .heading{
-            font-size: 3.5rem;
-            font-weight: 400;
-            text-align: center;
-        }
 
-        .message{
-            font-size: 2.5rem;
-            text-align: center;
-        }
-
-        .tn{
-            margin: 0 auto;
-            display: block;
-            margin-top: 2rem;
-            background: var(--primary-color);
-            border: 1px solid var(--primary-color-light);
-            border-radius: .5rem;
-            padding: 1rem 2rem;
-            font-size: 2rem;
-            color: var(--accent-color);
-            font-weight: 400;
-        }
-    }
 }
 
 @keyframes fadein{

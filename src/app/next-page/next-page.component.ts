@@ -6,7 +6,7 @@ import { DatabaseService } from '../database.service';
 import { NgForm } from '@angular/forms';
 declare var google;
 import { Alert, promise } from 'selenium-webdriver';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-next-page',
@@ -75,27 +75,27 @@ export class NextPageComponent implements OnInit {
 
     if(this.company == "" || this.company == undefined){
       //  alert("Enter business name");
-       this.database.fail();
+      //  this.database.fail();
 
     }else if(this.Owner == "" || this.Owner == undefined){
       //  alert("Enter Owners name");
 
-      this.database.fail();
+      // this.database.fail();
     }else
     if(this.address == "" || this.address == undefined){
       //  alert("Enter business address");
 
-      this.database.fail();
+      // this.database.fail();
     }else
     if(this.email == "" || this.email == undefined){
       //  alert("Enter business email")
 
-      this.database.fail();
+      // this.database.fail();
     }else
     if(this.tel == "" || this.tel == undefined){
       //  alert("Enter business Contact details")
 
-      this.database.fail();
+      // this.database.fail();
     }
 
     else{
@@ -169,13 +169,13 @@ export class NextPageComponent implements OnInit {
             
             // this.database.success();
            
-            Swal.fire({
-              position: 'center',
-              type: 'success',
-              title: 'Your data has been saved',
-              showConfirmButton: false,
-              timer: 2500
-            })
+            // Swal.fire({
+            //   position: 'center',
+            //   type: 'success',
+            //   title: 'Your data has been saved',
+            //   showConfirmButton: false,
+            //   timer: 2500
+            // })
 
             },(error =>{
               alert("data not stored")

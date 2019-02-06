@@ -21,17 +21,17 @@ export class AppComponent {
   constructor(private database: DatabaseService,router: Router) {
     
     console.log('users!')
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        console.log("im online")
-        router.navigate(['/home']);
-      } else {
-        // No user is signed in.
-        console.log("im offline")
-        router.navigate(['/app']);
-      }
-    });
+    // firebase.auth().onAuthStateChanged(function(user) {
+    //   if (user) {
+    //     // User is signed in.
+    //     console.log("im online")
+    //     router.navigate(['/home']);
+    //   } else {
+    //     // No user is signed in.
+    //     console.log("im offline")
+    //     router.navigate(['/app']);
+    //   }
+    // });
 
   }
 

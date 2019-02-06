@@ -4,18 +4,18 @@ import * as firebase from 'firebase';
 import { Http, Headers, Response } from "@angular/http"; //finally this response
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
-import Swal from 'sweetalert2';
+declare var Swal; 
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
 export class DatabaseService {
-
-  locations = [];
+  
+  locations = []; 
   arry = [];
   state;
   authenticate = firebase.auth();
-
+ 
   constructor(private http: Http) {
     // firebase.initializeApp({
     //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
@@ -26,7 +26,7 @@ export class DatabaseService {
     //   messagingSenderId: "955542967293"
     // });
   }
-
+  
   register(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
@@ -36,8 +36,16 @@ export class DatabaseService {
   }
 
   getUser() {
-    return firebase.auth().currentUser.uid;
+   return firebase.auth().currentUser.uid;
+  
+   
+  } 
+
+  B(){
+    
+    console.log("im working")
   }
+
 
   onAuth() {
     return new Promise((accpt, rej) => {
@@ -88,7 +96,7 @@ export class DatabaseService {
 
       }
 
-
+ 
     })
   }
 
@@ -154,7 +162,7 @@ export class DatabaseService {
   retrieveBusinessDetails(userid) {
 
 
-  }
+  } 
 
   success() {
     Swal.fire({
