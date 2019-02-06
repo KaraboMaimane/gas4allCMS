@@ -4,6 +4,7 @@ import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
+
 // import Swal from 'sweetalert2';
 declare var Swal;
 // import {Popup} from 'ng2-opd-popup';
@@ -14,47 +15,31 @@ declare var google;
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  // PopUp
-  details = [];
 
 
-  address;
-  diesel;
-  email;
-  gas;
-  // icon;
-  lat;
-  lng;
-  name;
-  owner;
-  petrol93;
-  petrol95;
-  phone;
-  tel;
-  ///User Details Declarations
-  userAddress;
-  userDiesel;
-  userEmail;
-  userGas;
-  userlat;
-  userlng;
-  userName;
-  userOwner;
-  userPetrol93;
-  userPetrol95;
-  userPhone;
-  userTel;
-  shoptype;
-  detailsInfor = new Array();
-
-  ///Products details declarations
-  product_Petrol95 = 0;
-  product_Petrol93 = 0;
-  product_Gas = 0;
-  product_Diesel = 0;
-
-
-
+  tel: any;
+  owner: any;
+  name: any;
+  email: any;
+  address: any;
+  diesel: number;
+  gas: number;
+  petrol93: number;
+  petrol95: number;
+  product_Gas: any;
+  product_Diesel: any;
+  product_Petrol95: any;
+  product_Petrol93: any;
+  userName: any;
+  shoptype: any;
+  userTel: any;
+  userAddress: any;
+  userGas: any;
+  userDiesel: any;
+  userPetrol95: any;
+  userPetrol93: any;
+  userOwner: any;
+  userEmail: any;
   //setting up our coordinates here
   totalOulets: number = 0;
   totalSpaza: number = 0;
@@ -77,6 +62,7 @@ export class HomeComponent implements OnInit {
   company;
   Owner;
 
+
   page: string = 'home';
   error: string;
   constructor(public router: Router, private database: DatabaseService, private media: MediaService) {
@@ -88,11 +74,11 @@ export class HomeComponent implements OnInit {
 
 
 
+
     this.location = navigator.geolocation.getCurrentPosition((data) => {
       this.latitude = data.coords.latitude;
       this.longitude = data.coords.longitude;
     });
-
 
   }
   business() {
@@ -203,7 +189,6 @@ export class HomeComponent implements OnInit {
 
     this.page = 'home';
 
-
     firebase.database().ref('/userdb').on('value', (data) => {
       let keys = Object.keys(data.val());
       for (let i = 0; i < keys.length; i++) {
@@ -268,8 +253,6 @@ export class HomeComponent implements OnInit {
 
     locationsArr.length = 0;
     locationsArr.push(location);
-
-
     this.address = locationsArr[0].address;
     this.diesel = locationsArr[0].diesel;
     this.email = locationsArr[0].email;
@@ -280,16 +263,12 @@ export class HomeComponent implements OnInit {
     this.petrol93 = locationsArr[0].petrol93;
     this.petrol95 = locationsArr[0].petrol95;
     this.tel = locationsArr[0].tel;
-
-
-
     console.log(locationsArr);
 
   }
 
 
   logOut() {
-
 
     console.log('exit')
     return new Promise((accpt, rej) => {

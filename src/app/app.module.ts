@@ -17,8 +17,10 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { RegistrationComponent } from './registration/registration.component';
 import * as firebase from 'firebase'
+import { SignupComponent } from './signup/signup.component';
 import { LoaderComponent } from './loader/loader.component';
 import { NgxCleaveDirectiveModule } from 'ngx-cleave-directive';
+
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",

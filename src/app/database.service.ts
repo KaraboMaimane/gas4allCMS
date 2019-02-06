@@ -3,20 +3,23 @@ import * as firebase from 'firebase';
 import locationsArr from '../app/GlobalArray';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
+
+
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
-declare var Swal; 
+declare var Swal;
 
-@Injectable({ 
+@Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
-  
-  locations = []; 
+
+  locations = [];
   arry = [];
   state;
   authenticate = firebase.auth();
- 
+
+
   constructor(private http: Http) {
     // firebase.initializeApp({
     //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
@@ -27,7 +30,7 @@ export class DatabaseService {
     //   messagingSenderId: "955542967293"
     // });
   }
-  
+
   register(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then(data => {
       let user = firebase.auth().currentUser;
@@ -49,13 +52,13 @@ export class DatabaseService {
   }
 
   getUser() {
-   return firebase.auth().currentUser.uid;
-  
-   
-  } 
+    return firebase.auth().currentUser.uid;
 
-  B(){
-    
+
+  }
+
+  B() {
+
     console.log("im working")
   }
 
@@ -109,7 +112,7 @@ export class DatabaseService {
 
       }
 
- 
+
     })
   }
 
@@ -176,31 +179,31 @@ export class DatabaseService {
         var business = data.val();
         // console.log(business);
 
-        
-      
-          let obj = {
-            address: business.address,
-diesel: business.diesel,
-email:  business.email,
-gas: business.gas,
-icon:  business.icon,
-lat:  business.lat,
-lng: business.lng,
-name:  business.name,
-owner: business.owner,
-petrol93: business.petrol93,
-petrol95: business.petrol95,
-tel:  business.tel,
-uid:business.uid,
-          }
 
-         // this.details.push(obj);
+
+        let obj = {
+          address: business.address,
+          diesel: business.diesel,
+          email: business.email,
+          gas: business.gas,
+          icon: business.icon,
+          lat: business.lat,
+          lng: business.lng,
+          name: business.name,
+          owner: business.owner,
+          petrol93: business.petrol93,
+          petrol95: business.petrol95,
+          tel: business.tel,
+          uid: business.uid,
+        }
+
+        // this.details.push(obj);
         locationsArr.push(obj);
-          console.log(locationsArr[0].address);
+        console.log(locationsArr[0].address);
 
-          
- 
-     
+
+
+
         // this.userName = infor.name;
         // this.userEmail = infor.email;
         // this.userOwner = infor.owner;
@@ -220,7 +223,7 @@ uid:business.uid,
   retrieveBusinessDetails(userid) {
 
 
-  } 
+  }
 
 
   success() {
