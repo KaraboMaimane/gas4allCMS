@@ -47,6 +47,7 @@ const appRoutes: Routes = [
     SpinnerComponent,
     RegistrationComponent,
     LoaderComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
