@@ -13,19 +13,24 @@
     <h1 *ngIf="showSpinner">Please wait...</h1>
     <app-spinner *ngIf="showSpinner"></app-spinner>
     <h1 *ngIf="success">Success!!!</h1>
-    <h1 *ngIf="fail">Login Fail</h1>
-   
+    <!-- <h1 *ngIf="fail">Login Fail</h1> -->
+    <h1 class="dis" *ngIf="fail">Something Went Wrong... Try Again</h1>
+    <h1 class="dis" *ngIf="message == true">{{messagetext}}</h1>
 
     <!-- Login Form -->
     <form #f="ngForm" (ngSubmit)="login(f)" *ngIf="showSpinner == false">
-      <input name="email" ngModel type="email" id="login" class="fadeIn second" placeholder="E-mail" required>
-      <input name="password" ngModel type="password" id="password" class="fadeIn third" placeholder="Password" required>
-      <input type="submit" class="fadeIn fourth" value="Log In">
+        <input #email="ngModel" name="email" ngModel type="email" id="login" class="fadeIn second" placeholder="E-mail" required>
+
+        <p *ngIf="!email.valid && email.touched" class="err dis">Email Cannot Be Empty!</p>
+  
+        <input #password="ngModel" name="password" ngModel type="password" id="password" class="fadeIn third" placeholder="Password" required>
+        <p *ngIf="!password.valid && password.touched"  class="err dis">Password Cannot Be Empty!</p>
+        <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" (click)="passwordReset()" href="#">Forgot Password?</a>
     </div>
 
   </div>

@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "fuelapp-6050c",
-    "gasradar": "gasradar-fc015"
+    "gasradar": "gasradar-fc015",
+    "GasCms": "gasradar-fc015"
   }
 }

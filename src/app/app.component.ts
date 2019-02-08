@@ -19,10 +19,24 @@ export class AppComponent {
 
 
 
-  constructor(private database: DatabaseService,router: Router) {
-    
+  constructor(private database: DatabaseService,private router: Router) {
+    this.database.onAuth().then((state)=>{
+      console.log(state)
+      if(state == 1){
+        this.router.navigate[('/home')]
+       let user = this.database.getUser();
+        console.log('im online')
+        console.log(user)
+      }
+      else{
+        this.router.navigate[('')]
+        console.log('im offline')
+      }
+    })
     console.log('users!')
   }
+
+  
 
 
   login(email, password){
@@ -43,6 +57,7 @@ export class AppComponent {
   setEmail(event){
     this.email = event.target.value;
   }
+
 
   setPassword(event){
     this.password = event.target.value;

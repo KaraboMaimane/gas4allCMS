@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
 
-// import Swal from 'sweetalert2';
 declare var Swal;
-// import {Popup} from 'ng2-opd-popup';
 declare var google;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -63,8 +62,16 @@ export class HomeComponent implements OnInit {
   Owner;
 
 
+
   page: string = 'home';
   error: string;
+  email2: any;
+  logOutEmail: any;
+
+  showfab: any;
+  ClientArray = [];
+
+  telvalidate: number = 27000000000;
   constructor(public router: Router, private database: DatabaseService, private media: MediaService) {
     this.modal = 'false';
     this.man = this.media.man;
@@ -85,6 +92,7 @@ export class HomeComponent implements OnInit {
 
 
     let userid = this.database.getUser();
+    
     console.log(userid)
     firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
       let a = data.val();
@@ -99,15 +107,10 @@ export class HomeComponent implements OnInit {
       this.userTel = a.tel;
       this.shoptype = a.icon;
       this.userName = a.name;
-
+      this.showfab = a.showfab;
 
       console.log(a)
-
-
-
     })
-
-
 
   }
 
@@ -140,37 +143,76 @@ export class HomeComponent implements OnInit {
   }
   edit() {
     let userid = this.database.getUser();
-    if (this.product_Petrol93 == null || this.product_Petrol93 == undefined && this.product_Petrol95 == null || this.product_Petrol95 == undefined && this.product_Diesel == null || this.product_Diesel == undefined && this.product_Gas == null || this.product_Gas == undefined) {
-      this.petrol95 = 0;
-      this.petrol93 = 0;
-      this.gas = 0;
-      this.diesel = 0;
+    if (this.product_Gas == null || this.product_Gas == undefined && this.product_Petrol93 == null || this.product_Petrol93 == undefined && this.product_Petrol95 == null || this.product_Petrol95 == undefined && this.product_Diesel == null || this.product_Diesel == undefined) {
+      Swal.fire({
+        type: 'error',
+        title: 'You cannot leave these empty',
+        text: 'Please insert 0 if not available.',
+        
+      })
+    }
+    else if(this.product_Gas == null || this.product_Gas == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'You cannot leave this field empty',
+        text: 'Please insert 0 if not available.',
+        
+      })
+    }
+    else if(this.product_Petrol93 == null || this.product_Petrol93 == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'You cannot leave this field empty',
+        text: 'Please insert 0 if not available.',
+        
+      })
+
+    }
+    else if(this.product_Petrol95 == null || this.product_Petrol95 == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'You cannot leave this field empty',
+        text: 'Please insert 0 if not available.',
+        
+      })
+
+    }
+    else if(this.product_Diesel == null || this.product_Diesel == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'You cannot leave this field empty',
+        text: 'Please insert 0 if not available.',
+        
+      })
+   }
+    else{
+      return firebase.auth().onAuthStateChanged(data => {
+        console.log(this.product_Diesel + "," + this.product_Gas + "," + this.product_Petrol93 + "," + this.product_Petrol95);
+        if (data) {
+          firebase.database().ref('userdb/' + userid).update({
+            petrol93: this.product_Petrol93,
+            petrol95: this.product_Petrol95,
+            diesel: this.product_Diesel,
+            gas: this.product_Gas,
+          }).then(data => {
+            // this.database.success();
+  
+            Swal.fire({
+              position: 'center',
+              type: 'success',
+              title: 'Your data has been saved',
+              showConfirmButton: false,
+              timer: 3000
+            })
+          })
+  
+        }
+  
+  
+      })
     }
 
-    return firebase.auth().onAuthStateChanged(data => {
-      console.log(this.product_Diesel + "," + this.product_Gas + "," + this.product_Petrol93 + "," + this.product_Petrol95);
-      if (data) {
-        firebase.database().ref('userdb/' + userid).update({
-          petrol93: this.product_Petrol93,
-          petrol95: this.product_Petrol95,
-          diesel: this.product_Diesel,
-          gas: this.product_Gas,
-        }).then(data => {
-          // this.database.success();
-
-          Swal.fire({
-            position: 'center',
-            type: 'success',
-            title: 'Your data has been saved',
-            showConfirmButton: false,
-            timer: 3000
-          })
-        })
-
-      }
-
-
-    })
+    
   }
 
   alphaOnly(event) {
@@ -181,6 +223,39 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    //  let userid = this.database.getUser();
+    //  console.log(userid)
+    // this.database.retrieveInfor().then((data:any)=>{
+    //   console.log(data)
+    //   this.ClientArray = data;
+    //   this.logOutEmail = this.ClientArray[0].email;
+    //   console.log(this.logOutEmail)
+    // })
+    // let userid = this.database.getUser();
+    
+    // console.log(userid)
+    // firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
+    //   let a = data.val();
+    //   console.log(data.val())
+    //   this.userEmail = a.email;
+    //   this.userOwner = a.owner;
+    //   this.userPetrol93 = a.petrol93;
+    //   this.userPetrol95 = a.petrol95;
+    //   this.userDiesel = a.diesel;
+    //   this.userGas = a.gas;
+    //   this.userAddress = a.address;
+    //   this.userTel = a.tel;
+    //   this.shoptype = a.icon;
+    //   this.userName = a.name;
+    //   this.logOutEmail = a.email
+
+
+    //   console.log(a)
+
+
+
+    // })
+
 
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
@@ -195,7 +270,7 @@ export class HomeComponent implements OnInit {
 
         this.totalOulets = i + 1;
         console.log(this.totalOulets);
-
+        
         firebase.database().ref(`/userdb/${keys[i]}`).on('value',
           (data) => {
             let business = {
@@ -284,48 +359,58 @@ export class HomeComponent implements OnInit {
 
   submit() {
 
-    let userid = this.database.getUser();
+    if (this.userTel.length !== 10) {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    }
+    else if(this.userName == null || this.userName == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    } 
+    else if(this.userEmail == null || this.userEmail == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    }
+    else if(this.userOwner == null || this.userOwner == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    }
+    else if(this.userAddress == null || this.userAddress == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    }
+    else if(this.shoptype == null || this.shoptype == undefined){
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid data',
+        footer: '<a href>Some fields are invalid or empty</a>'
+      })
+    }else {
+     let userid = this.database.getUser();
     console.log(userid);
-
-    if (this.userName == "" || this.userName == undefined) {
-      //  alert("Enter business name");
-
-      this.error = 'true';
-
-      let timer = setInterval(() => {
-        this.error = 'false';
-        clearInterval(timer);
-      }, 3000);
-    } else if (this.userOwner == "" || this.userOwner == undefined) {
-      this.error = 'true';
-      let timer = setInterval(() => {
-        this.error = 'false';
-        clearInterval(timer);
-      }, 3000);
-    } else
-      if (this.userAddress == "" || this.userAddress == undefined) {
-        this.error = 'true';
-        let timer = setInterval(() => {
-          this.error = 'false';
-          clearInterval(timer);
-        }, 3000);
-      } else
-        if (this.userEmail == "" || this.userEmail == undefined) {
-          this.error = 'true';
-          let timer = setInterval(() => {
-            this.error = 'false';
-            clearInterval(timer);
-          }, 3000);
-        } else
-          if (this.userTel == "" || this.userTel == undefined) {
-            this.error = 'true';
-            let timer = setInterval(() => {
-              this.error = 'false';
-              clearInterval(timer);
-            }, 3000);
-          }
-
-          else {
+    console.log('here ' + typeof this.userTel);
+  
             let geocoder = new google.maps.Geocoder();
             let resultsMap;
 
@@ -342,15 +427,12 @@ export class HomeComponent implements OnInit {
             let objinfor = {
               name: this.userName,
               email: this.userEmail,
+              address:this.userAddress,
               owner: this.userOwner,
               tel: this.userTel,
               uid: userid,
               icon: this.shoptype,
-              petrol95: this.userPetrol95,
-              petrol93: this.userPetrol93,
-              gas: this.userGas,
-              diesel: this.userDiesel,
-
+              showfab: 'true'
             }
 
 
@@ -375,8 +457,9 @@ export class HomeComponent implements OnInit {
 
                 firebase.database().ref('userdb/' + userid).update(
                   objinfor
-                ).then(() => {
-                  // alert('hello')
+                ).then(data => {
+                  // this.database.success();
+        
                   Swal.fire({
                     position: 'center',
                     type: 'success',
@@ -425,7 +508,12 @@ export class HomeComponent implements OnInit {
 
 
             )
-          }
+          
+    }
+
+    console.log('Length: ', this.userTel.length)
+
+    
 
   }
 

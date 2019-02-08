@@ -7,7 +7,7 @@ import { Http, Headers, Response } from "@angular/http"; //finally this response
 
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
-declare var Swal;
+declare var Swal; 
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,7 @@ export class DatabaseService {
 
       user.sendEmailVerification().then(function (a) {
         console.log(a);
+        
 
       }).catch(function (error) {
         // An error happened.
@@ -53,9 +54,9 @@ export class DatabaseService {
 
   getUser() {
     return firebase.auth().currentUser.uid;
-
-
   }
+
+  
 
   B() {
 
@@ -79,7 +80,14 @@ export class DatabaseService {
   }
 
   forgotPassword(email: any) {
-    return this.authenticate.sendPasswordResetEmail(email);
+    return new Promise((accpt,rej)=>{
+      this.authenticate.sendPasswordResetEmail(email).then(()=>{
+        console.log("email sent")
+        this.emailSent();
+      })
+      accpt("successful")
+    })
+    // return this.authenticate.sendPasswordResetEmail(email);
   }
 
   logOut() {
@@ -171,6 +179,7 @@ export class DatabaseService {
 
   }
 
+
   retrieveInfor() {
     locationsArr.length = 0;
     let userid = this.getUser();
@@ -233,6 +242,16 @@ export class DatabaseService {
       title: 'Your data has been saved',
       showConfirmButton: false,
       timer: 2500
+    })
+  }
+  
+  emailSent() {
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'An email has been sent, please check your emails',
+      showConfirmButton: false,
+      timer: 3500
     })
   }
 

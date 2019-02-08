@@ -54,7 +54,7 @@
         <div class="text">My Business</div>
       </div>
      
-      <div class="fabcont" (click)="view();page = 'product'; test()">
+      <div class="fabcont" *ngIf="showfab != 'false' && showfab != undefined" (click)="view();page = 'product'; test()">
         <button  class="minifab"  ><i class="fas fa-box-open"></i></button>
         <div class="text">My Products</div>
       </div>
@@ -72,7 +72,7 @@
     <input type="text" class="formelement" (keydown)="alphaOnly($event)" [(ngModel)]="userOwner" maxlength="25" placeholder="Owner"><label for="" class="label1">Owner</label>
     <input type="text" class="formelement" [(ngModel)]="userAddress" maxlength="50" placeholder="Address"><label for="" class="label1">Address</label>
         <input type="email" class="formelement" [(ngModel)]="userEmail" maxlength="30"  placeholder="Business Email"><label for="" class="label1">Business Email</label>
-    <input type="text" (keypress)="keyPress($event)" minlength="10" maxlength="10" class="formelement" [(ngModel)]="userTel" placeholder="Business Telephone" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;"><label for="" class="label1">Business Telephone</label>
+    <input type="text" required pattern="^\d{3}-\d{3}-\d{4}$" (keypress)="keyPress($event)" minlength=10  maxlength=10 class="formelement" [(ngModel)]="userTel" placeholder="Business Telephone" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;"><label for="" class="label1">Business Telephone</label>
     
     <div class="inputGroup">
         <input id="radio1" [(ngModel)]="shoptype" value="spaza"  name="radio" type="radio"/>
@@ -98,7 +98,7 @@
     <input [cleave]="{numeral: true,
       numeralThousandsGroupStyle: 'thousand'}"type="number" class="formelement" [(ngModel)]="product_Gas" placeholder="LPG Gas Per 9kg" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" ><label for="" class="label1">LPG Gas Per 9kg</label>
 
-    <p class="question">Do You Sell Anything Other Than Gas?</p>
+    <!-- <p class="question">Do You Sell Anything Other Than Gas?</p>
     <div class="inputGroup">
         <input id="radio1" name="radio" type="radio"/> 
         <label for="radio1">Yes</label> 
@@ -106,7 +106,7 @@
       <div class="inputGroup">
         <input id="radio2" name="radio" type="radio"/>
         <label for="radio2">No</label>
-      </div>
+      </div> -->
 
       <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement"  [(ngModel)]="product_Petrol93"  placeholder="Petrol 93 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"  ><label for="" class="label1">Petrol 93 Per Litre</label>
       <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement"  [(ngModel)]="product_Petrol95" placeholder="Petrol 95 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"  ><label for="" class="label1">Petrol 95 Per Litre</label>
@@ -140,7 +140,7 @@
     </div>
     <div class="itemcontainer">
       <p class="icon"><i class="fas fa-phone"></i> Contact No.</p>
-      <p class="text">{{tel}}</p>
+      <p class="text" >{{tel}}</p>
     </div>
     <div class="itemcontainer" *ngIf="gas !> 0">
       <p class="icon"><img src="../../assets/gas-cylinder.png" alt="" class="fuelicon"> Gas Per 9kg</p>
@@ -180,9 +180,9 @@
   </div>
 </div> -->
 
-<div class="box" *ngIf="locations.length < 1">
+<!-- <div class="box" *ngIf="locations.length < 1">
     <app-loader></app-loader>
-</div>
+</div> -->
 
 <!-- <div class="navcontainer">
     <img src="../../assets/log.png" alt="" class="navicon">
@@ -194,10 +194,10 @@
 <div class="dialog">
 
 </div> -->
-<div class="logout" *ngIf="page == 'logout'">
+<div class="logout" *ngIf="page == 'logout' ">
   <div class="modial">
-    <p class="modhead">Logout from</p>
-    <p class="subhead">maimane23@hotmail.com</p>
+    <p class="modhead">Are you sure you want to logout?</p>
+    <p class="subhead">{{logOutEmail}}</p>
     <div class="buttonrow">
       <button (click)="logOut()" class="submit mar">Yes</button>
       <button (click)="page = 'home';" class="submit bt2">No</button>
