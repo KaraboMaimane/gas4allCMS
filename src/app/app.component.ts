@@ -19,40 +19,24 @@ export class AppComponent {
 
 
 
-  constructor(private database: DatabaseService,router: Router) {
-    
-    console.log('users!')
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-
-        let user = firebase.auth().currentUser;
-        console.log(user);
-
-      
-        console.log("im online")
-   
-      
-        if(user.emailVerified == true){
-       
-          router.navigate(['/home']);
-          
-    
-    }else{
-
-      alert("confirm");
-    }
-
-    
-
-      } else {
-        // No user is signed in.
-        console.log("im offline")
-        router.navigate(['/app']);
+  constructor(private database: DatabaseService,private router: Router) {
+    this.database.onAuth().then((state)=>{
+      console.log(state)
+      if(state == 1){
+        this.router.navigate[('/home')]
+       let user = this.database.getUser();
+        console.log('im online')
+        console.log(user)
       }
-    });
-
+      else{
+        this.router.navigate[('')]
+        console.log('im offline')
+      }
+    })
+    console.log('users!')
   }
+
+  
 
 
   login(email, password){
@@ -73,6 +57,7 @@ export class AppComponent {
   setEmail(event){
     this.email = event.target.value;
   }
+
 
   setPassword(event){
     this.password = event.target.value;

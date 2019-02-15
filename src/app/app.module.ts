@@ -4,32 +4,22 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DatabaseService } from './database.service';
 import { AgmCoreModule } from '@agm/core';
-import { MapComponent } from './map/map.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+
 import { Route, RouterModule, Routes } from '@angular/router';
-import { BusinessformComponent } from './businessform/businessform.component';
+
 import { HttpModule } from '@angular/http';
 import { MediaService } from './media.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CardlistComponent } from './cardlist/cardlist.component';
-import { BusinessProfileComponent } from './business-profile/business-profile.component';
-import { SettingsComponent } from './settings/settings.component';
 
 
 //New Components
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { NextPageComponent } from './next-page/next-page.component';
-import { ProductsComponent } from './products/products.component';
 import { RegistrationComponent } from './registration/registration.component';
 import * as firebase from 'firebase'
 import { SignupComponent } from './signup/signup.component';
-import { RetrieveComponent } from './retrieve/retrieve.component';
-import { MoreInfoComponent } from './more-info/more-info.component';
-// import {PopupModule} from 'ng2-opd-popup';
+import { LoaderComponent } from './loader/loader.component';
+import { NgxCleaveDirectiveModule } from 'ngx-cleave-directive';
 
   // Initialize Firebase
   var config = {
@@ -45,44 +35,19 @@ import { MoreInfoComponent } from './more-info/more-info.component';
 const appRoutes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'signin', component: LoginPageComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'map', component: MapComponent},
   {path:'home', component:HomeComponent},
-  {path: 'business', component: BusinessformComponent},
-  {path: 'dashboard', component: DashboardComponent, children: [
-    {path: 'profile', component: BusinessProfileComponent},
-    {path: 'product', component: CardlistComponent},
-  
-    {path: 'settings', component: SettingsComponent}
-  ]},
-  {path: 'products', component: ProductsComponent},
-  {path: 'next-page', component: NextPageComponent},
-  {path: 'more-info', component: MoreInfoComponent},
-  
+  {path:'signup', component: RegistrationComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
-    HeaderComponent,
-    FooterComponent,
     HomeComponent,
-    RegisterComponent,
-    BusinessformComponent,
-    DashboardComponent,
-    CardlistComponent,
-    BusinessProfileComponent, 
-    SettingsComponent, 
     LoginPageComponent, 
     SpinnerComponent,
-    NextPageComponent,
-    ProductsComponent,
     RegistrationComponent,
-    SignupComponent,
-    RetrieveComponent,
-    MoreInfoComponent
+    LoaderComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +57,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
-    // PopupModule.forRoot(),
+    NgxCleaveDirectiveModule
   ],
   providers: [DatabaseService, MediaService],
   bootstrap: [AppComponent]

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
+import locationsArr from '../app/GlobalArray';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
+
+
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
-import Swal from 'sweetalert2';
+declare var Swal; 
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,7 @@ export class DatabaseService {
   arry = [];
   state;
   authenticate = firebase.auth();
+
 
   constructor(private http: Http) {
     // firebase.initializeApp({
@@ -28,28 +32,37 @@ export class DatabaseService {
   }
 
   register(email: string, password: string) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password).then(data=>{
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(data => {
       let user = firebase.auth().currentUser;
       console.log(user);
 
-      user.sendEmailVerification().then(function(a){
-      console.log(a);
+      user.sendEmailVerification().then(function (a) {
+        console.log(a);
+        
 
-       }).catch(function(error) {
-       // An error happened.
-       });
+      }).catch(function (error) {
+        // An error happened.
+      });
     });
-    
+
   }
 
   login(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
-  
+
   }
 
   getUser() {
     return firebase.auth().currentUser.uid;
   }
+
+  
+
+  B() {
+
+    console.log("im working")
+  }
+
 
   onAuth() {
     return new Promise((accpt, rej) => {
@@ -67,7 +80,14 @@ export class DatabaseService {
   }
 
   forgotPassword(email: any) {
-    return this.authenticate.sendPasswordResetEmail(email);
+    return new Promise((accpt,rej)=>{
+      this.authenticate.sendPasswordResetEmail(email).then(()=>{
+        console.log("email sent")
+        this.emailSent();
+      })
+      accpt("successful")
+    })
+    // return this.authenticate.sendPasswordResetEmail(email);
   }
 
   logOut() {
@@ -159,14 +179,61 @@ export class DatabaseService {
 
   }
 
-  retrieveInfor(userid) {
 
-    return firebase.database().ref('userdb/' + userid);
+  retrieveInfor() {
+    locationsArr.length = 0;
+    let userid = this.getUser();
+    return new Promise((accpt, rej) => {
+      firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
+        var business = data.val();
+        // console.log(business);
+
+
+
+        let obj = {
+          address: business.address,
+          diesel: business.diesel,
+          email: business.email,
+          gas: business.gas,
+          icon: business.icon,
+          lat: business.lat,
+          lng: business.lng,
+          name: business.name,
+          owner: business.owner,
+          petrol93: business.petrol93,
+          petrol95: business.petrol95,
+          tel: business.tel,
+          uid: business.uid,
+        }
+
+        // this.details.push(obj);
+        locationsArr.push(obj);
+        console.log(locationsArr[0].address);
+
+
+
+
+        // this.userName = infor.name;
+        // this.userEmail = infor.email;
+        // this.userOwner = infor.owner;
+        // this.userPetrol93 = infor.petrol93;
+        // this.userPetrol95 = infor.petrol95;
+        // this.userDiesel = infor.diesel;
+        // this.userGas = infor.gas;
+        // this.userAddress = infor.address;
+        // this.userTel = infor.tel;
+        // this.shoptype = infor.icon;
+      })
+    })
+
+    // return firebase.database().ref('userdb/' + userid);
   }
+
   retrieveBusinessDetails(userid) {
 
 
   }
+
 
   success() {
     Swal.fire({
@@ -175,6 +242,27 @@ export class DatabaseService {
       title: 'Your data has been saved',
       showConfirmButton: false,
       timer: 2500
+    })
+  }
+  
+  emailSent() {
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'An email has been sent, please check your emails',
+      showConfirmButton: false,
+      timer: 3500
+    })
+  }
+
+
+  confirmation() {
+    Swal.fire({
+      position: 'center',
+      type: 'information',
+      title: 'Please verify your email address ',
+      showConfirmButton: false,
+      timer: 3000
     })
   }
 
