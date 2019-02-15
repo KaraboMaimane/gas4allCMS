@@ -4,15 +4,10 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { DatabaseService } from '../database.service';
 import { NgForm } from '@angular/forms';
-import {Popup} from 'ng2-opd-popup';
+
 declare var google;
-<<<<<<< HEAD
-import { Alert, promise } from 'selenium-webdriver';
-// import Swal from 'sweetalert2';
-=======
 
 import Swal from 'sweetalert2';
->>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
 @Component({
   selector: 'app-next-page',
@@ -41,7 +36,7 @@ export class NextPageComponent implements OnInit {
   modal;
   modal1;
 
-  constructor(private popup:Popup,private database: DatabaseService, private router: Router) {
+  constructor(private database: DatabaseService, private router: Router) {
 
     let userid = this.database.getUser();
 
@@ -175,15 +170,6 @@ export class NextPageComponent implements OnInit {
             
             // this.database.success();
            
-<<<<<<< HEAD
-            // Swal.fire({
-            //   position: 'center',
-            //   type: 'success',
-            //   title: 'Your data has been saved',
-            //   showConfirmButton: false,
-            //   timer: 2500
-            // })
-=======
             Swal.fire({
               position: 'center',
               type: 'success',
@@ -195,7 +181,6 @@ export class NextPageComponent implements OnInit {
             })
             
             console.log('heeeeeeeeeeeeita');
->>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
 
             },(error =>{
               alert("data not stored")

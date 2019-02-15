@@ -15,10 +15,10 @@
     <h1 *ngIf="success">Success!!!</h1>
 
     <!-- Login Form -->
-    <form #f="ngForm" (ngSubmit)="login(f)" *ngIf="showSpinner == false">
+    <form #f="ngForm" (ngSubmit)="register(f)" *ngIf="showSpinner == false">
       <input name="email" ngModel type="email" id="login" class="fadeIn second" placeholder="E-mail" required>
       <input name="password" ngModel type="password" id="password" class="fadeIn third" placeholder="Password" required>
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="submit" class="fadeIn fourth" value="Sign Up">
     </form>
 
     <!-- Remind Passowrd -->
