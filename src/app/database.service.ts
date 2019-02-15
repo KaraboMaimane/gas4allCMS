@@ -3,45 +3,24 @@ import * as firebase from 'firebase';
 import locationsArr from '../app/GlobalArray';
 
 import { Http, Headers, Response } from "@angular/http"; //finally this response
-<<<<<<< HEAD
+
+
 import { map } from "rxjs/operators"
 import { Alert, promise } from 'selenium-webdriver';
 declare var Swal; 
 
-@Injectable({ 
-=======
-// import { map } from "rxjs/operators"
-// import { Alert, promise } from 'selenium-webdriver';
-import Swal from 'sweetalert2';
-import { Popup } from 'ng2-opd-popup';
 @Injectable({
->>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
   providedIn: 'root'
 })
 export class DatabaseService {
-  
-  locations = []; 
+
+  locations = [];
   arry = [];
   state;
   authenticate = firebase.auth();
-<<<<<<< HEAD
- 
+
+
   constructor(private http: Http) {
-=======
-  userName
-  userEmail
-  userOwner
-  userPetrol93
-  userPetrol95
-  userDiesel;
-  infor = new Array();
-  userGas
-  userAddress
-  userTel
-  shoptype
-  details = new Array();
-  constructor(private popup: Popup, private http: Http) {
->>>>>>> 67ed67c483c85f47654fdc478c7fd383d4cf0a65
     // firebase.initializeApp({
     //   apiKey: "AIzaSyDJdLBi-paptMqqNpIc6c5jHvIM6jOrb6s",
     //   authDomain: "fuelapp-6050c.firebaseapp.com",
@@ -51,7 +30,7 @@ export class DatabaseService {
     //   messagingSenderId: "955542967293"
     // });
   }
-  
+
   register(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then(data => {
       let user = firebase.auth().currentUser;
@@ -59,6 +38,7 @@ export class DatabaseService {
 
       user.sendEmailVerification().then(function (a) {
         console.log(a);
+        
 
       }).catch(function (error) {
         // An error happened.
@@ -73,13 +53,13 @@ export class DatabaseService {
   }
 
   getUser() {
-   return firebase.auth().currentUser.uid;
-  
-   
-  } 
+    return firebase.auth().currentUser.uid;
+  }
 
-  B(){
-    
+  
+
+  B() {
+
     console.log("im working")
   }
 
@@ -100,7 +80,14 @@ export class DatabaseService {
   }
 
   forgotPassword(email: any) {
-    return this.authenticate.sendPasswordResetEmail(email);
+    return new Promise((accpt,rej)=>{
+      this.authenticate.sendPasswordResetEmail(email).then(()=>{
+        console.log("email sent")
+        this.emailSent();
+      })
+      accpt("successful")
+    })
+    // return this.authenticate.sendPasswordResetEmail(email);
   }
 
   logOut() {
@@ -133,7 +120,7 @@ export class DatabaseService {
 
       }
 
- 
+
     })
   }
 
@@ -192,6 +179,7 @@ export class DatabaseService {
 
   }
 
+
   retrieveInfor() {
     locationsArr.length = 0;
     let userid = this.getUser();
@@ -200,31 +188,31 @@ export class DatabaseService {
         var business = data.val();
         // console.log(business);
 
-        
-      
-          let obj = {
-            address: business.address,
-diesel: business.diesel,
-email:  business.email,
-gas: business.gas,
-icon:  business.icon,
-lat:  business.lat,
-lng: business.lng,
-name:  business.name,
-owner: business.owner,
-petrol93: business.petrol93,
-petrol95: business.petrol95,
-tel:  business.tel,
-uid:business.uid,
-          }
 
-         // this.details.push(obj);
+
+        let obj = {
+          address: business.address,
+          diesel: business.diesel,
+          email: business.email,
+          gas: business.gas,
+          icon: business.icon,
+          lat: business.lat,
+          lng: business.lng,
+          name: business.name,
+          owner: business.owner,
+          petrol93: business.petrol93,
+          petrol95: business.petrol95,
+          tel: business.tel,
+          uid: business.uid,
+        }
+
+        // this.details.push(obj);
         locationsArr.push(obj);
-          console.log(locationsArr[0].address);
+        console.log(locationsArr[0].address);
 
-          
- 
-     
+
+
+
         // this.userName = infor.name;
         // this.userEmail = infor.email;
         // this.userOwner = infor.owner;
@@ -244,15 +232,8 @@ uid:business.uid,
   retrieveBusinessDetails(userid) {
 
 
-  } 
-
-  showPopup() {
-    this.popup.options = {
-      color: "#2196F3"
-    }
-    this.popup.show();
-    console.log('pop')
   }
+
 
   success() {
     Swal.fire({
@@ -261,6 +242,16 @@ uid:business.uid,
       title: 'Your data has been saved',
       showConfirmButton: false,
       timer: 2500
+    })
+  }
+  
+  emailSent() {
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'An email has been sent, please check your emails',
+      showConfirmButton: false,
+      timer: 3500
     })
   }
 

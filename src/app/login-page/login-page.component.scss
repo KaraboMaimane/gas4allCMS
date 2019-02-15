@@ -75,6 +75,18 @@ input[type=button], input[type=submit], input[type=reset]{
         transform: scale(0.95);
     } 
 }
+
+
+
+
+
+
+.swal2-height-auto {
+    height: unset!important;
+}
+
+
+
 /*textbox*/
 input[type=text], input[type=email], input[type=password]{
     background: #f6f6f6;
@@ -198,3 +210,22 @@ input[type=text], input[type=email], input[type=password]{
   }
 
 
+  .dis{
+    animation: .3s fadeIn ease;
+}
+
+.err{
+    color: red;
+    font-size: 2rem;
+}
+
+@keyframes fadeIn{
+  0%{
+      opacity: 0;
+      transform: translateX(-2rem);
+  }
+  100%{
+      opacity: 1;
+      transform: translateX(0);
+  }
+}

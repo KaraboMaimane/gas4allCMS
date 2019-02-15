@@ -2,6 +2,8 @@
     filter: blur(2rem);
 }
 
+
+
 .container{
     position: relative;
     padding: 0;
@@ -278,6 +280,12 @@
           color: white;
           display: block;
           font-size: 5rem;
+        }
+
+        i{
+          color: white;
+          font-size: 5rem;
+          display: block;
         }
     }
     .formelements{
@@ -636,6 +644,32 @@
 }
 
 
+.textare{
+  border-radius: .5rem !important;
+}
 
+.gaslabel{
+  label{
+    &::before{
+      background: #f53d3d !important;
+    }
+  }
+}
+
+.diesellabel{
+  label{
+    &::before{
+      background: #212121 !important;
+    }
+  }
+}
+
+.petrollabel{
+  label{
+    &::before{
+      background: #FF8456 !important;
+    }
+  }
+}
 
 
