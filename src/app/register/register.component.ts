@@ -17,16 +17,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  async register(username, email, password) {
-    console.log(username, email, password);
-    await this.database.register(email, password).then((data) => {
-      this.database.addUser(data.user.uid, username, data.user.email);
-      alert('You have successfully registered!');
-      this.router.navigate(['/login']);
-    }).catch((error) => {
-      console.log(error);
-    })
-  }
+  // async register(username, email, password) {
+  //   console.log(username, email, password);
+  //   await this.database.register(email, password).then((data) => {
+  //     this.database.addUser(data.user.uid, username, data.user.email);
+  //     alert('You have successfully registered!');
+  //     this.router.navigate(['/login']);
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   })
+  // }
 
 }
 
