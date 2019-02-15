@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
 
 
     let userid = this.database.getUser();
-    
+
     console.log(userid)
     firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
       let a = data.val();
@@ -148,44 +148,44 @@ export class HomeComponent implements OnInit {
         type: 'error',
         title: 'You cannot leave these empty',
         text: 'Please insert 0 if not available.',
-        
+
       })
     }
-    else if(this.product_Gas == null || this.product_Gas == undefined){
+    else if (this.product_Gas == null || this.product_Gas == undefined) {
       Swal.fire({
         type: 'error',
         title: 'You cannot leave this field empty',
         text: 'Please insert 0 if not available.',
-        
+
       })
     }
-    else if(this.product_Petrol93 == null || this.product_Petrol93 == undefined){
+    else if (this.product_Petrol93 == null || this.product_Petrol93 == undefined) {
       Swal.fire({
         type: 'error',
         title: 'You cannot leave this field empty',
         text: 'Please insert 0 if not available.',
-        
+
       })
 
     }
-    else if(this.product_Petrol95 == null || this.product_Petrol95 == undefined){
+    else if (this.product_Petrol95 == null || this.product_Petrol95 == undefined) {
       Swal.fire({
         type: 'error',
         title: 'You cannot leave this field empty',
         text: 'Please insert 0 if not available.',
-        
+
       })
 
     }
-    else if(this.product_Diesel == null || this.product_Diesel == undefined){
+    else if (this.product_Diesel == null || this.product_Diesel == undefined) {
       Swal.fire({
         type: 'error',
         title: 'You cannot leave this field empty',
         text: 'Please insert 0 if not available.',
-        
+
       })
-   }
-    else{
+    }
+    else {
       return firebase.auth().onAuthStateChanged(data => {
         console.log(this.product_Diesel + "," + this.product_Gas + "," + this.product_Petrol93 + "," + this.product_Petrol95);
         if (data) {
@@ -196,7 +196,7 @@ export class HomeComponent implements OnInit {
             gas: this.product_Gas,
           }).then(data => {
             // this.database.success();
-  
+
             Swal.fire({
               position: 'center',
               type: 'success',
@@ -205,14 +205,14 @@ export class HomeComponent implements OnInit {
               timer: 3000
             })
           })
-  
+
         }
-  
-  
+
+
       })
     }
 
-    
+
   }
 
   alphaOnly(event) {
@@ -232,7 +232,7 @@ export class HomeComponent implements OnInit {
     //   console.log(this.logOutEmail)
     // })
     // let userid = this.database.getUser();
-    
+
     // console.log(userid)
     // firebase.database().ref('userdb/' + userid).on('value', (data: any) => {
     //   let a = data.val();
@@ -270,7 +270,7 @@ export class HomeComponent implements OnInit {
 
         this.totalOulets = i + 1;
         console.log(this.totalOulets);
-        
+
         firebase.database().ref(`/userdb/${keys[i]}`).on('value',
           (data) => {
             let business = {
@@ -289,18 +289,25 @@ export class HomeComponent implements OnInit {
               icon: data.val().icon
 
             }
-
-
-            this.locations.push(business);
-            console.log(this.locations[0].icon)
-            if (this.locations[0].icon == "spaza") {
-              this.totalGarage = this.totalGarage + 1;
-              this.icon = '../../assets/house (1).png';
-            } else {
-              this.totalSpaza = this.totalSpaza + 1;
-              this.icon = '../../assets/pin (2).png'
+            console.log(data.val().icon)
+            if (data.val().icon == "garage") {
+              this.locations.push(business)
+              console.log(this.locations[1].icon)
+              if (this.locations[0].icon == "spaza") {
+                // this.totalGarage = this.totalGarage + 1;
+                // this.icon = '../../assets/pin (2).png'
+                console.log("we are spazas")
+              }
 
             }
+            else {
+              this.locations.push(business)
+              // this.totalSpaza = this.totalSpaza + 1;
+              // this.icon = '../../assets/house (1).png';
+              console.log(" we are garages")
+            }
+            this.locations.push(business);
+            console.log(this.locations[0].icon)
             let o = {
               icon: this.icon
             }
@@ -363,140 +370,132 @@ export class HomeComponent implements OnInit {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
+        text: 'Please enter valid data',
       })
     }
-    else if(this.userName == null || this.userName == undefined){
+    else if (this.userName == null || this.userName == undefined) {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
-      })
-    } 
-    else if(this.userEmail == null || this.userEmail == undefined){
-      Swal.fire({
-        type: 'error',
-        title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
+        text: 'Please enter valid data',
       })
     }
-    else if(this.userOwner == null || this.userOwner == undefined){
+    else if (this.userEmail == null || this.userEmail == undefined) {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
+        text: 'Please enter valid data',
       })
     }
-    else if(this.userAddress == null || this.userAddress == undefined){
+    else if (this.userOwner == null || this.userOwner == undefined) {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
+        text: 'Please enter valid data',
       })
     }
-    else if(this.shoptype == null || this.shoptype == undefined){
+    else if (this.userAddress == null || this.userAddress == undefined) {
       Swal.fire({
         type: 'error',
         title: 'Oops...',
-        text: 'Please enter a valid data',
-        footer: '<a href>Some fields are invalid or empty</a>'
+        text: 'Please enter valid data',
       })
-    }else {
-     let userid = this.database.getUser();
-    console.log(userid);
-    console.log('here ' + typeof this.userTel);
-  
-            let geocoder = new google.maps.Geocoder();
-            let resultsMap;
+    }
+    else if (this.shoptype == null || this.shoptype == undefined) {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Please enter valid data',
+      })
+    } else {
+      let userid = this.database.getUser();
+      console.log(userid);
+      console.log('here ' + typeof this.userTel);
+
+      let geocoder = new google.maps.Geocoder();
+      let resultsMap;
 
 
 
 
-            console.log(this.userid + this.userName + this.userEmail + this.userOwner + this.userTel + this.userAddress, this.shoptype);
+      console.log(this.userid + this.userName + this.userEmail + this.userOwner + this.userTel + this.userAddress, this.shoptype);
 
-            let obj = {
-              address: this.userAddress
-            }
-
-
-            let objinfor = {
-              name: this.userName,
-              email: this.userEmail,
-              address:this.userAddress,
-              owner: this.userOwner,
-              tel: this.userTel,
-              uid: userid,
-              icon: this.shoptype,
-              showfab: 'true'
-            }
+      let obj = {
+        address: this.userAddress
+      }
 
 
-            console.log(objinfor);
-            geocoder.geocode({ 'address': obj.address }, function (results, status) {
+      let objinfor = {
+        name: this.userName,
+        email: this.userEmail,
+        address: this.userAddress,
+        owner: this.userOwner,
+        tel: this.userTel,
+        uid: userid,
+        icon: this.shoptype,
+        showfab: 'true'
+      }
 
 
-
-              if (status == google.maps.GeocoderStatus.OK) {
+      console.log(objinfor);
+      geocoder.geocode({ 'address': obj.address }, function (results, status) {
 
 
 
-                let lati = results[0].geometry.location.lat();
-                let longi = results[0].geometry.location.lng();
-                console.log(lati + " " + longi);
+        if (status == google.maps.GeocoderStatus.OK) {
 
 
-                // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
+
+          let lati = results[0].geometry.location.lat();
+          let longi = results[0].geometry.location.lng();
+          console.log(lati + " " + longi);
 
 
-                console.log(userid);
-
-                firebase.database().ref('userdb/' + userid).update(
-                  objinfor
-                ).then(data => {
-                  // this.database.success();
-        
-                  Swal.fire({
-                    position: 'center',
-                    type: 'success',
-                    title: 'Your data has been saved',
-                    showConfirmButton: false,
-                    timer: 3000
-                  })
-                })
-              }
-              //.then(data=>{
-              //   // this.modal = 'true';
-              //   // this.modal1 = 'true';
-              //   console.log(this.modal, this.modal1)
-
-              // // this.database.success();
-
-              // Swal.fire({
-              //   position: 'center',
-              //   type: 'success',
-              //   title: 'Your data has been saved',
-              //   showConfirmButton: false,
-              //   timer: 3000
-              // }).then(data=> { 
-
-              //   this.modal = 'true';
-
-              //   console.log( this.modal);
-              // })
-
-              // alert(this.modal="true");
+          // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
 
 
-              // },(error =>{
-              //   alert(this.modal="true")
-              // }))
+          console.log(userid);
+
+          firebase.database().ref('userdb/' + userid).update(
+            objinfor
+          ).then(data => {
+            // this.database.success();
+
+            Swal.fire({
+              position: 'center',
+              type: 'success',
+              title: 'Your data has been saved',
+              showConfirmButton: false,
+              timer: 3000
+            })
+          })
+        }
+        //.then(data=>{
+        //   // this.modal = 'true';
+        //   // this.modal1 = 'true';
+        //   console.log(this.modal, this.modal1)
+
+        // // this.database.success();
+
+        // Swal.fire({
+        //   position: 'center',
+        //   type: 'success',
+        //   title: 'Your data has been saved',
+        //   showConfirmButton: false,
+        //   timer: 3000
+        // }).then(data=> { 
+
+        //   this.modal = 'true';
+
+        //   console.log( this.modal);
+        // })
+
+        // alert(this.modal="true");
 
 
+        // },(error =>{
+        //   alert(this.modal="true")
+        // }))
 
 
 
@@ -504,16 +503,18 @@ export class HomeComponent implements OnInit {
 
 
 
-            }
 
 
-            )
-          
+      }
+
+
+      )
+
     }
 
     console.log('Length: ', this.userTel.length)
 
-    
+
 
   }
 
