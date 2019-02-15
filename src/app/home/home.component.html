@@ -6,36 +6,36 @@
     </div>
     <div (click)="page = 'logout'" class="account">
       <img class="ico" src="../../assets/avatarimg.svg" alt="">
-      <p class="name" ></p>
+      <p class="name"></p>
     </div>
   </div>
 
   <div [ngStyle]="{'filter':page === 'home' ? 'blur(0)' : 'blur(.3rem)' }" class="maplay">
-    <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false" [streetViewControl]="false"
-    [zoom]="11" [longitude]="longitude" [latitude]="latitude" (mapClick)="onChoseLocation($event)">
+    <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
+      [streetViewControl]="false" [zoom]="11" [longitude]="longitude" [latitude]="latitude"
+      (mapClick)="onChoseLocation($event)">
 
-      <agm-marker *ngFor="let location of locations" (markerClick)="return(location); page = 'info'"  iconUrl="../../assets/houseicon.png"
- [latitude]="location.lat"
-      [longitude]="location.lng"></agm-marker>
+      <agm-marker *ngFor="let location of locations" (markerClick)="return(location); page = 'info'"
+        iconUrl="../../assets/houseicon.png" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
 
 
-    <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
-    <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false" [fillColor]="'#FFC107'"
-      [radius]="10000">
-    </agm-circle>
-  </agm-map>
+      <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
+      <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false"
+        [fillColor]="'#FFC107'" [radius]="10000">
+      </agm-circle>
+    </agm-map>
   </div>
- 
+
 
   <!-- List of cards -->
   <div class="cardlist" *ngIf="page == 'home'">
     <p class="heading">Businesses Around You</p>
     <div class="cardcontainer">
       <div class="card" *ngFor="let location of locations" (click)="return(location);page = 'info'">
-        <img src="../../assets/pin (2).png" class="icon" alt="" *ngIf="location.icon == 'garage'" >
+        <img src="../../assets/pin (2).png" class="icon" alt="" *ngIf="location.icon == 'garage'">
         <img src="../../assets/house (1).png" class="icon" alt="" *ngIf="location.icon != 'garage'">
         <div class="textcontainer">
-          <p class="business">{{location.name | slice:0:25}}</p>
+          <p class="business">{{location.name | slice:0:20}}</p>
           <p class="location">{{location.address | slice:0:25}}</p>
         </div>
       </div>
@@ -46,59 +46,73 @@
     <button class="fab"><i class="fas fa-bars"></i></button>
     <div class="fablist">
       <div class="fabcont" (click)="page = 'home'; test()">
-        <button  class="minifab"><i class="fas fa-building"></i></button>
+        <button class="minifab"><i class="fas fa-building"></i></button>
         <div class="text">My Home</div>
       </div>
       <div class="fabcont" (click)="business();page = 'business'; test()">
-        <button  class="minifab"><i class="fas fa-handshake"></i></button>
+        <button class="minifab"><i class="fas fa-handshake"></i></button>
         <div class="text">My Business</div>
       </div>
-     
+
       <div class="fabcont" *ngIf="showfab != 'false' && showfab != undefined" (click)="view();page = 'product'; test()">
-        <button  class="minifab"  ><i class="fas fa-box-open"></i></button>
+        <button class="minifab"><i class="fas fa-box-open"></i></button>
         <div class="text">My Products</div>
+      </div>
+
+      <div class="fabcont" (click)="page = 'tip'">
+        <button class="minifab"><i class="fas fa-comments"></i></button>
+        <div class="text">Add Tip</div>
       </div>
     </div>
   </div>
 
-<!-- Business Profile -->
-<div class="formcontainer" *ngIf="page == 'business'">
-  <div class="sidebar">
-    <i class="fas fa-handshake icon"></i>
-  </div>
-  <div class="formelements">
-    <h1 class="heading">My Business</h1>
-    <input type="text" class="formelement"  [(ngModel)]="userName" maxlength="30" placeholder="Business Name"><label for="" class="label1">Business Name</label>
-    <input type="text" class="formelement" (keydown)="alphaOnly($event)" [(ngModel)]="userOwner" maxlength="25" placeholder="Owner"><label for="" class="label1">Owner</label>
-    <input type="text" class="formelement" [(ngModel)]="userAddress" maxlength="50" placeholder="Address"><label for="" class="label1">Address</label>
-        <input type="email" class="formelement" [(ngModel)]="userEmail" maxlength="30"  placeholder="Business Email"><label for="" class="label1">Business Email</label>
-    <input type="text" required pattern="^\d{3}-\d{3}-\d{4}$" (keypress)="keyPress($event)" minlength=10  maxlength=10 class="formelement" [(ngModel)]="userTel" placeholder="Business Telephone" onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;"><label for="" class="label1">Business Telephone</label>
-    
-    <div class="inputGroup">
-        <input id="radio1" [(ngModel)]="shoptype" value="spaza"  name="radio" type="radio"/>
+  <!-- Business Profile -->
+  <div class="formcontainer" *ngIf="page == 'business'">
+    <div class="sidebar">
+      <i class="fas fa-handshake icon"></i>
+    </div>
+    <div class="formelements">
+      <h1 class="heading">My Business</h1>
+      <input type="text" class="formelement" [(ngModel)]="userName" maxlength="30" placeholder="Business Name"><label
+        for="" class="label1">Business Name</label>
+      <input type="text" class="formelement" (keydown)="alphaOnly($event)" [(ngModel)]="userOwner" maxlength="25"
+        placeholder="Owner"><label for="" class="label1">Owner</label>
+      <input type="text" class="formelement" [(ngModel)]="userAddress" maxlength="50" placeholder="Address"><label
+        for="" class="label1">Address</label>
+      <input type="email" class="formelement" [(ngModel)]="userEmail" maxlength="30" placeholder="Business Email"><label
+        for="" class="label1">Business Email</label>
+      <input type="text" required pattern="^\d{3}-\d{3}-\d{4}$" (keypress)="keyPress($event)" minlength=10 maxlength=10
+        class="formelement" [(ngModel)]="userTel" placeholder="Business Telephone"
+        onKeyDown="if(this.value.length==10 && event.keyCode!=8) return false;"><label for="" class="label1">Business
+        Telephone</label>
+
+      <div class="inputGroup">
+        <input id="radio1" [(ngModel)]="shoptype" value="spaza" name="radio" type="radio" />
         <label for="radio1">Local Business</label>
       </div>
       <div class="inputGroup">
-        <input id="radio2" [(ngModel)]="shoptype" value="garage"  name="radio" type="radio"/>
+        <input id="radio2" [(ngModel)]="shoptype" value="garage" name="radio" type="radio" />
         <label for="radio2">Garage</label>
       </div>
 
-    <button class="submit" (click)="submit()">Submit Details</button>
+      <button class="submit" (click)="submit()">Submit Details</button>
+    </div>
   </div>
-</div>
 
 
-<!-- Products -->
-<div class="formcontainer" *ngIf="page == 'product'">
-  <div class="sidebar">
+  <!-- Products -->
+  <div class="formcontainer" *ngIf="page == 'product'">
+    <div class="sidebar">
       <i class="fas fa-box-open icon"></i>
-  </div>
-  <div class="formelements">
-    <h1 class="heading">My Products</h1>
-    <input [cleave]="{numeral: true,
-      numeralThousandsGroupStyle: 'thousand'}"type="number" class="formelement" [(ngModel)]="product_Gas" placeholder="LPG Gas Per 9kg" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" ><label for="" class="label1">LPG Gas Per 9kg</label>
+    </div>
+    <div class="formelements">
+      <h1 class="heading">My Products</h1>
+      <input [cleave]="{numeral: true,
+      numeralThousandsGroupStyle: 'thousand'}" type="number" class="formelement" [(ngModel)]="product_Gas"
+        placeholder="LPG Gas Per 9kg" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"><label
+        for="" class="label1">LPG Gas Per 9kg</label>
 
-    <!-- <p class="question">Do You Sell Anything Other Than Gas?</p>
+      <!-- <p class="question">Do You Sell Anything Other Than Gas?</p>
     <div class="inputGroup">
         <input id="radio1" name="radio" type="radio"/> 
         <label for="radio1">Yes</label> 
@@ -108,70 +122,106 @@
         <label for="radio2">No</label>
       </div> -->
 
-      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement"  [(ngModel)]="product_Petrol93"  placeholder="Petrol 93 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"  ><label for="" class="label1">Petrol 93 Per Litre</label>
-      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement"  [(ngModel)]="product_Petrol95" placeholder="Petrol 95 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"  ><label for="" class="label1">Petrol 95 Per Litre</label>
-      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement" [(ngModel)]="product_Diesel" placeholder="Diesel Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;" ><label for="" class="label1" >Diesel Per Litre</label>  
+      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement" [(ngModel)]="product_Petrol93"
+        placeholder="Petrol 93 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"><label
+        for="" class="label1">Petrol 93 Per Litre</label>
+      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement" [(ngModel)]="product_Petrol95"
+        placeholder="Petrol 95 Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"><label
+        for="" class="label1">Petrol 95 Per Litre</label>
+      <input [cleave]="{numeral: true,blocks: [2, 2]}" type="number" class="formelement" [(ngModel)]="product_Diesel"
+        placeholder="Diesel Per Litre" onKeyDown="if(this.value.length==6 && event.keyCode!=8) return false;"><label
+        for="" class="label1">Diesel Per Litre</label>
 
-    <button class="submit" (click)="edit()">Submit Details</button>
+      <button class="submit" (click)="edit()">Submit Details</button>
+    </div>
   </div>
-</div>
 
-<div class="formcontainer" *ngIf="page == 'info'">
-  <div class="sidebar">
-    <i class="fas fa-handshake icon"></i>
-  </div>
-  <div class="formelements">
-    <h1 class="heading">Business Information</h1>
-    <div class="itemcontainer">
-      <p class="icon"><i class="far fa-building"></i> Name</p>
-      <p class="text">{{name}}</p>
+  <div class="formcontainer" *ngIf="page == 'info'">
+    <div class="sidebar">
+      <i class="fas fa-handshake icon"></i>
     </div>
-        <div class="itemcontainer">
-      <p class="icon"><i class="fas fa-map-marker-alt"></i> Address</p>
-      <p class="text">{{address}}</p>
-    </div>
-    <div class="itemcontainer">
-      <p class="icon"><i class="fas fa-user"></i> Owner</p>
-      <p class="text">{{owner}}</p>
-    </div>
-    <div class="itemcontainer">
-      <p class="icon"><i class="fas fa-envelope"></i> Email</p>
-      <p class="text">{{email}}</p>
-    </div>
-    <div class="itemcontainer">
-      <p class="icon"><i class="fas fa-phone"></i> Contact No.</p>
-      <p class="text" >{{tel}}</p>
-    </div>
-    <div class="itemcontainer" *ngIf="gas !> 0">
-      <p class="icon"><img src="../../assets/gas-cylinder.png" alt="" class="fuelicon"> Gas Per 9kg</p>
-      <p class="text">R{{gas}}</p>
-    </div>
-    <div class="itemcontainer" *ngIf="petrol93 !> 0">
-      <p class="icon"><img src="../../assets/gas-station.png" alt="" class="fuelicon"> Petrol 93 Per Litre</p>
-      <p class="text"> R{{petrol93}}</p>
-    </div>
-    <div class="itemcontainer" *ngIf="petrol95 !> 0">
-      <p class="icon"><img src="../../assets/gas-station.png" alt="" class="fuelicon"> Petrol 95 Per Litre</p>
-      <p class="text"> R{{petrol95}}</p>
-    </div>
-    <div class="itemcontainer" *ngIf="diesel !> 0">
-      <p class="icon"><img src="../../assets/tank-truck.png" alt="" class="fuelicon"> Diesel Per Litre</p>
-      <p class="text"> R{{diesel}}</p>
-    </div>
+    <div class="formelements">
+      <h1 class="heading">Business Information</h1>
+      <div class="itemcontainer">
+        <p class="icon"><i class="far fa-building"></i> Name</p>
+        <p class="text">{{name}}</p>
+      </div>
+      <div class="itemcontainer">
+        <p class="icon"><i class="fas fa-map-marker-alt"></i> Address</p>
+        <p class="text">{{address}}</p>
+      </div>
+      <div class="itemcontainer">
+        <p class="icon"><i class="fas fa-user"></i> Owner</p>
+        <p class="text">{{owner}}</p>
+      </div>
+      <div class="itemcontainer">
+        <p class="icon"><i class="fas fa-envelope"></i> Email</p>
+        <p class="text">{{email}}</p>
+      </div>
+      <div class="itemcontainer">
+        <p class="icon"><i class="fas fa-phone"></i> Contact No.</p>
+        <p class="text">{{tel}}</p>
+      </div>
+      <div class="itemcontainer" *ngIf="gas !> 0">
+        <p class="icon"><img src="../../assets/gas-cylinder.png" alt="" class="fuelicon"> Gas Per 9kg</p>
+        <p class="text">R{{gas}}</p>
+      </div>
+      <div class="itemcontainer" *ngIf="petrol93 !> 0">
+        <p class="icon"><img src="../../assets/gas-station.png" alt="" class="fuelicon"> Petrol 93 Per Litre</p>
+        <p class="text"> R{{petrol93}}</p>
+      </div>
+      <div class="itemcontainer" *ngIf="petrol95 !> 0">
+        <p class="icon"><img src="../../assets/gas-station.png" alt="" class="fuelicon"> Petrol 95 Per Litre</p>
+        <p class="text"> R{{petrol95}}</p>
+      </div>
+      <div class="itemcontainer" *ngIf="diesel !> 0">
+        <p class="icon"><img src="../../assets/tank-truck.png" alt="" class="fuelicon"> Diesel Per Litre</p>
+        <p class="text"> R{{diesel}}</p>
+      </div>
 
-    <button (click)="page = 'home'" class="submit">Close</button>
+      <button (click)="page = 'home'" class="submit">Close</button>
+    </div>
   </div>
-</div>
 
-<div class="errmodal" *ngIf="error == 'true'">
-  <div class="icon">
-    <i class="fas fa-exclamation-circle"></i>
+  <div class="formcontainer" *ngIf="page == 'tip'">
+    <div class="sidebar">
+      <i class="fas fa-comments"></i>
+    </div>
+    <div class="formelements">
+      <h1 class="heading">Add Tip</h1>
+      <input type="text" class="formelement" maxlength="30" placeholder="Tip Heading"><label for=""
+        class="label1">Tip Heading</label>
+
+      <div class="inputGroup gaslabel">
+        <input id="radio1" value="gas" name="radio" type="radio" />
+        <label for="radio1">Gas Saving</label>
+      </div>
+      <div class="inputGroup petrollabel">
+        <input id="radio2" value="petrol" name="radio" type="radio" />
+        <label for="radio2">Petrol Saving</label>
+      </div>
+
+      <div class="inputGroup diesellabel">
+        <input id="radio3" value="diesel" name="radio" type="radio" />
+        <label for="radio3">Diesel Saving</label>
+      </div>
+
+      <textarea class="formelement textare" name="tip" id="" cols="30" rows="10"></textarea><label class="label1">What
+        Do You Have to say?</label>
+
+      <button class="submit">Submit Details</button>
+    </div>
   </div>
-  <div class="textconainer">
-    <p class="message">A Field Is Empty</p>
+
+  <div class="errmodal" *ngIf="error == 'true'">
+    <div class="icon">
+      <i class="fas fa-exclamation-circle"></i>
+    </div>
+    <div class="textconainer">
+      <p class="message">A Field Is Empty</p>
+    </div>
   </div>
-</div>
-<!-- <div class="modal">
+  <!-- <div class="modal">
   <div class="icon">
       <i class="fas fa-info-circle"></i>
   </div>
@@ -180,11 +230,11 @@
   </div>
 </div> -->
 
-<!-- <div class="box" *ngIf="locations.length < 1">
+  <!-- <div class="box" *ngIf="locations.length < 1">
     <app-loader></app-loader>
 </div> -->
 
-<!-- <div class="navcontainer">
+  <!-- <div class="navcontainer">
     <img src="../../assets/log.png" alt="" class="navicon">
     <h1 class="navheading">GasRadar</h1>
       <a class="link">About GasRadar</a>
@@ -194,15 +244,14 @@
 <div class="dialog">
 
 </div> -->
-<div class="logout" *ngIf="page == 'logout' ">
-  <div class="modial">
-    <p class="modhead">Are you sure you want to logout?</p>
-    <p class="subhead">{{logOutEmail}}</p>
-    <div class="buttonrow">
-      <button (click)="logOut()" class="submit mar">Yes</button>
-      <button (click)="page = 'home';" class="submit bt2">No</button>
+  <div class="logout" *ngIf="page == 'logout' ">
+    <div class="modial">
+      <p class="modhead">Are you sure you want to logout?</p>
+      <p class="subhead">{{logOutEmail}}</p>
+      <div class="buttonrow">
+        <button (click)="logOut()" class="submit mar">Yes</button>
+        <button (click)="page = 'home';" class="submit bt2">No</button>
+      </div>
     </div>
+
   </div>
-
-</div>
-

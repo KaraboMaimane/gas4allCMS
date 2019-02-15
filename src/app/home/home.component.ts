@@ -4,10 +4,8 @@ import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
-
 declare var Swal;
 declare var google;
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -78,7 +76,6 @@ export class HomeComponent implements OnInit {
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
     this.styles = this.media.mapstyle;
-
 
 
 
