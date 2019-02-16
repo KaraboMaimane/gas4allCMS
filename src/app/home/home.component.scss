@@ -642,6 +642,92 @@
         }
     }
 }
+// OUTLETS
+
+.outlets{
+
+  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 30rem;
+  // background: linear-gradient(to right bottom, rgba(red, .4), var(--primary-color-dark)) , url('../../assets/jonathan-petersson-217672-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  // border-top: 1px solid var(--color-grey-light-2);
+  // box-shadow: 0 .3rem .5rem rgba(black, .3);
+  .outletcontainer{
+      animation: slideup ease .5s;
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      justify-content: center;
+      transition: .2s ease all;
+
+      &:nth-child(2){
+        animation-delay: .2s;
+      }
+
+      &:nth-child(3){
+        animation-delay: .4s;
+      }
+      .outlet{
+          width: 100%;
+          box-shadow:  0 .3rem  2rem rgba(black, .5);
+          padding: 2rem;
+          margin: 1rem;
+          background: rgba(white, .9);
+          transition: ease all .4s;
+          border-radius: .3rem;
+          &:hover{
+              box-shadow:  0 .3rem  4rem black;
+              background: var(--primary-color);
+              color: var(--accent-color);
+              transform: translateY(-.5rem);
+          }
+          .heading{
+              font-size: 2.5rem;
+              text-align: center;
+          }
+
+          .number{
+              font-size: 5rem;
+              text-align: center;
+          }
+      }
+
+  }
+
+  .containericon{
+      height: 5rem;
+      width: 5rem;
+      display: block;
+      margin: 0 auto;
+  }
+}
+
+
+@keyframes slideup{
+  0%{
+    opacity: 0;
+    transform: translateY(5rem)
+  }
+
+  80%{
+    transform: translateY(-1rem);
+
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 .textare{

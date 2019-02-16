@@ -18,6 +18,8 @@ export class DatabaseService {
   arry = [];
   state;
   authenticate = firebase.auth();
+  currentUserID: any;
+  ownerTipsArray: any[];
 
 
   constructor(private http: Http) {
@@ -178,6 +180,53 @@ export class DatabaseService {
 
 
   }
+  
+  makeComments(tip_heading,tip_type,tip:any){
+    let userid = this.getUser();
+    return new Promise((accpt,rej)=>{
+      firebase.database().ref('OwnerTips/' + userid).push({
+
+        tipHeading: tip_heading,
+        tipType: tip_type,
+        tip: tip,
+        user: userid,
+      })
+      this.success();
+      accpt("comment added")
+    })
+  }
+
+  getComments(key){
+    return new Promise((accpt,rej)=>{
+      firebase.database().ref('OwnerTips/').on('value',(data:any)=>{
+        var tips = data.val();
+        console.log(tips)
+        let keys = Object.keys(tips)
+        for(var x = 0; x < keys.length;x++){
+          var k = keys[x];
+          var l = 'OwnerTips/' + k;
+          firebase.database().ref(l).on('value', (data2:any)=>{
+            var OwnerComments = data2.val();
+            var keys2 = Object.keys(OwnerComments)
+            for(var i = 0; i < keys2.length; i++){
+              var k2 = keys2[i];
+              let obj = {
+                tips: OwnerComments[k2].tip,
+                user: OwnerComments[k2].user
+              }
+              this.ownerTipsArray.push(obj)
+            }
+          })
+        }
+      })
+      accpt("comments Found")
+    })
+  }
+
+  storeUserID(uid) {
+    this.currentUserID = uid;
+    console.log(this.currentUserID)
+  }
 
 
   retrieveInfor() {
@@ -271,7 +320,6 @@ export class DatabaseService {
       type: 'error',
       title: 'Oops...',
       text: 'Something went wrong!',
-      footer: '<a href>Some fields are invalid or empty</a>'
     })
   }
 }

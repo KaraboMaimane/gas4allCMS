@@ -59,6 +59,12 @@
         <div class="text">My Products</div>
       </div>
 
+      <div class="fabcont"  (click)="view();trigger()">
+        <button class="minifab"><i class="fas fa-info"></i></button>
+        <div class="text">Outlets</div>
+      </div>
+
+
       <div class="fabcont" (click)="page = 'tip'">
         <button class="minifab"><i class="fas fa-comments"></i></button>
         <div class="text">Add Tip</div>
@@ -189,27 +195,27 @@
     </div>
     <div class="formelements">
       <h1 class="heading">Add Tip</h1>
-      <input type="text" class="formelement" maxlength="30" placeholder="Tip Heading"><label for=""
+      <input type="text" [(ngModel)]="Tip_heading" class="formelement" maxlength="30" placeholder="Tip Heading"><label for=""
         class="label1">Tip Heading</label>
 
       <div class="inputGroup gaslabel">
-        <input id="radio1" value="gas" name="radio" type="radio" />
+        <input id="radio1" [(ngModel)]="Tip_Type" value="gas" name="radio" type="radio" />
         <label for="radio1">Gas Saving</label>
       </div>
       <div class="inputGroup petrollabel">
-        <input id="radio2" value="petrol" name="radio" type="radio" />
+        <input id="radio2" [(ngModel)]="Tip_Type" value="petrol" name="radio" type="radio" />
         <label for="radio2">Petrol Saving</label>
       </div>
 
       <div class="inputGroup diesellabel">
-        <input id="radio3" value="diesel" name="radio" type="radio" />
+        <input id="radio3" [(ngModel)]="Tip_Type" value="diesel" name="radio" type="radio" />
         <label for="radio3">Diesel Saving</label>
       </div>
 
-      <textarea class="formelement textare" name="tip" id="" cols="30" rows="10"></textarea><label class="label1">What
+      <textarea class="formelement textare" [(ngModel)]="Tip" name="tip" id="" cols="30" rows="10"></textarea><label class="label1">What
         Do You Have to say?</label>
 
-      <button class="submit">Submit Details</button>
+      <button (click)="addTip()"class="submit">Submit Details</button>
     </div>
   </div>
 
@@ -244,6 +250,44 @@
 <div class="dialog">
 
 </div> -->
+
+<div class="outlets"  *ngIf="modal == 'Outlets'">
+  <div class="outletcontainer">
+    <div class="outlet">
+      <img class="containericon" src="../../assets/deal.svg" alt="">
+      <p class="heading">Outlets</p>
+      <p class="number" *ngIf="totalOulets > 1">{{totalOulets}}</p>
+      <app-spinner *ngIf="totalOulets < 1"></app-spinner>
+    </div>
+
+  </div>
+  <div class="outletcontainer"  *ngIf="totalGarage < 1">
+    <div class="outlet">
+      <img class="containericon" src="../../assets/pin (2).png" alt="">
+      <p class="heading">Garages</p>
+      <p class="number" *ngIf="totalGarage > 1">{{totalGarage}}</p>
+      <!-- <p class="number">34</p> -->
+      
+      <app-spinner *ngIf="totalGarage < 1"></app-spinner>
+    </div>
+  </div>
+
+  <div class="outletcontainer">
+    <div class="outlet">
+      <img class="containericon" src="../../assets/house (1).png" alt="">
+      <p class="heading">Local Outlets</p>
+      <p class="number" *ngIf="totalSpaza > 1">{{totalSpaza}}</p>
+      <!-- <p class="number">34</p> -->
+
+      <app-spinner *ngIf="totalSpaza < 1"></app-spinner>
+    </div>
+  </div>
+
+</div>
+
+
+
+
   <div class="logout" *ngIf="page == 'logout' ">
     <div class="modial">
       <p class="modhead">Are you sure you want to logout?</p>

@@ -58,7 +58,12 @@ export class HomeComponent implements OnInit {
   names;
   company;
   Owner;
-
+  currentUserID;
+  currentUserImage;
+  currentUserName;
+  Tip_heading;
+  Tip_Type;
+  Tip
 
 
   page: string = 'home';
@@ -84,6 +89,14 @@ export class HomeComponent implements OnInit {
       this.longitude = data.coords.longitude;
     });
 
+  }
+
+  trigger(){
+    if(this.modal != 'Outlets'){
+      this.modal = 'Outlets'
+    }else{
+      this.modal = '';
+    }
   }
   business() {
 
@@ -210,6 +223,12 @@ export class HomeComponent implements OnInit {
     }
 
 
+  }
+
+  addTip(){
+    this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip).then((data:any)=>{
+      console.log(data)
+    })
   }
 
   alphaOnly(event) {
@@ -452,20 +471,27 @@ export class HomeComponent implements OnInit {
 
 
           console.log(userid);
-
-          firebase.database().ref('userdb/' + userid).update(
-            objinfor
-          ).then(data => {
-            // this.database.success();
-
-            Swal.fire({
-              position: 'center',
-              type: 'success',
-              title: 'Your data has been saved',
-              showConfirmButton: false,
-              timer: 3000
+          firebase.database().ref('userdb/' + userid).update({
+            lat: lati,
+            lng: longi,
+          }).then((data)=>{
+            console.log(data)
+            firebase.database().ref('userdb/' + userid).update(
+              objinfor
+            ).then(data => {
+              // this.database.success();
+  
+              Swal.fire({
+                position: 'center',
+                type: 'success',
+                title: 'Your data has been saved',
+                showConfirmButton: false,
+                timer: 3000
+              })
             })
           })
+
+          
         }
         //.then(data=>{
         //   // this.modal = 'true';
@@ -527,5 +553,7 @@ export class HomeComponent implements OnInit {
   test() {
     console.log('fdasfdasfas');
   }
+
+  // 
 
 }
