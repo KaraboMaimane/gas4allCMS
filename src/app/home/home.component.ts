@@ -225,11 +225,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  addTip(){
-    this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip).then((data:any)=>{
-      console.log(data)
-    })
-  }
+  
 
   alphaOnly(event) {
 
@@ -272,7 +268,6 @@ export class HomeComponent implements OnInit {
 
     // })
 
-
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
@@ -306,24 +301,20 @@ export class HomeComponent implements OnInit {
 
             }
             console.log(data.val().icon)
-            if (data.val().icon == "garage") {
-              this.locations.push(business)
-              console.log(this.locations[1].icon)
-              if (this.locations[0].icon == "spaza") {
-                // this.totalGarage = this.totalGarage + 1;
-                // this.icon = '../../assets/pin (2).png'
-                console.log("we are spazas")
-              }
-
+            if (data.val().icon == "spaza") {
+              console.log(data.val().icon)
+              this.totalSpaza = this.totalSpaza + 1;
             }
             else {
-              this.locations.push(business)
-              // this.totalSpaza = this.totalSpaza + 1;
+              console.log(data.val().icon)
+              // this.locations.push(business)
+               this.totalGarage = this.totalGarage + 1;
+               console.log(this.totalGarage)
               // this.icon = '../../assets/house (1).png';
-              console.log(" we are garages")
+              // console.log(" we are garages")
             }
             this.locations.push(business);
-            console.log(this.locations[0].icon)
+
             let o = {
               icon: this.icon
             }
@@ -363,6 +354,13 @@ export class HomeComponent implements OnInit {
     this.tel = locationsArr[0].tel;
     console.log(locationsArr);
 
+  }
+
+  addTip(){
+    console.log(locationsArr[0].name)
+    this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip,this.userName).then((data:any)=>{
+      console.log(data)
+    })
   }
 
 

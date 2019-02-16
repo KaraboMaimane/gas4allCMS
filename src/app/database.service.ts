@@ -20,6 +20,12 @@ export class DatabaseService {
   authenticate = firebase.auth();
   currentUserID: any;
   ownerTipsArray: any[];
+  username: any;
+  currentUserImage: any;
+  currentUserPath: any;
+  userKey: any;
+  currentUserName: any;
+  img: string;
 
 
   constructor(private http: Http) {
@@ -180,9 +186,63 @@ export class DatabaseService {
 
 
   }
+  getuser() {
+    return new Promise((accpt, rej) => {
+      this.username = "";
+      this.img = "";
+      firebase.database().ref('userdb').on('value', (data: any) => {
+        var users = data.val();
+        var user = firebase.auth().currentUser;
+        var userIDs = Object.keys(users);
+        for (var x = 0; x < userIDs.length; x++) {
+          var str1 = new String(userIDs[x]);
+          var index = str1.indexOf(":");
+          var currentUserID = userIDs[x].substr(index + 1);
+          if (user.uid == currentUserID) {
+            this.storeUsername(userIDs[x].substr(0, index));
+            firebase.database().ref('userdb/' + userIDs[x]).on('value', (data: any) => {
+              var Userdetails = data.val();
+              this.storeUserID(userIDs[x]);
+              var keys2: any = Object.keys(Userdetails);
+              var user = firebase.auth().currentUser;
+              this.storeCurrentUserImage(Userdetails[keys2[0]].img);
+              console.log(this.storeCurrentUserImage)
+              this.storeCurrentUsername(Userdetails[keys2[0]].Username);
+              this.storeUserKey(keys2[0])
+              this.storeCurrentUserPath(userIDs[x])
+              accpt(Userdetails[keys2])
+            })
+            break
+          }
+        }
+      })
+    })
+  }
+  storeUsername(username) {
+    console.log(username)
+    this.username = username;
+  }
+
+  storeCurrentUserImage(img) {
+    this.currentUserImage = img;
+  }
+
+  storeCurrentUserPath(path) {
+    this.currentUserPath = path;
+  }
+
+  storeUserKey(key) {
+    this.userKey = key
+    console.log(this.userKey);
+  }
+  storeCurrentUsername(Username) {
+    this.currentUserName = Username;
+    console.log(this.currentUserName)
+  }
   
-  makeComments(tip_heading,tip_type,tip:any){
+  makeComments(tip_heading,tip_type,tip:any,ownerName){
     let userid = this.getUser();
+    console.log(userid)
     return new Promise((accpt,rej)=>{
       firebase.database().ref('OwnerTips/' + userid).push({
 
@@ -190,6 +250,7 @@ export class DatabaseService {
         tipType: tip_type,
         tip: tip,
         user: userid,
+        name: ownerName,
       })
       this.success();
       accpt("comment added")
