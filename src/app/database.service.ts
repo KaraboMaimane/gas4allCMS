@@ -240,9 +240,10 @@ export class DatabaseService {
     console.log(this.currentUserName)
   }
   
-  makeComments(tip_heading,tip_type,tip:any,ownerName){
+  makeComments(tip_heading,tip_type,tip:any){
     let userid = this.getUser();
     console.log(userid)
+    
     return new Promise((accpt,rej)=>{
       firebase.database().ref('OwnerTips/' + userid).push({
 
@@ -250,7 +251,6 @@ export class DatabaseService {
         tipType: tip_type,
         tip: tip,
         user: userid,
-        name: ownerName,
       })
       this.success();
       accpt("comment added")

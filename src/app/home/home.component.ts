@@ -358,7 +358,7 @@ export class HomeComponent implements OnInit {
 
   addTip(){
     console.log(locationsArr[0].name)
-    this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip,this.userName).then((data:any)=>{
+    this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip).then((data:any)=>{
       console.log(data)
     })
   }
