@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { MediaService } from '../media.service';
 import { Router } from '@angular/router';
 import locationsArr from "../../app/GlobalArray";
 import * as firebase from 'firebase';
+import { Chart } from "chart.js";
+import { first } from 'rxjs/operators';
 declare var Swal;
 declare var google;
 @Component({
@@ -13,6 +15,7 @@ declare var google;
 })
 export class HomeComponent implements OnInit {
 
+ 
 
   tel: any;
   owner: any;
@@ -64,8 +67,9 @@ export class HomeComponent implements OnInit {
   Tip_heading;
   Tip_Type;
   Tip
+  charts =[];
 
-
+  modal1;
   page: string = 'home';
   error: string;
   email2: any;
@@ -73,8 +77,35 @@ export class HomeComponent implements OnInit {
 
   showfab: any;
   ClientArray = [];
-
+first;
   telvalidate: number = 27000000000;
+  userKey: string;
+  graph: string;
+
+
+// Chart Code
+// public barChartOptions = {
+//   scaleShowVerticalLines:false,
+//   responsive:true
+
+// };
+
+// public barChartLabels = ['Gas Outlet', 'Spaza','totalOutlets',];
+// public barChartType = 'bar';
+// public barChartLegend = true;
+
+
+// // sum = [23];
+// // sum1 = [0,7 ];
+// // sum3 = [0,0,16,0 ]
+// public barChartData = [
+//   {data:[23], label:'totalOutlets' },
+//   {data: [0,7], label:'garage' },
+//   {data:[0,0,6], label:'Spaza' }
+  
+// ];
+// Chart Code
+
   constructor(public router: Router, private database: DatabaseService, private media: MediaService) {
     this.modal = 'false';
     this.man = this.media.man;
@@ -82,7 +113,7 @@ export class HomeComponent implements OnInit {
     this.shop = this.media.shop;
     this.styles = this.media.mapstyle;
 
-
+    // this.BasicChart()
 
     this.location = navigator.geolocation.getCurrentPosition((data) => {
       this.latitude = data.coords.latitude;
@@ -94,9 +125,31 @@ export class HomeComponent implements OnInit {
   trigger(){
     if(this.modal != 'Outlets'){
       this.modal = 'Outlets'
+      this.graph = 'false';
     }else{
       this.modal = '';
     }
+  }
+
+  trigger1(){
+
+
+    console.log("clicked gr")
+    if(  document.getElementById("chart-container").style.display == 'none'){
+      console.log("ging")
+    document.getElementById("chart-container").style.display = 'block';
+     }
+     else if( document.getElementById("chart-container").style.display =='block') {
+      console.log("goutg")
+      document.getElementById("chart-container").style.display = 'none';
+      console.log("goug")
+     }
+     else{
+      document.getElementById('chart-container').style.display = 'none';
+      console.log('outg');
+
+     }
+
   }
   business() {
 
@@ -118,6 +171,8 @@ export class HomeComponent implements OnInit {
       this.shoptype = a.icon;
       this.userName = a.name;
       this.showfab = a.showfab;
+      this.userKey = userid
+      alert(this.userKey)
 
       console.log(a)
     })
@@ -233,8 +288,44 @@ export class HomeComponent implements OnInit {
     return ((key >= 65 && key <= 90) || key == 8);
   }
 
-
   ngOnInit() {
+  //     this.charts = new Chart("chart", {
+  //     type: 'pie',
+  //     data: {
+  //         labels: ['totalSpaza', 'totalGarage', 'totalOutlets'],
+  //         datasets: [{
+  //             label: ['totalSpaza','totalGarage','totalOutlets'],
+  //             data: [this.totalSpaza, this.totalGarage, this.totalOulets],
+  //             backgroundColor: [
+  //                 'rgba(255, 99, 132, 0.2)',
+  //                 'rgba(54, 162, 235, 0.2)',
+  //                 'rgba(255, 206, 86, 0.2)',
+  //                 'rgba(75, 192, 192, 0.2)',
+  //                 'rgba(153, 102, 255, 0.2)',
+  //                 'rgba(255, 159, 64, 0.2)'
+  //             ],
+  //             borderColor: [
+  //                 'rgba(255, 99, 132, 1)',
+  //                 'rgba(54, 162, 235, 1)',
+  //                 'rgba(255, 206, 86, 1)',
+  //                 'rgba(75, 192, 192, 1)',
+  //                 'rgba(153, 102, 255, 1)',
+  //                 'rgba(255, 159, 64, 1)'
+  //             ],
+  //             borderWidth: 2
+               
+  //         }]
+  //     },
+  //     options: {
+  //         scales: {
+  //             yAxes: [{
+  //                 ticks: {
+  //                     beginAtZero: true
+  //                 }
+  //             }]
+  //         }
+  //     }
+  // });
     //  let userid = this.database.getUser();
     //  console.log(userid)
     // this.database.retrieveInfor().then((data:any)=>{
@@ -267,6 +358,11 @@ export class HomeComponent implements OnInit {
 
 
     // })
+    
+
+    this.database.getComments().then((data:any)=>{
+      console.log(data);
+    })
 
     this.man = this.media.man;
     this.pump = this.media.fuelpump;
@@ -315,6 +411,7 @@ export class HomeComponent implements OnInit {
             }
             this.locations.push(business);
 
+
             let o = {
               icon: this.icon
             }
@@ -329,7 +426,31 @@ export class HomeComponent implements OnInit {
     console.log(this.locations)
   }
 
+// CHART CODE
+// public barChartOptions = {
+//   scaleShowVerticalLines:false,
+//   responsive:true
 
+// };
+
+// public ChartLabels = ['Gas Outlet', 'Spaza','totalOutlets',];
+// public ChartType = 'bar';
+// public ChartLegend = true;
+
+// // sun = this.totalGarage + 1;
+
+// // sum = [23];
+// // sum1 = [0,7 ];
+// // sum3 = [0,0,16,0 ]
+// public ChartData = [
+//   {data:this.totalGarage, label:'garage' },
+//   {data: this.totalOulets, label:'totalOutlets' },
+//   {data:this.totalSpaza, label:'Spaza' }
+  
+// ];
+
+
+// CHART CODE
 
   onChoseLocation(event) {
     this.latitude = event.coords.lat;
@@ -357,7 +478,7 @@ export class HomeComponent implements OnInit {
   }
 
   addTip(){
-    console.log(locationsArr[0].name)
+    console.log(locationsArr)
     this.database.makeComments(this.Tip_heading,this.Tip_Type,this.Tip).then((data:any)=>{
       console.log(data)
     })
@@ -447,7 +568,8 @@ export class HomeComponent implements OnInit {
         tel: this.userTel,
         uid: userid,
         icon: this.shoptype,
-        showfab: 'true'
+        showfab: 'true',
+        key: this.userKey
       }
 
 
@@ -552,6 +674,47 @@ export class HomeComponent implements OnInit {
     console.log('fdasfdasfas');
   }
 
-  // 
+  // CHART
 
+  BasicChart(){
+ 
+    this.charts = new Chart("chart", {
+      type: 'doughnut',
+      data: {
+          labels: ['totalSpaza', 'totalGarage', 'totalOutlets'],
+          datasets: [{
+              label: ['totalSpaza','totalGarage','totalOutlets'],
+              data: [this.totalSpaza, this.totalGarage, this.totalOulets],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 2
+               
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+  }
+ 
 }

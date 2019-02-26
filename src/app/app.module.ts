@@ -10,6 +10,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 
 import { HttpModule } from '@angular/http';
 import { MediaService } from './media.service';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 
 //New Components
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAT55USDnQ-tZLHJlzryDJbxseD8sLSdZE'
     }),

@@ -19,7 +19,7 @@ export class DatabaseService {
   state;
   authenticate = firebase.auth();
   currentUserID: any;
-  ownerTipsArray: any[];
+  ownerTipsArray = new Array();
   username: any;
   currentUserImage: any;
   currentUserPath: any;
@@ -202,12 +202,14 @@ export class DatabaseService {
             this.storeUsername(userIDs[x].substr(0, index));
             firebase.database().ref('userdb/' + userIDs[x]).on('value', (data: any) => {
               var Userdetails = data.val();
+              console.log(Userdetails.owner)
               this.storeUserID(userIDs[x]);
               var keys2: any = Object.keys(Userdetails);
               var user = firebase.auth().currentUser;
-              this.storeCurrentUserImage(Userdetails[keys2[0]].img);
+              this.storeCurrentUserImage(Userdetails.icon);
               console.log(this.storeCurrentUserImage)
-              this.storeCurrentUsername(Userdetails[keys2[0]].Username);
+              this.storeCurrentUsername(Userdetails.owner);
+              console.log(Userdetails[keys2[0]].owner)
               this.storeUserKey(keys2[0])
               this.storeCurrentUserPath(userIDs[x])
               accpt(Userdetails[keys2])
@@ -242,6 +244,9 @@ export class DatabaseService {
   
   makeComments(tip_heading,tip_type,tip:any){
     let userid = this.getUser();
+    this.getuser().then((data:any)=>{
+      
+    })
     console.log(userid)
     
     return new Promise((accpt,rej)=>{
@@ -251,13 +256,14 @@ export class DatabaseService {
         tipType: tip_type,
         tip: tip,
         user: userid,
+        userName: this.currentUserName
       })
       this.success();
       accpt("comment added")
     })
   }
 
-  getComments(key){
+  getComments(){
     return new Promise((accpt,rej)=>{
       firebase.database().ref('OwnerTips/').on('value',(data:any)=>{
         var tips = data.val();
@@ -273,7 +279,8 @@ export class DatabaseService {
               var k2 = keys2[i];
               let obj = {
                 tips: OwnerComments[k2].tip,
-                user: OwnerComments[k2].user
+                user: OwnerComments[k2].user,
+                name: OwnerComments[k2].userName
               }
               this.ownerTipsArray.push(obj)
             }

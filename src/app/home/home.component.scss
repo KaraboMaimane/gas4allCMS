@@ -646,8 +646,6 @@
 // OUTLETS
 
 .outlets{
-
-  
   position: absolute;
   bottom: 0;
   right: 0;
@@ -661,6 +659,7 @@
   // border-top: 1px solid var(--color-grey-light-2);
   // box-shadow: 0 .3rem .5rem rgba(black, .3);
   .outletcontainer{
+    // position: relative;
       animation: slideup ease .5s;
       flex: 1;
       height: 100%;
@@ -701,7 +700,6 @@
               text-align: center;
           }
       }
-
   }
 
   .containericon{
@@ -712,6 +710,52 @@
   }
 }
 
+.chartshow{
+  display: none;
+}
+
+.graphicon{
+  width: 10rem;
+  height: 5rem;
+  position: absolute;
+  right: 2rem;
+  bottom: 27rem;
+  border: none;
+  background: rgba(black, .2);
+  color: white;
+  font-size: 2rem;
+  border-radius: .5rem;
+}
+
+#chart-container{
+  // z-index: 1;
+  animation: slideup ease .5s;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  display: none;
+  background-position: center;
+  // width: 45%;
+  // display: flex;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  // background: greenyellow;
+  // height: 40vh;
+  // width: 100%;
+  height: 40rem;
+  padding: 5rem ;
+  width: 40%;
+  #chart{
+    display: none;
+    height: 30rem; 
+    padding: 1rem;
+    width: 40%;
+    background: whitesmoke;
+    box-shadow:  0 .3rem  2rem rgba(black, .5);
+  }
+}
 
 @keyframes slideup{
   0%{
@@ -729,7 +773,6 @@
     transform: translateY(0);
   }
 }
-
 
 .textare{
   border-radius: .5rem !important;
