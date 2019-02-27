@@ -123,9 +123,12 @@ first;
   }
 
   trigger(){
+    var x = document.getElementById("chart-container")
     if(this.modal != 'Outlets'){
       this.modal = 'Outlets'
+      x.style.display ='none'
       this.graph = 'false';
+      console.log(x)
     }else{
       this.modal = '';
     }
@@ -133,22 +136,38 @@ first;
 
   trigger1(){
 
+   this.BasicChart();
 
-    console.log("clicked gr")
-    if(  document.getElementById("chart-container").style.display == 'none'){
-      console.log("ging")
-    document.getElementById("chart-container").style.display = 'block';
-     }
-     else if( document.getElementById("chart-container").style.display =='block') {
-      console.log("goutg")
-      document.getElementById("chart-container").style.display = 'none';
-      console.log("goug")
-     }
-     else{
-      document.getElementById('chart-container').style.display = 'none';
-      console.log('outg');
+    var x = document.getElementById("chart-container")
+  
+    if(x.style.display == 'none'){
+     x.style.display = 'block'
+     this.modal = 'false'
+     console.log('chartshow')
+     console.log(this.modal);
+    }
+    else{
+      x.style.display ='none'
+      this.modal = ''
+      // this.modal = 'Outlets'
+      console.log('chartdisable')
+      console.log(this.modal);
 
-     }
+    }
+    // if(  document.getElementById("chart-container").style.display == 'none'){
+    //   console.log("ging")
+    // document.getElementById("chart-container").style.display = 'block';
+    //  }
+    //  else if( document.getElementById("chart-container").style.display =='block') {
+    //   console.log("goutg")
+    //   document.getElementById("chart-container").style.display = 'none';
+    //   console.log("goug")
+    //  }
+    //  else{
+    //   document.getElementById('chart-container').style.display = 'none';
+    //   console.log('outg');
+
+    //  }
 
   }
   business() {
@@ -679,7 +698,7 @@ first;
   BasicChart(){
  
     this.charts = new Chart("chart", {
-      type: 'doughnut',
+      type: 'bar',
       data: {
           labels: ['totalSpaza', 'totalGarage', 'totalOutlets'],
           datasets: [{
