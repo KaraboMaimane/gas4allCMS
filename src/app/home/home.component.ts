@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
 
   showfab: any;
   ClientArray = [];
-first;
+
   telvalidate: number = 27000000000;
   userKey: string;
   graph: string;
