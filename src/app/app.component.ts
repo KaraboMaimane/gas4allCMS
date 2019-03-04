@@ -23,10 +23,10 @@ export class AppComponent {
     this.database.onAuth().then((state)=>{
       console.log(state)
       if(state == 1){
-        this.router.navigate[('/home')]
-       let user = this.database.getUser();
+      //  let user = this.database.getUser();
         console.log('im online')
-        console.log(user)
+        this.router.navigate[('/home')]
+        // console.log(user)
       }
       else{
         this.router.navigate[('')]

@@ -40,12 +40,13 @@ export class HomeComponent implements OnInit {
   userPetrol93: any;
   userOwner: any;
   userEmail: any;
+  areaLocation: any;
   //setting up our coordinates here
   totalOulets: number = 0;
   totalSpaza: number = 0;
   totalGarage: number = 0;
-  latitude;
-  longitude;
+  latitude1;
+  longitude1;
   locations = [];
   location;
   man: string;
@@ -81,6 +82,9 @@ export class HomeComponent implements OnInit {
   telvalidate: number = 27000000000;
   userKey: string;
   graph: string;
+  currentUser: any;
+  mapLoad: boolean;
+  
 
 
 // Chart Code
@@ -107,8 +111,7 @@ export class HomeComponent implements OnInit {
 // Chart Code
 
   constructor(public router: Router, private database: DatabaseService, private media: MediaService) {
-    this.modal = 'false';
-    this.man = this.media.man;
+    this.modal = 'false'
     this.pump = this.media.fuelpump;
     this.shop = this.media.shop;
     this.styles = this.media.mapstyle;
@@ -116,13 +119,42 @@ export class HomeComponent implements OnInit {
     // this.BasicChart()
 
     this.location = navigator.geolocation.getCurrentPosition((data) => {
-      this.latitude = data.coords.latitude;
-      this.longitude = data.coords.longitude;
+      console.log(data)
+      if(data != null && data != undefined){
+        this.latitude1 = data.coords.latitude;
+        this.longitude1 = data.coords.longitude;
+        this.man = this.media.man;
+        console.log("data found")
+  
+      }
+      else{
+        this.latitude1 =  "-26.2445797";
+        this.longitude1 =  "27.9541969";
+        this.man = this.media.shop;
+        console.log("i work",this.latitude1 , this.longitude1 )
+      }
+      
+       
     });
+    console.log(this.currentUser)
 
   }
+  
 
   trigger(){
+    var x = document.getElementById("chart-container")
+  
+    if(this.modal != 'Outlets'){
+      this.modal = 'Outlets'
+      x.style.display ='none'
+   
+      this.graph = 'false';
+      console.log(x)
+    }else{
+      this.modal = '';
+    }
+  }
+  dismiss1(){
     var x = document.getElementById("chart-container")
     if(this.modal != 'Outlets'){
       this.modal = 'Outlets'
@@ -132,25 +164,33 @@ export class HomeComponent implements OnInit {
     }else{
       this.modal = '';
     }
+    // var x = document.getElementById("chart-container");
+    // x.style.display ='none'
+ 
+
   }
+
 
   trigger1(){
 
    this.BasicChart();
 
     var x = document.getElementById("chart-container")
-  
-    if(x.style.display == 'none'){
+    var y = document.getElementById("butt")
+    if(x.style.display == 'none' && y.style.display == 'none'){
      x.style.display = 'block'
+     y.style.display = 'block'
      this.modal = 'false'
+    
      console.log('chartshow')
      console.log(this.modal);
     }
     else{
       x.style.display ='none'
-      this.modal = ''
+      y.style.display ='none'
+      // this.modal = ''
       // this.modal = 'Outlets'
-      console.log('chartdisable')
+      console.log('charthide')
       console.log(this.modal);
 
     }
@@ -191,8 +231,6 @@ export class HomeComponent implements OnInit {
       this.userName = a.name;
       this.showfab = a.showfab;
       this.userKey = userid
-      alert(this.userKey)
-
       console.log(a)
     })
 
@@ -279,15 +317,8 @@ export class HomeComponent implements OnInit {
             diesel: this.product_Diesel,
             gas: this.product_Gas,
           }).then(data => {
-            // this.database.success();
+            this.database.success();
 
-            Swal.fire({
-              position: 'center',
-              type: 'success',
-              title: 'Your data has been saved',
-              showConfirmButton: false,
-              timer: 3000
-            })
           })
 
         }
@@ -377,7 +408,14 @@ export class HomeComponent implements OnInit {
 
 
     // })
-    
+   
+    if(this.currentUser != null && this.currentUser != undefined){
+      let userid = this.database.getUser();
+      this.currentUser = userid
+      this.router.navigate[('/home')]
+    }else{
+      this.router.navigate[('')]
+    }
 
     this.database.getComments().then((data:any)=>{
       console.log(data);
@@ -472,10 +510,10 @@ export class HomeComponent implements OnInit {
 // CHART CODE
 
   onChoseLocation(event) {
-    this.latitude = event.coords.lat;
-    this.longitude = event.coords.lng;
+    this.latitude1= event.coords.lat;
+    this.longitude1 = event.coords.lng;
 
-    console.log(this.latitude, this.longitude);
+    console.log(this.latitude1, this.longitude1);
   }
 
   return(location) {
@@ -563,6 +601,7 @@ export class HomeComponent implements OnInit {
       })
     } else {
       let userid = this.database.getUser();
+      this.currentUser = userid
       console.log(userid);
       console.log('here ' + typeof this.userTel);
 
@@ -588,7 +627,7 @@ export class HomeComponent implements OnInit {
         uid: userid,
         icon: this.shoptype,
         showfab: 'true',
-        key: this.userKey
+        key: this.userKey,
       }
 
 
@@ -603,23 +642,26 @@ export class HomeComponent implements OnInit {
 
           let lati = results[0].geometry.location.lat();
           let longi = results[0].geometry.location.lng();
-          console.log(lati + " " + longi);
+          console.log(results[0].address_components);
+           let fullAddress = results[0].address_components
+            let place = fullAddress[3].long_name;
+            this.areaLocation =  place;
+            console.log(place)
 
 
           // this.database.registerBusiness(userid,buisnessName,businessEmail,businessOwner,businessTel,lati,longi ,petrol93,petrol95,diesel,gas);
 
 
           console.log(userid);
-          firebase.database().ref('userdb/' + userid).update({
+          firebase.database().ref('userdb/' + this.currentUser).push({
             lat: lati,
             lng: longi,
+            place: this.areaLocation
           }).then((data)=>{
-            console.log(data)
-            firebase.database().ref('userdb/' + userid).update(
+            firebase.database().ref('userdb/' + this.currentUser).update(
               objinfor
             ).then(data => {
-              // this.database.success();
-  
+              console.log(data)
               Swal.fire({
                 position: 'center',
                 type: 'success',
@@ -627,8 +669,11 @@ export class HomeComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 3000
               })
+              // this.database.success();
             })
           })
+           
+          
 
           
         }
@@ -696,7 +741,6 @@ export class HomeComponent implements OnInit {
   // CHART
 
   BasicChart(){
- 
     this.charts = new Chart("chart", {
       type: 'bar',
       data: {
@@ -726,6 +770,7 @@ export class HomeComponent implements OnInit {
       },
       options: {
           scales: {
+            zeroLineWidth:1,
               yAxes: [{
                   ticks: {
                       beginAtZero: true

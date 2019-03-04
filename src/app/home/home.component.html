@@ -11,16 +11,17 @@
   </div>
 
   <div [ngStyle]="{'filter':page === 'home' ? 'blur(0)' : 'blur(.3rem)' }" class="maplay">
-    <agm-map [latitude]="latitude" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
-      [streetViewControl]="false" [zoom]="11" [longitude]="longitude" [latitude]="latitude"
+    <agm-map [longitude]="longitude1" [latitude]="latitude1" [styles]="styles" [disableDefaultUI]="true" [zoomControl]="false"
+      [streetViewControl]="true" [zoom]="11" [longitude]="longitude1" [latitude]="latitude1"
       (mapClick)="onChoseLocation($event)">
+      
 
       <agm-marker *ngFor="let location of locations" (markerClick)="return(location); page = 'info'"
         iconUrl="../../assets/houseicon.png" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
 
 
-      <agm-marker [latitude]="latitude" [draggable]="false" [iconUrl]="man" [longitude]="longitude"></agm-marker>
-      <agm-circle [latitude]="latitude" [longitude]="longitude" [circleDraggable]="false" [editable]="false"
+      <agm-marker [latitude]="latitude1" [longitude]="longitude1" [draggable]="false" [iconUrl]="man" ></agm-marker>
+      <agm-circle [latitude]="latitude1" [longitude]="longitude1" [circleDraggable]="false" [editable]="false"
         [fillColor]="'#FFC107'" [radius]="10000">
       </agm-circle>
     </agm-map>
@@ -107,6 +108,7 @@
       </div>
 
       <button class="submit" (click)="submit()">Submit Details</button>
+      <button (click)="page = 'home' " class="submit ">cancel</button>
     </div>
   </div>
 
@@ -144,6 +146,8 @@
         for="" class="label1">Diesel Per Litre</label>
 
       <button class="submit" (click)="edit()">Submit Details</button>
+         
+
     </div>
   </div>
 
@@ -191,6 +195,7 @@
       </div>
 
       <button (click)="page = 'home'" class="submit">Close</button>
+      
     </div>
   </div>
 
@@ -221,7 +226,9 @@
         class="label1">What
         Do You Have to say?</label>
 
-      <button (click)="addTip()" class="submit">Submit Details</button>
+      <button (click)="addTip()" class="submit">Submit Details</button> 
+   
+      <button (click)="page = 'home' " class="submit">cancel</button>
     </div>
   </div>
 
@@ -256,8 +263,11 @@
 <div class="dialog">
 
 </div> -->
-<button></button>
-  <div id="outlet" class="outlets" *ngIf="modal == 'Outlets'">
+
+  <div id="outlet"    class="outlets" *ngIf="modal == 'Outlets'">
+      <button (click)="dismiss1()"  class="cancel">
+        <img src="../../assets/iconfinder_Cancel_Icon_743823.svg" alt="">
+      </button>
     <div class="outletcontainer">
       <div class="outlet">
         <img class="containericon" src="../../assets/deal.svg" alt="">
@@ -286,9 +296,13 @@
         <app-spinner *ngIf="totalSpaza < 1"></app-spinner>
       </div>
     </div>
+    
   </div>
 
   <div id="chart-container">
+      <button (click)="trigger1()" id="butt" class="butto ">
+        <img src="assets/iconfinder_Cancel_Icon_743823.svg" alt="">
+      </button>
     <canvas id="chart"></canvas>
   </div>
 
